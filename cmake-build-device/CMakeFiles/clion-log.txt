@@ -1,0 +1,8 @@
+/opt/jetbrains-clion-pj/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=PlaydateSKD-1.12.3/C_API/buildsupport/arm.cmake -G "CodeBlocks - Unix Makefiles" /home/nyanfall/projects/playdate/c-first-try/pong
+egrep: warning: egrep is obsolescent; using grep -E
+grep: /home/nyanfall/.Playdate/config: No such file or directory
+CMake Error at CMakeLists.txt:20 (message):
+  SDK Path not found; set ENV value PLAYDATE_SDK_PATH
+
+
+-- Configuring incomplete, errors occurred!

@@ -1,5 +1,5 @@
-name=Sprite Games
-author=Panic, Inc
-description=It's not much of a game!
-bundleID=com.panic.sprite
+name=3D Test
+author=
+description=
+bundleID=com.panic.3dtest
 imagePath=

@@ -6,7 +6,7 @@
   "extensionTemplate" : "simulator",
   "extensionValues" : {
     "playdate.build-type" : "make",
-    "playdate.product-name" : "SpriteGame"
+    "playdate.product-name" : "3DLibrary"
   },
-  "identifier" : "44D94969-0E9B-48D1-8AC4-EAF486B2D505"
+  "identifier" : "98EFB50B-1584-4BE0-8131-F088F7EC329F"
 }

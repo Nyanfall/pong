@@ -1,0 +1,3 @@
+ToolSet: 1.0 (local)Options: 
+
+Options:-DCMAKE_TOOLCHAIN_FILE=PlaydateSKD-1.12.3/C_API/buildsupport/arm.cmake
