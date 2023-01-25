@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="3DLibrary"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\.local\;CMake Files\..\..\..\..\.local\share\;CMake Files\..\..\..\..\.local\share\playdate-sdk\;CMake Files\..\..\..\..\.local\share\playdate-sdk\C_API\;CMake Files\..\..\..\..\.local\share\playdate-sdk\C_API\buildsupport\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="3DLibrary_DEVICE">
+				<Option output="/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/3DLibrary_DEVICE.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DTARGET_PLAYDATE=1"/>
+					<Add option="-DTARGET_EXTENSION=1"/>
+					<Add directory="/home/nyanfall/projects/playdate/c-first-try/pong/mini3d"/>
+					<Add directory="/home/nyanfall/.local/share/playdate-sdk/C_API"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/12.2.0/include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/12.2.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/12.2.0/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 3DLibrary_DEVICE"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="3DLibrary_DEVICE/fast">
+				<Option output="/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/3DLibrary_DEVICE.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DTARGET_PLAYDATE=1"/>
+					<Add option="-DTARGET_EXTENSION=1"/>
+					<Add directory="/home/nyanfall/projects/playdate/c-first-try/pong/mini3d"/>
+					<Add directory="/home/nyanfall/.local/share/playdate-sdk/C_API"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/12.2.0/include"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/12.2.0/include-fixed"/>
+					<Add directory="/usr/lib/gcc/arm-none-eabi/12.2.0/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 3DLibrary_DEVICE/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/nyanfall/.local/share/playdate-sdk/C_API/buildsupport/setup.c">
+			<Option target="3DLibrary_DEVICE"/>
+		</Unit>
+		<Unit filename="/home/nyanfall/projects/playdate/c-first-try/pong/luaglue.c">
+			<Option target="3DLibrary_DEVICE"/>
+		</Unit>
+		<Unit filename="/home/nyanfall/projects/playdate/c-first-try/pong/luaglue.h">
+			<Option target="3DLibrary_DEVICE"/>
+		</Unit>
+		<Unit filename="/home/nyanfall/projects/playdate/c-first-try/pong/main.c">
+			<Option target="3DLibrary_DEVICE"/>
+		</Unit>
+		<Unit filename="/home/nyanfall/projects/playdate/c-first-try/pong/mini3d/3dmath.c">
+			<Option target="3DLibrary_DEVICE"/>
+		</Unit>
+		<Unit filename="/home/nyanfall/projects/playdate/c-first-try/pong/mini3d/3dmath.h">
+			<Option target="3DLibrary_DEVICE"/>
+		</Unit>
+		<Unit filename="/home/nyanfall/projects/playdate/c-first-try/pong/mini3d/mini3d.c">
+			<Option target="3DLibrary_DEVICE"/>
+		</Unit>
+		<Unit filename="/home/nyanfall/projects/playdate/c-first-try/pong/mini3d/mini3d.h">
+			<Option target="3DLibrary_DEVICE"/>
+		</Unit>
+		<Unit filename="/home/nyanfall/projects/playdate/c-first-try/pong/mini3d/render.c">
+			<Option target="3DLibrary_DEVICE"/>
+		</Unit>
+		<Unit filename="/home/nyanfall/projects/playdate/c-first-try/pong/mini3d/render.h">
+			<Option target="3DLibrary_DEVICE"/>
+		</Unit>
+		<Unit filename="/home/nyanfall/projects/playdate/c-first-try/pong/mini3d/scene.c">
+			<Option target="3DLibrary_DEVICE"/>
+		</Unit>
+		<Unit filename="/home/nyanfall/projects/playdate/c-first-try/pong/mini3d/scene.h">
+			<Option target="3DLibrary_DEVICE"/>
+		</Unit>
+		<Unit filename="/home/nyanfall/projects/playdate/c-first-try/pong/mini3d/shape.c">
+			<Option target="3DLibrary_DEVICE"/>
+		</Unit>
+		<Unit filename="/home/nyanfall/projects/playdate/c-first-try/pong/mini3d/shape.h">
+			<Option target="3DLibrary_DEVICE"/>
+		</Unit>
+		<Unit filename="/home/nyanfall/projects/playdate/c-first-try/pong/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/nyanfall/projects/playdate/c-first-try/pong/../../../../.local/share/playdate-sdk/C_API/buildsupport/arm.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\.local\share\playdate-sdk\C_API\buildsupport\"/>
+		</Unit>
+		<Unit filename="/home/nyanfall/projects/playdate/c-first-try/pong/../../../../.local/share/playdate-sdk/C_API/buildsupport/playdate.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\.local\share\playdate-sdk\C_API\buildsupport\"/>
+		</Unit>
+		<Unit filename="/home/nyanfall/projects/playdate/c-first-try/pong/../../../../.local/share/playdate-sdk/C_API/buildsupport/playdate_game.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\.local\share\playdate-sdk\C_API\buildsupport\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

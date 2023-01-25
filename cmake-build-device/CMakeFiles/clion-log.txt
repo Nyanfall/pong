@@ -1,34 +1,14 @@
 /opt/jetbrains-clion-pj/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_TOOLCHAIN_FILE=/home/nyanfall/.local/share/playdate-sdk/C_API/buildsupport/arm.cmake -G "CodeBlocks - Unix Makefiles" /home/nyanfall/projects/playdate/c-first-try/pong
 -- arm.cmake loaded
--- arm.cmake loaded
--- The C compiler identification is unknown
--- The ASM compiler identification is unknown
--- Found assembler: /arm-none-eabi-gcc
-CMake Error at CMakeLists.txt:31 (project):
-  The CMAKE_C_COMPILER:
-
-    /arm-none-eabi-gcc
-
-  is not a full path to an existing compiler tool.
-
-  Tell CMake where to find the compiler by setting either the environment
-  variable "CC" or the CMake cache entry CMAKE_C_COMPILER to the full path to
-  the compiler, or to the compiler name if it is in the PATH.
-
-
-CMake Error at CMakeLists.txt:31 (project):
-  The CMAKE_ASM_COMPILER:
-
-    /arm-none-eabi-gcc
-
-  is not a full path to an existing compiler tool.
-
-  Tell CMake where to find the compiler by setting either the environment
-  variable "ASM" or the CMake cache entry CMAKE_ASM_COMPILER to the full path
-  to the compiler, or to the compiler name if it is in the PATH.
-
-
--- Warning: Did not find file Compiler/-ASM
--- Configuring incomplete, errors occurred!
-See also "/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/CMakeFiles/CMakeOutput.log".
-See also "/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/CMakeFiles/CMakeError.log".
+-- The C compiler identification is GNU 12.2.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /usr/bin/arm-none-eabi-gcc
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/arm-none-eabi-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- SDK Path: /home/nyanfall/.local/share/playdate-sdk
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device

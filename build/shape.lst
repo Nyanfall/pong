@@ -1,0 +1,3281 @@
+ARM GAS  /tmp/ccs8Dd2F.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.arch armv7e-m
+   3              		.fpu fpv5-sp-d16
+   4              		.eabi_attribute 27, 1	@ Tag_ABI_HardFP_use
+   5              		.eabi_attribute 28, 1	@ Tag_ABI_VFP_args
+   6              		.eabi_attribute 20, 1	@ Tag_ABI_FP_denormal
+   7              		.eabi_attribute 21, 1	@ Tag_ABI_FP_exceptions
+   8              		.eabi_attribute 23, 3	@ Tag_ABI_FP_number_model
+   9              		.eabi_attribute 24, 1	@ Tag_ABI_align8_needed
+  10              		.eabi_attribute 25, 1	@ Tag_ABI_align8_preserved
+  11              		.eabi_attribute 26, 1	@ Tag_ABI_enum_size
+  12              		.eabi_attribute 30, 2	@ Tag_ABI_optimization_goals
+  13              		.eabi_attribute 34, 1	@ Tag_CPU_unaligned_access
+  14              		.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
+  15              		.file	"shape.c"
+  16              	@ GNU C17 (Arch Repository) version 12.2.0 (arm-none-eabi)
+  17              	@	compiled by GNU C version 12.1.1 20220730, GMP version 6.2.1, MPFR version 4.1.0-p13, MPC version
+  18              	
+  19              	@ warning: MPFR header version 4.1.0-p13 differs from library version 4.2.0.
+  20              	@ warning: MPC header version 1.2.1 differs from library version 1.3.1.
+  21              	@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+  22              	@ options passed: -mthumb -mcpu=cortex-m7 -mfloat-abi=hard -mfpu=fpv5-sp-d16 -march=armv7e-m+fpv5 -
+  23              		.text
+  24              	.Ltext0:
+  25              		.cfi_sections	.debug_frame
+  26              		.file 1 "mini3d/shape.c"
+  27              		.section	.text.Shape3D_init,"ax",%progbits
+  28              		.align	1
+  29              		.p2align 4,,15
+  30              		.global	Shape3D_init
+  31              		.syntax unified
+  32              		.thumb
+  33              		.thumb_func
+  34              		.type	Shape3D_init, %function
+  35              	Shape3D_init:
+  36              	.LVL0:
+  37              	.LFB12:
+   1:mini3d/shape.c **** //
+   2:mini3d/shape.c **** //  shape.c
+   3:mini3d/shape.c **** //  Extension
+   4:mini3d/shape.c **** //
+   5:mini3d/shape.c **** //  Created by Dave Hayden on 10/7/15.
+   6:mini3d/shape.c **** //  Copyright © 2015 Panic, Inc. All rights reserved.
+   7:mini3d/shape.c **** //
+   8:mini3d/shape.c **** 
+   9:mini3d/shape.c **** #include "mini3d.h"
+  10:mini3d/shape.c **** #include "shape.h"
+  11:mini3d/shape.c **** 
+  12:mini3d/shape.c **** void Shape3D_init(Shape3D* shape)
+  13:mini3d/shape.c **** {
+  38              		.loc 1 13 1 view -0
+  39              		.cfi_startproc
+  40              		@ args = 0, pretend = 0, frame = 0
+  41              		@ frame_needed = 0, uses_anonymous_args = 0
+  42              		@ link register save eliminated.
+  14:mini3d/shape.c **** 	shape->retainCount = 0;
+  43              		.loc 1 14 2 view .LVU1
+ARM GAS  /tmp/ccs8Dd2F.s 			page 2
+
+
+  15:mini3d/shape.c **** 	shape->nPoints = 0;
+  44              		.loc 1 15 2 view .LVU2
+  45              	@ mini3d/shape.c:14: 	shape->retainCount = 0;
+  14:mini3d/shape.c **** 	shape->retainCount = 0;
+  46              		.loc 1 14 21 is_stmt 0 view .LVU3
+  47 0000 0023     		movs	r3, #0	@ tmp114,
+  48              	@ mini3d/shape.c:23: 	shape->isClosed = 0;
+  16:mini3d/shape.c **** 	shape->points = NULL;
+  17:mini3d/shape.c **** 	shape->nFaces = 0;
+  18:mini3d/shape.c **** 	shape->faces = NULL;
+  19:mini3d/shape.c **** 	shape->center.x = 0;
+  20:mini3d/shape.c **** 	shape->center.y = 0;
+  21:mini3d/shape.c **** 	shape->center.z = 0;
+  22:mini3d/shape.c **** 	shape->colorBias = 0;
+  23:mini3d/shape.c **** 	shape->isClosed = 0;
+  49              		.loc 1 23 18 view .LVU4
+  50 0002 90F82410 		ldrb	r1, [r0, #36]	@ zero_extendqisi2	@, shape_2(D)->isClosed
+  51              	@ mini3d/shape.c:19: 	shape->center.x = 0;
+  19:mini3d/shape.c **** 	shape->center.y = 0;
+  52              		.loc 1 19 18 view .LVU5
+  53 0006 0022     		movs	r2, #0	@ tmp119,
+  54              	@ mini3d/shape.c:23: 	shape->isClosed = 0;
+  55              		.loc 1 23 18 view .LVU6
+  56 0008 63F30001 		bfi	r1, r3, #0, #1	@ shape_2(D)->isClosed, tmp114,,
+  57              	@ mini3d/shape.c:14: 	shape->retainCount = 0;
+  14:mini3d/shape.c **** 	shape->nPoints = 0;
+  58              		.loc 1 14 21 view .LVU7
+  59 000c 0360     		str	r3, [r0]	@ unaligned	@ tmp114, MEM <vector(2) int> [(int *)shape_2(D)]
+  60 000e 4360     		str	r3, [r0, #4]	@ unaligned	@ tmp114, MEM <vector(2) int> [(int *)shape_2(D)]
+  16:mini3d/shape.c **** 	shape->points = NULL;
+  61              		.loc 1 16 2 is_stmt 1 view .LVU8
+  62              	@ mini3d/shape.c:16: 	shape->points = NULL;
+  16:mini3d/shape.c **** 	shape->points = NULL;
+  63              		.loc 1 16 16 is_stmt 0 view .LVU9
+  64 0010 8360     		str	r3, [r0, #8]	@ tmp114, shape_2(D)->points
+  17:mini3d/shape.c **** 	shape->faces = NULL;
+  65              		.loc 1 17 2 is_stmt 1 view .LVU10
+  66              	@ mini3d/shape.c:19: 	shape->center.x = 0;
+  19:mini3d/shape.c **** 	shape->center.y = 0;
+  67              		.loc 1 19 18 is_stmt 0 view .LVU11
+  68 0012 4261     		str	r2, [r0, #20]	@ float	@ tmp119, shape_2(D)->center.x
+  69              	@ mini3d/shape.c:20: 	shape->center.y = 0;
+  20:mini3d/shape.c **** 	shape->center.z = 0;
+  70              		.loc 1 20 18 view .LVU12
+  71 0014 8261     		str	r2, [r0, #24]	@ float	@ tmp119, shape_2(D)->center.y
+  72              	@ mini3d/shape.c:21: 	shape->center.z = 0;
+  21:mini3d/shape.c **** 	shape->colorBias = 0;
+  73              		.loc 1 21 18 view .LVU13
+  74 0016 C261     		str	r2, [r0, #28]	@ float	@ tmp119, shape_2(D)->center.z
+  75              	@ mini3d/shape.c:22: 	shape->colorBias = 0;
+  22:mini3d/shape.c **** 	shape->isClosed = 0;
+  76              		.loc 1 22 19 view .LVU14
+  77 0018 0262     		str	r2, [r0, #32]	@ float	@ tmp119, shape_2(D)->colorBias
+  78              	@ mini3d/shape.c:23: 	shape->isClosed = 0;
+  79              		.loc 1 23 18 view .LVU15
+  80 001a 80F82410 		strb	r1, [r0, #36]	@ shape_2(D)->isClosed, shape_2(D)->isClosed
+  81              	@ mini3d/shape.c:25: 	shape->orderTableSize = 0;
+ARM GAS  /tmp/ccs8Dd2F.s 			page 3
+
+
+  24:mini3d/shape.c **** #if ENABLE_ORDERING_TABLE
+  25:mini3d/shape.c **** 	shape->orderTableSize = 0;
+  82              		.loc 1 25 24 view .LVU16
+  83 001e 8362     		str	r3, [r0, #40]	@ tmp114, shape_2(D)->orderTableSize
+  84              	@ mini3d/shape.c:18: 	shape->faces = NULL;
+  18:mini3d/shape.c **** 	shape->center.x = 0;
+  85              		.loc 1 18 15 view .LVU17
+  86 0020 C0E90333 		strd	r3, r3, [r0, #12]	@ tmp114, tmp114, shape,
+  19:mini3d/shape.c **** 	shape->center.y = 0;
+  87              		.loc 1 19 2 is_stmt 1 view .LVU18
+  20:mini3d/shape.c **** 	shape->center.z = 0;
+  88              		.loc 1 20 2 view .LVU19
+  21:mini3d/shape.c **** 	shape->colorBias = 0;
+  89              		.loc 1 21 2 view .LVU20
+  22:mini3d/shape.c **** 	shape->isClosed = 0;
+  90              		.loc 1 22 2 view .LVU21
+  23:mini3d/shape.c **** #if ENABLE_ORDERING_TABLE
+  91              		.loc 1 23 2 view .LVU22
+  92              		.loc 1 25 2 view .LVU23
+  93              	@ mini3d/shape.c:27: }
+  26:mini3d/shape.c **** #endif
+  27:mini3d/shape.c **** }
+  94              		.loc 1 27 1 is_stmt 0 view .LVU24
+  95 0024 7047     		bx	lr	@
+  96              		.cfi_endproc
+  97              	.LFE12:
+  98              		.size	Shape3D_init, .-Shape3D_init
+  99 0026 00BF     		.section	.text.Shape3D_retain,"ax",%progbits
+ 100              		.align	1
+ 101              		.p2align 4,,15
+ 102              		.global	Shape3D_retain
+ 103              		.syntax unified
+ 104              		.thumb
+ 105              		.thumb_func
+ 106              		.type	Shape3D_retain, %function
+ 107              	Shape3D_retain:
+ 108              	.LVL1:
+ 109              	.LFB13:
+  28:mini3d/shape.c **** 
+  29:mini3d/shape.c **** Shape3D* Shape3D_retain(Shape3D* shape)
+  30:mini3d/shape.c **** {
+ 110              		.loc 1 30 1 is_stmt 1 view -0
+ 111              		.cfi_startproc
+ 112              		@ args = 0, pretend = 0, frame = 0
+ 113              		@ frame_needed = 0, uses_anonymous_args = 0
+ 114              		@ link register save eliminated.
+  31:mini3d/shape.c **** 	++shape->retainCount;
+ 115              		.loc 1 31 2 view .LVU26
+ 116 0000 0268     		ldr	r2, [r0]	@ shape_4(D)->retainCount, shape_4(D)->retainCount
+ 117 0002 0132     		adds	r2, r2, #1	@ tmp117, shape_4(D)->retainCount,
+ 118 0004 0260     		str	r2, [r0]	@ tmp117, shape_4(D)->retainCount
+  32:mini3d/shape.c **** 	return shape;
+ 119              		.loc 1 32 2 view .LVU27
+ 120              	@ mini3d/shape.c:33: }
+  33:mini3d/shape.c **** }
+ 121              		.loc 1 33 1 is_stmt 0 view .LVU28
+ 122 0006 7047     		bx	lr	@
+ARM GAS  /tmp/ccs8Dd2F.s 			page 4
+
+
+ 123              		.cfi_endproc
+ 124              	.LFE13:
+ 125              		.size	Shape3D_retain, .-Shape3D_retain
+ 126              		.section	.text.Shape3D_release,"ax",%progbits
+ 127              		.align	1
+ 128              		.p2align 4,,15
+ 129              		.global	Shape3D_release
+ 130              		.syntax unified
+ 131              		.thumb
+ 132              		.thumb_func
+ 133              		.type	Shape3D_release, %function
+ 134              	Shape3D_release:
+ 135              	.LVL2:
+ 136              	.LFB14:
+  34:mini3d/shape.c **** 
+  35:mini3d/shape.c **** void Shape3D_release(Shape3D* shape)
+  36:mini3d/shape.c **** {
+ 137              		.loc 1 36 1 is_stmt 1 view -0
+ 138              		.cfi_startproc
+ 139              		@ args = 0, pretend = 0, frame = 0
+ 140              		@ frame_needed = 0, uses_anonymous_args = 0
+  37:mini3d/shape.c **** 	if ( --shape->retainCount > 0 )
+ 141              		.loc 1 37 2 view .LVU30
+ 142              	@ mini3d/shape.c:37: 	if ( --shape->retainCount > 0 )
+ 143              		.loc 1 37 7 is_stmt 0 view .LVU31
+ 144 0000 0368     		ldr	r3, [r0]	@ shape_12(D)->retainCount, shape_12(D)->retainCount
+ 145 0002 013B     		subs	r3, r3, #1	@ _2, shape_12(D)->retainCount,
+ 146              	@ mini3d/shape.c:37: 	if ( --shape->retainCount > 0 )
+ 147              		.loc 1 37 5 view .LVU32
+ 148 0004 002B     		cmp	r3, #0	@ _2,
+ 149 0006 0360     		str	r3, [r0]	@ _2, shape_12(D)->retainCount
+ 150 0008 12DC     		bgt	.L4		@,
+  38:mini3d/shape.c **** 		return;
+  39:mini3d/shape.c **** 	
+  40:mini3d/shape.c **** 	if ( shape->points != NULL )
+ 151              		.loc 1 40 2 is_stmt 1 view .LVU33
+ 152              	@ mini3d/shape.c:36: {
+  36:mini3d/shape.c **** 	if ( --shape->retainCount > 0 )
+ 153              		.loc 1 36 1 is_stmt 0 view .LVU34
+ 154 000a 70B5     		push	{r4, r5, r6, lr}	@
+ 155              	.LCFI0:
+ 156              		.cfi_def_cfa_offset 16
+ 157              		.cfi_offset 4, -16
+ 158              		.cfi_offset 5, -12
+ 159              		.cfi_offset 6, -8
+ 160              		.cfi_offset 14, -4
+ 161 000c 0446     		mov	r4, r0	@ shape, tmp129
+ 162              	@ mini3d/shape.c:40: 	if ( shape->points != NULL )
+ 163              		.loc 1 40 12 view .LVU35
+ 164 000e 8068     		ldr	r0, [r0, #8]	@ _3, shape_12(D)->points
+ 165              	.LVL3:
+ 166              	@ mini3d/shape.c:41: 		m3d_free(shape->points);
+  41:mini3d/shape.c **** 		m3d_free(shape->points);
+ 167              		.loc 1 41 3 view .LVU36
+ 168 0010 084D     		ldr	r5, .L17	@ tmp128,
+ 169              	@ mini3d/shape.c:40: 	if ( shape->points != NULL )
+  40:mini3d/shape.c **** 		m3d_free(shape->points);
+ARM GAS  /tmp/ccs8Dd2F.s 			page 5
+
+
+ 170              		.loc 1 40 5 view .LVU37
+ 171 0012 10B1     		cbz	r0, .L6	@ _3,
+ 172              		.loc 1 41 3 is_stmt 1 view .LVU38
+ 173 0014 0021     		movs	r1, #0	@,
+ 174 0016 2B68     		ldr	r3, [r5]	@ m3d_realloc, m3d_realloc
+ 175 0018 9847     		blx	r3		@ m3d_realloc
+ 176              	.LVL4:
+ 177              	.L6:
+  42:mini3d/shape.c **** 	
+  43:mini3d/shape.c **** 	if ( shape->faces != NULL )
+ 178              		.loc 1 43 2 view .LVU39
+ 179              	@ mini3d/shape.c:43: 	if ( shape->faces != NULL )
+ 180              		.loc 1 43 12 is_stmt 0 view .LVU40
+ 181 001a 2069     		ldr	r0, [r4, #16]	@ _5, shape_12(D)->faces
+ 182              	@ mini3d/shape.c:43: 	if ( shape->faces != NULL )
+ 183              		.loc 1 43 5 view .LVU41
+ 184 001c 10B1     		cbz	r0, .L7	@ _5,
+  44:mini3d/shape.c **** 		m3d_free(shape->faces);
+ 185              		.loc 1 44 3 is_stmt 1 view .LVU42
+ 186 001e 2B68     		ldr	r3, [r5]	@ m3d_realloc, m3d_realloc
+ 187 0020 0021     		movs	r1, #0	@,
+ 188 0022 9847     		blx	r3		@ m3d_realloc
+ 189              	.LVL5:
+ 190              	.L7:
+  45:mini3d/shape.c **** 	
+  46:mini3d/shape.c **** 	m3d_free(shape);
+ 191              		.loc 1 46 2 view .LVU43
+ 192 0024 2B68     		ldr	r3, [r5]	@ m3d_realloc, m3d_realloc
+ 193 0026 2046     		mov	r0, r4	@, shape
+ 194 0028 0021     		movs	r1, #0	@,
+ 195              	@ mini3d/shape.c:47: }
+  47:mini3d/shape.c **** }
+ 196              		.loc 1 47 1 is_stmt 0 view .LVU44
+ 197 002a BDE87040 		pop	{r4, r5, r6, lr}	@
+ 198              	.LCFI1:
+ 199              		.cfi_restore 14
+ 200              		.cfi_restore 6
+ 201              		.cfi_restore 5
+ 202              		.cfi_restore 4
+ 203              		.cfi_def_cfa_offset 0
+ 204              	.LVL6:
+ 205              	@ mini3d/shape.c:46: 	m3d_free(shape);
+  46:mini3d/shape.c **** }
+ 206              		.loc 1 46 2 view .LVU45
+ 207 002e 1847     		bx	r3		@ m3d_realloc
+ 208              	.LVL7:
+ 209              	.L4:
+  46:mini3d/shape.c **** }
+ 210              		.loc 1 46 2 view .LVU46
+ 211 0030 7047     		bx	lr	@
+ 212              	.L18:
+ 213 0032 00BF     		.align	2
+ 214              	.L17:
+ 215 0034 00000000 		.word	m3d_realloc
+ 216              		.cfi_endproc
+ 217              	.LFE14:
+ 218              		.size	Shape3D_release, .-Shape3D_release
+ARM GAS  /tmp/ccs8Dd2F.s 			page 6
+
+
+ 219              		.section	.text.Shape3D_addPoint,"ax",%progbits
+ 220              		.align	1
+ 221              		.p2align 4,,15
+ 222              		.global	Shape3D_addPoint
+ 223              		.syntax unified
+ 224              		.thumb
+ 225              		.thumb_func
+ 226              		.type	Shape3D_addPoint, %function
+ 227              	Shape3D_addPoint:
+ 228              	.LVL8:
+ 229              	.LFB15:
+  48:mini3d/shape.c **** 
+  49:mini3d/shape.c **** int Shape3D_addPoint(Shape3D* shape, Point3D* p)
+  50:mini3d/shape.c **** {
+ 230              		.loc 1 50 1 is_stmt 1 view -0
+ 231              		.cfi_startproc
+ 232              		@ args = 0, pretend = 0, frame = 0
+ 233              		@ frame_needed = 0, uses_anonymous_args = 0
+  51:mini3d/shape.c **** 	int i;
+ 234              		.loc 1 51 2 view .LVU48
+  52:mini3d/shape.c **** 	
+  53:mini3d/shape.c **** 	for ( i = 0; i < shape->nPoints; ++i )
+ 235              		.loc 1 53 2 view .LVU49
+ 236              		.loc 1 53 17 view .LVU50
+ 237              	@ mini3d/shape.c:50: {
+  50:mini3d/shape.c **** 	int i;
+ 238              		.loc 1 50 1 is_stmt 0 view .LVU51
+ 239 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}	@
+ 240              	.LCFI2:
+ 241              		.cfi_def_cfa_offset 24
+ 242              		.cfi_offset 3, -24
+ 243              		.cfi_offset 4, -20
+ 244              		.cfi_offset 5, -16
+ 245              		.cfi_offset 6, -12
+ 246              		.cfi_offset 7, -8
+ 247              		.cfi_offset 14, -4
+ 248              	@ mini3d/shape.c:50: {
+  50:mini3d/shape.c **** 	int i;
+ 249              		.loc 1 50 1 view .LVU52
+ 250 0002 0746     		mov	r7, r0	@ shape, tmp170
+ 251 0004 0E46     		mov	r6, r1	@ p, tmp171
+ 252              	@ mini3d/shape.c:59: 	shape->points = m3d_realloc(shape->points, (shape->nPoints + 1) * sizeof(Poin
+  54:mini3d/shape.c **** 	{
+  55:mini3d/shape.c **** 		if ( Point3D_equals(*p, shape->points[i]) )
+  56:mini3d/shape.c **** 			return i;
+  57:mini3d/shape.c **** 	}
+  58:mini3d/shape.c **** 	
+  59:mini3d/shape.c **** 	shape->points = m3d_realloc(shape->points, (shape->nPoints + 1) * sizeof(Point3D));
+ 253              		.loc 1 59 35 view .LVU53
+ 254 0006 D0E90150 		ldrd	r5, r0, [r0, #4]	@ _48, pretmp_64, shape,
+ 255              	.LVL9:
+ 256              	@ mini3d/shape.c:53: 	for ( i = 0; i < shape->nPoints; ++i )
+  53:mini3d/shape.c **** 	{
+ 257              		.loc 1 53 17 view .LVU54
+ 258 000a 002D     		cmp	r5, #0	@ _48,
+ 259 000c 2ADD     		ble	.L20		@,
+ 260 000e 91ED006A 		vldr.32	s12, [r1]	@ a$x, p_27(D)->x
+ARM GAS  /tmp/ccs8Dd2F.s 			page 7
+
+
+ 261 0012 0346     		mov	r3, r0	@ ivtmp.38, pretmp_64
+ 262 0014 D1ED016A 		vldr.32	s13, [r1, #4]	@ a$y, p_27(D)->y
+ 263              	@ mini3d/shape.c:53: 	for ( i = 0; i < shape->nPoints; ++i )
+  53:mini3d/shape.c **** 	{
+ 264              		.loc 1 53 10 view .LVU55
+ 265 0018 0024     		movs	r4, #0	@ <retval>,
+ 266 001a D1ED025A 		vldr.32	s11, [r1, #8]	@ a$z, p_27(D)->z
+ 267 001e 03E0     		b	.L23		@
+ 268              	.LVL10:
+ 269              	.L24:
+ 270              	@ mini3d/shape.c:53: 	for ( i = 0; i < shape->nPoints; ++i )
+  53:mini3d/shape.c **** 	{
+ 271              		.loc 1 53 35 view .LVU56
+ 272 0020 0134     		adds	r4, r4, #1	@ <retval>, <retval>,
+ 273              	.LVL11:
+  53:mini3d/shape.c **** 	{
+ 274              		.loc 1 53 17 is_stmt 1 view .LVU57
+ 275 0022 0C33     		adds	r3, r3, #12	@ ivtmp.38, ivtmp.38,
+ 276 0024 AC42     		cmp	r4, r5	@ <retval>, _48
+ 277 0026 1DD0     		beq	.L20		@,
+ 278              	.LVL12:
+ 279              	.L23:
+  55:mini3d/shape.c **** 			return i;
+ 280              		.loc 1 55 3 view .LVU58
+ 281              	.LBB4:
+ 282              	.LBI4:
+ 283              		.file 2 "mini3d/3dmath.h"
+   1:mini3d/3dmath.h **** //
+   2:mini3d/3dmath.h **** //  pd3d.h
+   3:mini3d/3dmath.h **** //  Playdate Simulator
+   4:mini3d/3dmath.h **** //
+   5:mini3d/3dmath.h **** //  Created by Dave Hayden on 8/25/15.
+   6:mini3d/3dmath.h **** //  Copyright (c) 2015 Panic, Inc. All rights reserved.
+   7:mini3d/3dmath.h **** //
+   8:mini3d/3dmath.h **** 
+   9:mini3d/3dmath.h **** #ifndef __Playdate_Simulator__pd3d__
+  10:mini3d/3dmath.h **** #define __Playdate_Simulator__pd3d__
+  11:mini3d/3dmath.h **** 
+  12:mini3d/3dmath.h **** #include <stdio.h>
+  13:mini3d/3dmath.h **** #include <stdint.h>
+  14:mini3d/3dmath.h **** #include <math.h>
+  15:mini3d/3dmath.h **** 
+  16:mini3d/3dmath.h **** #if TARGET_PLAYDATE
+  17:mini3d/3dmath.h **** static inline float _lib3d_sqrtf(float x)
+  18:mini3d/3dmath.h **** {
+  19:mini3d/3dmath.h **** 	float result;
+  20:mini3d/3dmath.h **** 	asm ("vsqrt.f32 %0, %1" : "=t"(result) : "t"(x));
+  21:mini3d/3dmath.h **** 	return result;
+  22:mini3d/3dmath.h **** }
+  23:mini3d/3dmath.h **** #define sqrtf(f) _lib3d_sqrtf(f)
+  24:mini3d/3dmath.h **** #endif
+  25:mini3d/3dmath.h **** 
+  26:mini3d/3dmath.h **** typedef struct
+  27:mini3d/3dmath.h **** {
+  28:mini3d/3dmath.h **** 	float x;
+  29:mini3d/3dmath.h **** 	float y;
+  30:mini3d/3dmath.h **** 	float z;
+ARM GAS  /tmp/ccs8Dd2F.s 			page 8
+
+
+  31:mini3d/3dmath.h **** } Point3D;
+  32:mini3d/3dmath.h **** 
+  33:mini3d/3dmath.h **** static inline Point3D Point3DMake(float x, float y, float z)
+  34:mini3d/3dmath.h **** {
+  35:mini3d/3dmath.h **** 	return (Point3D){ .x = x, .y = y, .z = z };
+  36:mini3d/3dmath.h **** }
+  37:mini3d/3dmath.h **** 
+  38:mini3d/3dmath.h **** static inline int Point3D_equals(Point3D a, Point3D b)
+ 284              		.loc 2 38 19 view .LVU59
+ 285              	.LBB5:
+  39:mini3d/3dmath.h **** {
+  40:mini3d/3dmath.h **** 	return (a.x == b.x) && (a.y == b.y) && (a.z == b.z);
+ 286              		.loc 2 40 2 view .LVU60
+ 287              		.loc 2 40 2 is_stmt 0 view .LVU61
+ 288              	.LBE5:
+ 289              	.LBE4:
+  53:mini3d/shape.c **** 	{
+ 290              		.loc 1 53 35 is_stmt 1 view .LVU62
+ 291              	.LBB7:
+ 292              	.LBB6:
+ 293              	@ mini3d/3dmath.h:40: 	return (a.x == b.x) && (a.y == b.y) && (a.z == b.z);
+ 294              		.loc 2 40 38 is_stmt 0 view .LVU63
+ 295 0028 93ED007A 		vldr.32	s14, [r3]	@ MEM[(float *)_55], MEM[(float *)_55]
+ 296              	@ mini3d/3dmath.h:40: 	return (a.x == b.x) && (a.y == b.y) && (a.z == b.z);
+ 297              		.loc 2 40 22 view .LVU64
+ 298 002c D3ED017A 		vldr.32	s15, [r3, #4]	@ MEM[(float *)_55 + 4B], MEM[(float *)_55 + 4B]
+ 299              	@ mini3d/3dmath.h:40: 	return (a.x == b.x) && (a.y == b.y) && (a.z == b.z);
+ 300              		.loc 2 40 38 view .LVU65
+ 301 0030 B4EE467A 		vcmp.f32	s14, s12	@ MEM[(float *)_55], a$x
+ 302 0034 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 303              	@ mini3d/3dmath.h:40: 	return (a.x == b.x) && (a.y == b.y) && (a.z == b.z);
+ 304              		.loc 2 40 22 view .LVU66
+ 305 0038 F4EE667A 		vcmp.f32	s15, s13	@ MEM[(float *)_55 + 4B], a$y
+ 306              	@ mini3d/3dmath.h:40: 	return (a.x == b.x) && (a.y == b.y) && (a.z == b.z);
+ 307              		.loc 2 40 38 view .LVU67
+ 308 003c 0CBF     		ite	eq
+ 309 003e 0122     		moveq	r2, #1	@ tmp142,
+ 310 0040 0022     		movne	r2, #0	@ tmp142,
+ 311              	@ mini3d/3dmath.h:40: 	return (a.x == b.x) && (a.y == b.y) && (a.z == b.z);
+ 312              		.loc 2 40 22 view .LVU68
+ 313 0042 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 314              	@ mini3d/3dmath.h:40: 	return (a.x == b.x) && (a.y == b.y) && (a.z == b.z);
+ 315              		.loc 2 40 38 view .LVU69
+ 316 0046 02F00102 		and	r2, r2, #1	@ tmp148, tmp142,
+ 317 004a 18BF     		it	ne
+ 318 004c 0022     		movne	r2, #0	@ tmp148,
+ 319 004e 002A     		cmp	r2, #0	@ tmp148
+ 320 0050 E6D0     		beq	.L24	@
+ 321 0052 D3ED027A 		vldr.32	s15, [r3, #8]	@ MEM[(float *)_55 + 8B], MEM[(float *)_55 + 8B]
+ 322 0056 F4EE657A 		vcmp.f32	s15, s11	@ MEM[(float *)_55 + 8B], a$z
+ 323 005a F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 324 005e DFD1     		bne	.L24		@,
+ 325              	.LBE6:
+ 326              	.LBE7:
+ 327              	@ mini3d/shape.c:65: }
+  60:mini3d/shape.c **** 	
+  61:mini3d/shape.c **** 	Point3D* point = &shape->points[shape->nPoints];
+ARM GAS  /tmp/ccs8Dd2F.s 			page 9
+
+
+  62:mini3d/shape.c **** 	*point = *p;
+  63:mini3d/shape.c **** 	
+  64:mini3d/shape.c **** 	return shape->nPoints++;
+  65:mini3d/shape.c **** }
+ 328              		.loc 1 65 1 view .LVU70
+ 329 0060 2046     		mov	r0, r4	@, <retval>
+ 330 0062 F8BD     		pop	{r3, r4, r5, r6, r7, pc}	@
+ 331              	.LVL13:
+ 332              	.L20:
+  59:mini3d/shape.c **** 	
+ 333              		.loc 1 59 2 is_stmt 1 view .LVU71
+ 334              	@ mini3d/shape.c:59: 	shape->points = m3d_realloc(shape->points, (shape->nPoints + 1) * sizeof(Poin
+  59:mini3d/shape.c **** 	
+ 335              		.loc 1 59 61 is_stmt 0 view .LVU72
+ 336 0064 0135     		adds	r5, r5, #1	@ tmp153, _48,
+ 337              	@ mini3d/shape.c:59: 	shape->points = m3d_realloc(shape->points, (shape->nPoints + 1) * sizeof(Poin
+  59:mini3d/shape.c **** 	
+ 338              		.loc 1 59 18 view .LVU73
+ 339 0066 0A4B     		ldr	r3, .L30	@ tmp158,
+ 340 0068 05EB4505 		add	r5, r5, r5, lsl #1	@ tmp156, tmp153, tmp153,
+ 341 006c 1B68     		ldr	r3, [r3]	@ m3d_realloc, m3d_realloc
+ 342 006e A900     		lsls	r1, r5, #2	@, tmp156,
+ 343              	.LVL14:
+  59:mini3d/shape.c **** 	
+ 344              		.loc 1 59 18 view .LVU74
+ 345 0070 9847     		blx	r3		@ m3d_realloc
+ 346              	.LVL15:
+ 347              	@ mini3d/shape.c:61: 	Point3D* point = &shape->points[shape->nPoints];
+  61:mini3d/shape.c **** 	*point = *p;
+ 348              		.loc 1 61 39 view .LVU75
+ 349 0072 7C68     		ldr	r4, [r7, #4]	@ <retval>, shape_23(D)->nPoints
+ 350              	@ mini3d/shape.c:59: 	shape->points = m3d_realloc(shape->points, (shape->nPoints + 1) * sizeof(Poin
+  59:mini3d/shape.c **** 	
+ 351              		.loc 1 59 16 view .LVU76
+ 352 0074 B860     		str	r0, [r7, #8]	@ _12, shape_23(D)->points
+  61:mini3d/shape.c **** 	*point = *p;
+ 353              		.loc 1 61 2 is_stmt 1 view .LVU77
+ 354              	.LVL16:
+  62:mini3d/shape.c **** 	
+ 355              		.loc 1 62 2 view .LVU78
+ 356              	@ mini3d/shape.c:62: 	*point = *p;
+  62:mini3d/shape.c **** 	
+ 357              		.loc 1 62 9 is_stmt 0 view .LVU79
+ 358 0076 04EB4403 		add	r3, r4, r4, lsl #1	@ tmp162, <retval>, <retval>,
+ 359 007a 00EB8303 		add	r3, r0, r3, lsl #2	@ tmp164, _12, tmp162,
+ 360 007e 96E80700 		ldm	r6, {r0, r1, r2}	@ p,,,
+ 361              	.LVL17:
+  62:mini3d/shape.c **** 	
+ 362              		.loc 1 62 9 view .LVU80
+ 363 0082 83E80700 		stm	r3, {r0, r1, r2}	@ tmp164,,,
+  64:mini3d/shape.c **** }
+ 364              		.loc 1 64 2 is_stmt 1 view .LVU81
+ 365              	@ mini3d/shape.c:64: 	return shape->nPoints++;
+  64:mini3d/shape.c **** }
+ 366              		.loc 1 64 23 is_stmt 0 view .LVU82
+ 367 0086 631C     		adds	r3, r4, #1	@ tmp167, <retval>,
+ 368              	@ mini3d/shape.c:65: }
+ARM GAS  /tmp/ccs8Dd2F.s 			page 10
+
+
+ 369              		.loc 1 65 1 view .LVU83
+ 370 0088 2046     		mov	r0, r4	@, <retval>
+ 371              	@ mini3d/shape.c:64: 	return shape->nPoints++;
+  64:mini3d/shape.c **** }
+ 372              		.loc 1 64 23 view .LVU84
+ 373 008a 7B60     		str	r3, [r7, #4]	@ tmp167, shape_23(D)->nPoints
+ 374              	@ mini3d/shape.c:65: }
+ 375              		.loc 1 65 1 view .LVU85
+ 376 008c F8BD     		pop	{r3, r4, r5, r6, r7, pc}	@
+ 377              	.LVL18:
+ 378              	.L31:
+ 379              		.loc 1 65 1 view .LVU86
+ 380 008e 00BF     		.align	2
+ 381              	.L30:
+ 382 0090 00000000 		.word	m3d_realloc
+ 383              		.cfi_endproc
+ 384              	.LFE15:
+ 385              		.size	Shape3D_addPoint, .-Shape3D_addPoint
+ 386              		.section	.text.Shape3D_addFace,"ax",%progbits
+ 387              		.align	1
+ 388              		.p2align 4,,15
+ 389              		.global	Shape3D_addFace
+ 390              		.syntax unified
+ 391              		.thumb
+ 392              		.thumb_func
+ 393              		.type	Shape3D_addFace, %function
+ 394              	Shape3D_addFace:
+ 395              	.LVL19:
+ 396              	.LFB16:
+  66:mini3d/shape.c **** 
+  67:mini3d/shape.c **** void Shape3D_addFace(Shape3D* shape, Point3D* a, Point3D* b, Point3D* c, Point3D* d, float colorBia
+  68:mini3d/shape.c **** {
+ 397              		.loc 1 68 1 is_stmt 1 view -0
+ 398              		.cfi_startproc
+ 399              		@ args = 4, pretend = 0, frame = 0
+ 400              		@ frame_needed = 0, uses_anonymous_args = 0
+  69:mini3d/shape.c **** 	shape->faces = m3d_realloc(shape->faces, (shape->nFaces + 1) * sizeof(Face3D));
+ 401              		.loc 1 69 2 view .LVU88
+ 402              	@ mini3d/shape.c:68: {
+  68:mini3d/shape.c **** 	shape->faces = m3d_realloc(shape->faces, (shape->nFaces + 1) * sizeof(Face3D));
+ 403              		.loc 1 68 1 is_stmt 0 view .LVU89
+ 404 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}	@
+ 405              	.LCFI3:
+ 406              		.cfi_def_cfa_offset 40
+ 407              		.cfi_offset 3, -40
+ 408              		.cfi_offset 4, -36
+ 409              		.cfi_offset 5, -32
+ 410              		.cfi_offset 6, -28
+ 411              		.cfi_offset 7, -24
+ 412              		.cfi_offset 8, -20
+ 413              		.cfi_offset 9, -16
+ 414              		.cfi_offset 10, -12
+ 415              		.cfi_offset 11, -8
+ 416              		.cfi_offset 14, -4
+ 417 0004 8846     		mov	r8, r1	@ a, tmp290
+ 418              	@ mini3d/shape.c:69: 	shape->faces = m3d_realloc(shape->faces, (shape->nFaces + 1) * sizeof(Face3D)
+ 419              		.loc 1 69 58 view .LVU90
+ARM GAS  /tmp/ccs8Dd2F.s 			page 11
+
+
+ 420 0006 C168     		ldr	r1, [r0, #12]	@ shape_86(D)->nFaces, shape_86(D)->nFaces
+ 421              	.LVL20:
+ 422              	@ mini3d/shape.c:68: {
+  68:mini3d/shape.c **** 	shape->faces = m3d_realloc(shape->faces, (shape->nFaces + 1) * sizeof(Face3D));
+ 423              		.loc 1 68 1 view .LVU91
+ 424 0008 1E46     		mov	r6, r3	@ c, tmp292
+ 425              	@ mini3d/shape.c:69: 	shape->faces = m3d_realloc(shape->faces, (shape->nFaces + 1) * sizeof(Face3D)
+ 426              		.loc 1 69 17 view .LVU92
+ 427 000a 6D4B     		ldr	r3, .L36	@ tmp210,
+ 428              	.LVL21:
+ 429              	@ mini3d/shape.c:69: 	shape->faces = m3d_realloc(shape->faces, (shape->nFaces + 1) * sizeof(Face3D)
+ 430              		.loc 1 69 58 view .LVU93
+ 431 000c 0131     		adds	r1, r1, #1	@ tmp203, shape_86(D)->nFaces,
+ 432              	@ mini3d/shape.c:68: {
+  68:mini3d/shape.c **** 	shape->faces = m3d_realloc(shape->faces, (shape->nFaces + 1) * sizeof(Face3D));
+ 433              		.loc 1 68 1 view .LVU94
+ 434 000e 0446     		mov	r4, r0	@ shape, tmp289
+ 435              	@ mini3d/shape.c:69: 	shape->faces = m3d_realloc(shape->faces, (shape->nFaces + 1) * sizeof(Face3D)
+ 436              		.loc 1 69 17 view .LVU95
+ 437 0010 1B68     		ldr	r3, [r3]	@ m3d_realloc, m3d_realloc
+ 438              	@ mini3d/shape.c:68: {
+  68:mini3d/shape.c **** 	shape->faces = m3d_realloc(shape->faces, (shape->nFaces + 1) * sizeof(Face3D));
+ 439              		.loc 1 68 1 view .LVU96
+ 440 0012 1746     		mov	r7, r2	@ b, tmp291
+ 441              	@ mini3d/shape.c:69: 	shape->faces = m3d_realloc(shape->faces, (shape->nFaces + 1) * sizeof(Face3D)
+ 442              		.loc 1 69 17 view .LVU97
+ 443 0014 01EB4101 		add	r1, r1, r1, lsl #1	@ tmp207, tmp203, tmp203,
+ 444 0018 0069     		ldr	r0, [r0, #16]	@, shape_86(D)->faces
+ 445              	.LVL22:
+ 446              	@ mini3d/shape.c:68: {
+  68:mini3d/shape.c **** 	shape->faces = m3d_realloc(shape->faces, (shape->nFaces + 1) * sizeof(Face3D));
+ 447              		.loc 1 68 1 view .LVU98
+ 448 001a 2DED028B 		vpush.64	{d8}	@
+ 449              	.LCFI4:
+ 450              		.cfi_def_cfa_offset 48
+ 451              		.cfi_offset 80, -48
+ 452              		.cfi_offset 81, -44
+ 453              	@ mini3d/shape.c:69: 	shape->faces = m3d_realloc(shape->faces, (shape->nFaces + 1) * sizeof(Face3D)
+ 454              		.loc 1 69 17 view .LVU99
+ 455 001e 8900     		lsls	r1, r1, #2	@, tmp207,
+ 456              	@ mini3d/shape.c:68: {
+  68:mini3d/shape.c **** 	shape->faces = m3d_realloc(shape->faces, (shape->nFaces + 1) * sizeof(Face3D));
+ 457              		.loc 1 68 1 view .LVU100
+ 458 0020 B0EE408A 		vmov.f32	s16, s0	@ colorBias, tmp293
+ 459 0024 DDF83090 		ldr	r9, [sp, #48]	@ d, d
+ 460              	@ mini3d/shape.c:69: 	shape->faces = m3d_realloc(shape->faces, (shape->nFaces + 1) * sizeof(Face3D)
+ 461              		.loc 1 69 17 view .LVU101
+ 462 0028 9847     		blx	r3		@ m3d_realloc
+ 463              	.LVL23:
+ 464              	@ mini3d/shape.c:71: 	Face3D* face = &shape->faces[shape->nFaces];
+  70:mini3d/shape.c **** 	
+  71:mini3d/shape.c **** 	Face3D* face = &shape->faces[shape->nFaces];
+ 465              		.loc 1 71 30 view .LVU102
+ 466 002a E568     		ldr	r5, [r4, #12]	@ shape_86(D)->nFaces, shape_86(D)->nFaces
+ 467              	@ mini3d/shape.c:69: 	shape->faces = m3d_realloc(shape->faces, (shape->nFaces + 1) * sizeof(Face3D)
+  69:mini3d/shape.c **** 	
+ 468              		.loc 1 69 17 view .LVU103
+ARM GAS  /tmp/ccs8Dd2F.s 			page 12
+
+
+ 469 002c 8346     		mov	fp, r0	@ _7, tmp294
+ 470              	@ mini3d/shape.c:72: 	face->p1 = Shape3D_addPoint(shape, a);
+  72:mini3d/shape.c **** 	face->p1 = Shape3D_addPoint(shape, a);
+ 471              		.loc 1 72 13 view .LVU104
+ 472 002e 4146     		mov	r1, r8	@, a
+ 473              	@ mini3d/shape.c:69: 	shape->faces = m3d_realloc(shape->faces, (shape->nFaces + 1) * sizeof(Face3D)
+  69:mini3d/shape.c **** 	
+ 474              		.loc 1 69 15 view .LVU105
+ 475 0030 2061     		str	r0, [r4, #16]	@ _7, shape_86(D)->faces
+  71:mini3d/shape.c **** 	face->p1 = Shape3D_addPoint(shape, a);
+ 476              		.loc 1 71 2 is_stmt 1 view .LVU106
+ 477              	@ mini3d/shape.c:71: 	Face3D* face = &shape->faces[shape->nFaces];
+  71:mini3d/shape.c **** 	face->p1 = Shape3D_addPoint(shape, a);
+ 478              		.loc 1 71 30 is_stmt 0 view .LVU107
+ 479 0032 05EB450C 		add	ip, r5, r5, lsl #1	@ tmp215, shape_86(D)->nFaces, shape_86(D)->nFaces,
+ 480              	@ mini3d/shape.c:72: 	face->p1 = Shape3D_addPoint(shape, a);
+ 481              		.loc 1 72 13 view .LVU108
+ 482 0036 2046     		mov	r0, r4	@, shape
+ 483              	@ mini3d/shape.c:71: 	Face3D* face = &shape->faces[shape->nFaces];
+  71:mini3d/shape.c **** 	face->p1 = Shape3D_addPoint(shape, a);
+ 484              		.loc 1 71 30 view .LVU109
+ 485 0038 4FEA8C05 		lsl	r5, ip, #2	@ tmp216, tmp215,
+ 486              	@ mini3d/shape.c:71: 	Face3D* face = &shape->faces[shape->nFaces];
+  71:mini3d/shape.c **** 	face->p1 = Shape3D_addPoint(shape, a);
+ 487              		.loc 1 71 10 view .LVU110
+ 488 003c 0BEB8C0A 		add	r10, fp, ip, lsl #2	@ face, _7, tmp215,
+ 489              	.LVL24:
+ 490              		.loc 1 72 2 is_stmt 1 view .LVU111
+ 491              	@ mini3d/shape.c:72: 	face->p1 = Shape3D_addPoint(shape, a);
+ 492              		.loc 1 72 13 is_stmt 0 view .LVU112
+ 493 0040 FFF7FEFF 		bl	Shape3D_addPoint		@
+ 494              	.LVL25:
+ 495              	@ mini3d/shape.c:73: 	face->p2 = Shape3D_addPoint(shape, b);
+  73:mini3d/shape.c **** 	face->p2 = Shape3D_addPoint(shape, b);
+ 496              		.loc 1 73 13 view .LVU113
+ 497 0044 3946     		mov	r1, r7	@, b
+ 498              	@ mini3d/shape.c:72: 	face->p1 = Shape3D_addPoint(shape, a);
+  72:mini3d/shape.c **** 	face->p1 = Shape3D_addPoint(shape, a);
+ 499              		.loc 1 72 11 view .LVU114
+ 500 0046 2BF80500 		strh	r0, [fp, r5]	@ movhi	@ tmp295, face_89->p1
+ 501              		.loc 1 73 2 is_stmt 1 view .LVU115
+ 502              	@ mini3d/shape.c:73: 	face->p2 = Shape3D_addPoint(shape, b);
+ 503              		.loc 1 73 13 is_stmt 0 view .LVU116
+ 504 004a 2046     		mov	r0, r4	@, shape
+ 505 004c FFF7FEFF 		bl	Shape3D_addPoint		@
+ 506              	.LVL26:
+ 507              	@ mini3d/shape.c:74: 	face->p3 = Shape3D_addPoint(shape, c);
+  74:mini3d/shape.c **** 	face->p3 = Shape3D_addPoint(shape, c);
+ 508              		.loc 1 74 13 view .LVU117
+ 509 0050 3146     		mov	r1, r6	@, c
+ 510              	@ mini3d/shape.c:73: 	face->p2 = Shape3D_addPoint(shape, b);
+  73:mini3d/shape.c **** 	face->p2 = Shape3D_addPoint(shape, b);
+ 511              		.loc 1 73 11 view .LVU118
+ 512 0052 AAF80200 		strh	r0, [r10, #2]	@ movhi	@ tmp296, face_89->p2
+ 513              		.loc 1 74 2 is_stmt 1 view .LVU119
+ 514              	@ mini3d/shape.c:74: 	face->p3 = Shape3D_addPoint(shape, c);
+ 515              		.loc 1 74 13 is_stmt 0 view .LVU120
+ARM GAS  /tmp/ccs8Dd2F.s 			page 13
+
+
+ 516 0056 2046     		mov	r0, r4	@, shape
+ 517 0058 FFF7FEFF 		bl	Shape3D_addPoint		@
+ 518              	.LVL27:
+ 519              	@ mini3d/shape.c:74: 	face->p3 = Shape3D_addPoint(shape, c);
+ 520              		.loc 1 74 11 view .LVU121
+ 521 005c AAF80400 		strh	r0, [r10, #4]	@ movhi	@ tmp297, face_89->p3
+  75:mini3d/shape.c **** 	face->p4 = (d != NULL) ? Shape3D_addPoint(shape, d) : 0xffff;
+ 522              		.loc 1 75 2 is_stmt 1 view .LVU122
+ 523              	@ mini3d/shape.c:75: 	face->p4 = (d != NULL) ? Shape3D_addPoint(shape, d) : 0xffff;
+ 524              		.loc 1 75 11 is_stmt 0 view .LVU123
+ 525 0060 B9F1000F 		cmp	r9, #0	@ d
+ 526 0064 5CD0     		beq	.L33	@
+ 527              	@ mini3d/shape.c:75: 	face->p4 = (d != NULL) ? Shape3D_addPoint(shape, d) : 0xffff;
+ 528              		.loc 1 75 27 discriminator 1 view .LVU124
+ 529 0066 4946     		mov	r1, r9	@, d
+ 530 0068 2046     		mov	r0, r4	@, shape
+ 531 006a FFF7FEFF 		bl	Shape3D_addPoint		@
+ 532              	.LVL28:
+ 533              	@ mini3d/shape.c:82: 		shape->center.x += (a->x + b->x + c->x + d->x) / 4 / shape->nFaces;
+  76:mini3d/shape.c **** 	face->colorBias = colorBias;
+  77:mini3d/shape.c **** 	
+  78:mini3d/shape.c **** 	++shape->nFaces;
+  79:mini3d/shape.c **** 	
+  80:mini3d/shape.c **** 	if ( d != NULL )
+  81:mini3d/shape.c **** 	{
+  82:mini3d/shape.c **** 		shape->center.x += (a->x + b->x + c->x + d->x) / 4 / shape->nFaces;
+ 534              		.loc 1 82 28 discriminator 1 view .LVU125
+ 535 006e 97ED006A 		vldr.32	s12, [r7]	@ b_93(D)->x, b_93(D)->x
+ 536              	@ mini3d/shape.c:83: 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+  83:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 537              		.loc 1 83 28 discriminator 1 view .LVU126
+ 538 0072 D7ED017A 		vldr.32	s15, [r7, #4]	@ b_93(D)->y, b_93(D)->y
+ 539              	@ mini3d/shape.c:82: 		shape->center.x += (a->x + b->x + c->x + d->x) / 4 / shape->nFaces;
+  82:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 540              		.loc 1 82 28 discriminator 1 view .LVU127
+ 541 0076 D8ED006A 		vldr.32	s13, [r8]	@ a_90(D)->x, a_90(D)->x
+ 542              	@ mini3d/shape.c:83: 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 543              		.loc 1 83 28 discriminator 1 view .LVU128
+ 544 007a 98ED017A 		vldr.32	s14, [r8, #4]	@ a_90(D)->y, a_90(D)->y
+ 545              	@ mini3d/shape.c:82: 		shape->center.x += (a->x + b->x + c->x + d->x) / 4 / shape->nFaces;
+  82:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 546              		.loc 1 82 28 discriminator 1 view .LVU129
+ 547 007e 76EE866A 		vadd.f32	s13, s13, s12	@ tmp222, a_90(D)->x, b_93(D)->x
+ 548              	@ mini3d/shape.c:84: 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+  84:mini3d/shape.c **** 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+ 549              		.loc 1 84 28 discriminator 1 view .LVU130
+ 550 0082 97ED026A 		vldr.32	s12, [r7, #8]	@ b_93(D)->z, b_93(D)->z
+ 551              	@ mini3d/shape.c:83: 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+  83:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 552              		.loc 1 83 28 discriminator 1 view .LVU131
+ 553 0086 37EE277A 		vadd.f32	s14, s14, s15	@ tmp234, a_90(D)->y, b_93(D)->y
+ 554              	@ mini3d/shape.c:84: 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+ 555              		.loc 1 84 28 discriminator 1 view .LVU132
+ 556 008a D8ED027A 		vldr.32	s15, [r8, #8]	@ a_90(D)->z, a_90(D)->z
+ 557              	@ mini3d/shape.c:82: 		shape->center.x += (a->x + b->x + c->x + d->x) / 4 / shape->nFaces;
+  82:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 558              		.loc 1 82 35 discriminator 1 view .LVU133
+ARM GAS  /tmp/ccs8Dd2F.s 			page 14
+
+
+ 559 008e 96ED005A 		vldr.32	s10, [r6]	@ c_96(D)->x, c_96(D)->x
+ 560              	@ mini3d/shape.c:84: 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+ 561              		.loc 1 84 28 discriminator 1 view .LVU134
+ 562 0092 77EE867A 		vadd.f32	s15, s15, s12	@ tmp246, a_90(D)->z, b_93(D)->z
+ 563              	@ mini3d/shape.c:83: 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+  83:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 564              		.loc 1 83 35 discriminator 1 view .LVU135
+ 565 0096 D6ED015A 		vldr.32	s11, [r6, #4]	@ c_96(D)->y, c_96(D)->y
+ 566              	@ mini3d/shape.c:84: 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+ 567              		.loc 1 84 35 discriminator 1 view .LVU136
+ 568 009a 96ED026A 		vldr.32	s12, [r6, #8]	@ c_96(D)->z, c_96(D)->z
+ 569              	@ mini3d/shape.c:82: 		shape->center.x += (a->x + b->x + c->x + d->x) / 4 / shape->nFaces;
+  82:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 570              		.loc 1 82 35 discriminator 1 view .LVU137
+ 571 009e 76EE856A 		vadd.f32	s13, s13, s10	@ tmp225, tmp222, c_96(D)->x
+ 572              	@ mini3d/shape.c:82: 		shape->center.x += (a->x + b->x + c->x + d->x) / 4 / shape->nFaces;
+  82:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 573              		.loc 1 82 42 discriminator 1 view .LVU138
+ 574 00a2 D9ED004A 		vldr.32	s9, [r9]	@ d_99(D)->x, d_99(D)->x
+ 575              	@ mini3d/shape.c:83: 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+  83:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 576              		.loc 1 83 35 discriminator 1 view .LVU139
+ 577 00a6 37EE257A 		vadd.f32	s14, s14, s11	@ tmp237, tmp234, c_96(D)->y
+ 578              	@ mini3d/shape.c:84: 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+ 579              		.loc 1 84 35 discriminator 1 view .LVU140
+ 580 00aa 77EE867A 		vadd.f32	s15, s15, s12	@ tmp249, tmp246, c_96(D)->z
+ 581              	@ mini3d/shape.c:83: 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+  83:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 582              		.loc 1 83 42 discriminator 1 view .LVU141
+ 583 00ae D9ED015A 		vldr.32	s11, [r9, #4]	@ d_99(D)->y, d_99(D)->y
+ 584              	@ mini3d/shape.c:82: 		shape->center.x += (a->x + b->x + c->x + d->x) / 4 / shape->nFaces;
+  82:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 585              		.loc 1 82 42 discriminator 1 view .LVU142
+ 586 00b2 76EEA46A 		vadd.f32	s13, s13, s9	@ tmp227, tmp225, d_99(D)->x
+ 587              	@ mini3d/shape.c:84: 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+ 588              		.loc 1 84 42 discriminator 1 view .LVU143
+ 589 00b6 D9ED024A 		vldr.32	s9, [r9, #8]	@ d_99(D)->z, d_99(D)->z
+ 590              	@ mini3d/shape.c:78: 	++shape->nFaces;
+  78:mini3d/shape.c **** 	
+ 591              		.loc 1 78 2 discriminator 1 view .LVU144
+ 592 00ba E368     		ldr	r3, [r4, #12]	@ shape_86(D)->nFaces, shape_86(D)->nFaces
+ 593              	@ mini3d/shape.c:82: 		shape->center.x += (a->x + b->x + c->x + d->x) / 4 / shape->nFaces;
+  82:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 594              		.loc 1 82 50 discriminator 1 view .LVU145
+ 595 00bc B5EE005A 		vmov.f32	s10, #2.5e-1	@ tmp230,
+ 596              	@ mini3d/shape.c:83: 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+  83:mini3d/shape.c **** 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+ 597              		.loc 1 83 42 discriminator 1 view .LVU146
+ 598 00c0 37EE257A 		vadd.f32	s14, s14, s11	@ tmp239, tmp237, d_99(D)->y
+ 599              	@ mini3d/shape.c:83: 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+  83:mini3d/shape.c **** 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+ 600              		.loc 1 83 19 discriminator 1 view .LVU147
+ 601 00c4 94ED066A 		vldr.32	s12, [r4, #24]	@ shape_86(D)->center.y, shape_86(D)->center.y
+ 602              	@ mini3d/shape.c:84: 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+ 603              		.loc 1 84 42 discriminator 1 view .LVU148
+ 604 00c8 77EEA47A 		vadd.f32	s15, s15, s9	@ tmp251, tmp249, d_99(D)->z
+ 605              	@ mini3d/shape.c:78: 	++shape->nFaces;
+ARM GAS  /tmp/ccs8Dd2F.s 			page 15
+
+
+  78:mini3d/shape.c **** 	
+ 606              		.loc 1 78 2 discriminator 1 view .LVU149
+ 607 00cc 0133     		adds	r3, r3, #1	@ _117, shape_86(D)->nFaces,
+ 608              	@ mini3d/shape.c:82: 		shape->center.x += (a->x + b->x + c->x + d->x) / 4 / shape->nFaces;
+  82:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 609              		.loc 1 82 50 discriminator 1 view .LVU150
+ 610 00ce 66EE856A 		vmul.f32	s13, s13, s10	@ tmp229, tmp227, tmp230
+ 611              	@ mini3d/shape.c:82: 		shape->center.x += (a->x + b->x + c->x + d->x) / 4 / shape->nFaces;
+  82:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 612              		.loc 1 82 19 discriminator 1 view .LVU151
+ 613 00d2 D4ED055A 		vldr.32	s11, [r4, #20]	@ shape_86(D)->center.x, shape_86(D)->center.x
+ 614              	@ mini3d/shape.c:83: 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+  83:mini3d/shape.c **** 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+ 615              		.loc 1 83 50 discriminator 1 view .LVU152
+ 616 00d6 27EE057A 		vmul.f32	s14, s14, s10	@ tmp241, tmp239, tmp230
+ 617              	@ mini3d/shape.c:84: 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+ 618              		.loc 1 84 19 discriminator 1 view .LVU153
+ 619 00da D4ED074A 		vldr.32	s9, [r4, #28]	@ shape_86(D)->center.z, shape_86(D)->center.z
+ 620              	@ mini3d/shape.c:84: 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+ 621              		.loc 1 84 50 discriminator 1 view .LVU154
+ 622 00de 67EE857A 		vmul.f32	s15, s15, s10	@ tmp253, tmp251, tmp230
+ 623              	@ mini3d/shape.c:82: 		shape->center.x += (a->x + b->x + c->x + d->x) / 4 / shape->nFaces;
+  82:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 624              		.loc 1 82 54 discriminator 1 view .LVU155
+ 625 00e2 05EE103A 		vmov	s10, r3	@ int	@ _117, _117
+ 626              	@ mini3d/shape.c:76: 	face->colorBias = colorBias;
+  76:mini3d/shape.c **** 	
+ 627              		.loc 1 76 18 discriminator 1 view .LVU156
+ 628 00e6 8AED028A 		vstr.32	s16, [r10, #8]	@ colorBias, face_89->colorBias
+ 629              	@ mini3d/shape.c:82: 		shape->center.x += (a->x + b->x + c->x + d->x) / 4 / shape->nFaces;
+  82:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 630              		.loc 1 82 54 discriminator 1 view .LVU157
+ 631 00ea B8EEC55A 		vcvt.f32.s32	s10, s10	@ _29, _117
+ 632              	@ mini3d/shape.c:75: 	face->p4 = (d != NULL) ? Shape3D_addPoint(shape, d) : 0xffff;
+  75:mini3d/shape.c **** 	face->colorBias = colorBias;
+ 633              		.loc 1 75 11 discriminator 1 view .LVU158
+ 634 00ee AAF80600 		strh	r0, [r10, #6]	@ movhi	@ tmp298, face_89->p4
+  76:mini3d/shape.c **** 	
+ 635              		.loc 1 76 2 is_stmt 1 discriminator 1 view .LVU159
+  78:mini3d/shape.c **** 	
+ 636              		.loc 1 78 2 discriminator 1 view .LVU160
+ 637 00f2 E360     		str	r3, [r4, #12]	@ _117, shape_86(D)->nFaces
+  80:mini3d/shape.c **** 	{
+ 638              		.loc 1 80 2 discriminator 1 view .LVU161
+  82:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 639              		.loc 1 82 3 discriminator 1 view .LVU162
+ 640              	@ mini3d/shape.c:82: 		shape->center.x += (a->x + b->x + c->x + d->x) / 4 / shape->nFaces;
+  82:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 641              		.loc 1 82 54 is_stmt 0 discriminator 1 view .LVU163
+ 642 00f4 86EE854A 		vdiv.f32	s8, s13, s10	@ tmp231, tmp229, _29
+ 643              	@ mini3d/shape.c:83: 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+  83:mini3d/shape.c **** 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+ 644              		.loc 1 83 54 discriminator 1 view .LVU164
+ 645 00f8 C7EE056A 		vdiv.f32	s13, s14, s10	@ tmp243, tmp241, _29
+ 646              	@ mini3d/shape.c:84: 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+ 647              		.loc 1 84 54 discriminator 1 view .LVU165
+ 648 00fc 87EE857A 		vdiv.f32	s14, s15, s10	@ tmp255, tmp253, _29
+ARM GAS  /tmp/ccs8Dd2F.s 			page 16
+
+
+ 649              	@ mini3d/shape.c:82: 		shape->center.x += (a->x + b->x + c->x + d->x) / 4 / shape->nFaces;
+  82:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 650              		.loc 1 82 19 discriminator 1 view .LVU166
+ 651 0100 75EE845A 		vadd.f32	s11, s11, s8	@ tmp232, shape_86(D)->center.x, tmp231
+ 652              	@ mini3d/shape.c:92: }
+  85:mini3d/shape.c **** 	}
+  86:mini3d/shape.c **** 	else
+  87:mini3d/shape.c **** 	{
+  88:mini3d/shape.c **** 		shape->center.x += (a->x + b->x + c->x) / 3 / shape->nFaces;
+  89:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+  90:mini3d/shape.c **** 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+  91:mini3d/shape.c **** 	}
+  92:mini3d/shape.c **** }
+ 653              		.loc 1 92 1 discriminator 1 view .LVU167
+ 654 0104 BDEC028B 		vldm	sp!, {d8}	@
+ 655              	.LCFI5:
+ 656              		.cfi_remember_state
+ 657              		.cfi_restore 80
+ 658              		.cfi_restore 81
+ 659              		.cfi_def_cfa_offset 40
+ 660              	.LVL29:
+ 661              	@ mini3d/shape.c:82: 		shape->center.x += (a->x + b->x + c->x + d->x) / 4 / shape->nFaces;
+  82:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+ 662              		.loc 1 82 19 discriminator 1 view .LVU168
+ 663 0108 C4ED055A 		vstr.32	s11, [r4, #20]	@ tmp232, shape_86(D)->center.x
+  83:mini3d/shape.c **** 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+ 664              		.loc 1 83 3 is_stmt 1 discriminator 1 view .LVU169
+ 665              	@ mini3d/shape.c:83: 		shape->center.y += (a->y + b->y + c->y + d->y) / 4 / shape->nFaces;
+  83:mini3d/shape.c **** 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+ 666              		.loc 1 83 19 is_stmt 0 discriminator 1 view .LVU170
+ 667 010c 76EE266A 		vadd.f32	s13, s12, s13	@ tmp244, shape_86(D)->center.y, tmp243
+ 668 0110 C4ED066A 		vstr.32	s13, [r4, #24]	@ tmp244, shape_86(D)->center.y
+  84:mini3d/shape.c **** 	}
+ 669              		.loc 1 84 3 is_stmt 1 discriminator 1 view .LVU171
+ 670              	@ mini3d/shape.c:84: 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+  84:mini3d/shape.c **** 	}
+ 671              		.loc 1 84 19 is_stmt 0 discriminator 1 view .LVU172
+ 672 0114 77EE247A 		vadd.f32	s15, s14, s9	@ _53, tmp255, shape_86(D)->center.z
+ 673 0118 C4ED077A 		vstr.32	s15, [r4, #28]	@ _53, shape_86(D)->center.z
+ 674              	@ mini3d/shape.c:92: }
+ 675              		.loc 1 92 1 discriminator 1 view .LVU173
+ 676 011c BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}	@
+ 677              	.LVL30:
+ 678              	.L33:
+ 679              	.LCFI6:
+ 680              		.cfi_restore_state
+ 681              	@ mini3d/shape.c:88: 		shape->center.x += (a->x + b->x + c->x) / 3 / shape->nFaces;
+  88:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+ 682              		.loc 1 88 28 view .LVU174
+ 683 0120 97ED005A 		vldr.32	s10, [r7]	@ b_93(D)->x, b_93(D)->x
+ 684              	@ mini3d/shape.c:75: 	face->p4 = (d != NULL) ? Shape3D_addPoint(shape, d) : 0xffff;
+  75:mini3d/shape.c **** 	face->colorBias = colorBias;
+ 685              		.loc 1 75 11 view .LVU175
+ 686 0124 4FF6FF72 		movw	r2, #65535	@ tmp258,
+ 687              	@ mini3d/shape.c:89: 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+  89:mini3d/shape.c **** 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+ 688              		.loc 1 89 28 view .LVU176
+ARM GAS  /tmp/ccs8Dd2F.s 			page 17
+
+
+ 689 0128 D7ED015A 		vldr.32	s11, [r7, #4]	@ b_93(D)->y, b_93(D)->y
+ 690              	@ mini3d/shape.c:90: 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+  90:mini3d/shape.c **** 	}
+ 691              		.loc 1 90 28 view .LVU177
+ 692 012c 97ED026A 		vldr.32	s12, [r7, #8]	@ b_93(D)->z, b_93(D)->z
+ 693              	@ mini3d/shape.c:88: 		shape->center.x += (a->x + b->x + c->x) / 3 / shape->nFaces;
+  88:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+ 694              		.loc 1 88 28 view .LVU178
+ 695 0130 D8ED006A 		vldr.32	s13, [r8]	@ a_90(D)->x, a_90(D)->x
+ 696              	@ mini3d/shape.c:89: 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+  89:mini3d/shape.c **** 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+ 697              		.loc 1 89 28 view .LVU179
+ 698 0134 98ED017A 		vldr.32	s14, [r8, #4]	@ a_90(D)->y, a_90(D)->y
+ 699              	@ mini3d/shape.c:90: 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+  90:mini3d/shape.c **** 	}
+ 700              		.loc 1 90 28 view .LVU180
+ 701 0138 D8ED027A 		vldr.32	s15, [r8, #8]	@ a_90(D)->z, a_90(D)->z
+ 702              	@ mini3d/shape.c:88: 		shape->center.x += (a->x + b->x + c->x) / 3 / shape->nFaces;
+  88:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+ 703              		.loc 1 88 28 view .LVU181
+ 704 013c 76EE856A 		vadd.f32	s13, s13, s10	@ tmp260, a_90(D)->x, b_93(D)->x
+ 705              	@ mini3d/shape.c:89: 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+  89:mini3d/shape.c **** 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+ 706              		.loc 1 89 28 view .LVU182
+ 707 0140 37EE257A 		vadd.f32	s14, s14, s11	@ tmp270, a_90(D)->y, b_93(D)->y
+ 708              	@ mini3d/shape.c:88: 		shape->center.x += (a->x + b->x + c->x) / 3 / shape->nFaces;
+  88:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+ 709              		.loc 1 88 35 view .LVU183
+ 710 0144 D6ED004A 		vldr.32	s9, [r6]	@ c_96(D)->x, c_96(D)->x
+ 711              	@ mini3d/shape.c:90: 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+  90:mini3d/shape.c **** 	}
+ 712              		.loc 1 90 28 view .LVU184
+ 713 0148 77EE867A 		vadd.f32	s15, s15, s12	@ tmp280, a_90(D)->z, b_93(D)->z
+ 714              	@ mini3d/shape.c:89: 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+  89:mini3d/shape.c **** 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+ 715              		.loc 1 89 35 view .LVU185
+ 716 014c D6ED015A 		vldr.32	s11, [r6, #4]	@ c_96(D)->y, c_96(D)->y
+ 717              	@ mini3d/shape.c:90: 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+  90:mini3d/shape.c **** 	}
+ 718              		.loc 1 90 35 view .LVU186
+ 719 0150 96ED026A 		vldr.32	s12, [r6, #8]	@ c_96(D)->z, c_96(D)->z
+ 720              	@ mini3d/shape.c:88: 		shape->center.x += (a->x + b->x + c->x) / 3 / shape->nFaces;
+  88:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+ 721              		.loc 1 88 43 view .LVU187
+ 722 0154 B0EE085A 		vmov.f32	s10, #3.0e+0	@ tmp266,
+ 723              	@ mini3d/shape.c:88: 		shape->center.x += (a->x + b->x + c->x) / 3 / shape->nFaces;
+  88:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+ 724              		.loc 1 88 35 view .LVU188
+ 725 0158 76EEA46A 		vadd.f32	s13, s13, s9	@ tmp263, tmp260, c_96(D)->x
+ 726              	@ mini3d/shape.c:78: 	++shape->nFaces;
+  78:mini3d/shape.c **** 	
+ 727              		.loc 1 78 2 view .LVU189
+ 728 015c E368     		ldr	r3, [r4, #12]	@ shape_86(D)->nFaces, shape_86(D)->nFaces
+ 729              	@ mini3d/shape.c:89: 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+  89:mini3d/shape.c **** 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+ 730              		.loc 1 89 35 view .LVU190
+ 731 015e 37EE257A 		vadd.f32	s14, s14, s11	@ tmp273, tmp270, c_96(D)->y
+ARM GAS  /tmp/ccs8Dd2F.s 			page 18
+
+
+ 732              	@ mini3d/shape.c:90: 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+  90:mini3d/shape.c **** 	}
+ 733              		.loc 1 90 19 view .LVU191
+ 734 0162 D4ED074A 		vldr.32	s9, [r4, #28]	@ shape_86(D)->center.z, shape_86(D)->center.z
+ 735              	@ mini3d/shape.c:90: 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+  90:mini3d/shape.c **** 	}
+ 736              		.loc 1 90 35 view .LVU192
+ 737 0166 77EE867A 		vadd.f32	s15, s15, s12	@ tmp283, tmp280, c_96(D)->z
+ 738              	@ mini3d/shape.c:78: 	++shape->nFaces;
+  78:mini3d/shape.c **** 	
+ 739              		.loc 1 78 2 view .LVU193
+ 740 016a 0133     		adds	r3, r3, #1	@ _124, shape_86(D)->nFaces,
+ 741              	@ mini3d/shape.c:88: 		shape->center.x += (a->x + b->x + c->x) / 3 / shape->nFaces;
+  88:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+ 742              		.loc 1 88 43 view .LVU194
+ 743 016c 86EE853A 		vdiv.f32	s6, s13, s10	@ tmp265, tmp263, tmp266
+ 744              	@ mini3d/shape.c:88: 		shape->center.x += (a->x + b->x + c->x) / 3 / shape->nFaces;
+  88:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+ 745              		.loc 1 88 19 view .LVU195
+ 746 0170 D4ED055A 		vldr.32	s11, [r4, #20]	@ shape_86(D)->center.x, shape_86(D)->center.x
+ 747              	@ mini3d/shape.c:89: 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+  89:mini3d/shape.c **** 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+ 748              		.loc 1 89 19 view .LVU196
+ 749 0174 94ED066A 		vldr.32	s12, [r4, #24]	@ shape_86(D)->center.y, shape_86(D)->center.y
+ 750              	@ mini3d/shape.c:76: 	face->colorBias = colorBias;
+  76:mini3d/shape.c **** 	
+ 751              		.loc 1 76 18 view .LVU197
+ 752 0178 8AED028A 		vstr.32	s16, [r10, #8]	@ colorBias, face_89->colorBias
+ 753              	@ mini3d/shape.c:75: 	face->p4 = (d != NULL) ? Shape3D_addPoint(shape, d) : 0xffff;
+  75:mini3d/shape.c **** 	face->colorBias = colorBias;
+ 754              		.loc 1 75 11 view .LVU198
+ 755 017c AAF80620 		strh	r2, [r10, #6]	@ movhi	@ tmp258, face_89->p4
+  76:mini3d/shape.c **** 	
+ 756              		.loc 1 76 2 is_stmt 1 view .LVU199
+  78:mini3d/shape.c **** 	
+ 757              		.loc 1 78 2 view .LVU200
+ 758 0180 E360     		str	r3, [r4, #12]	@ _124, shape_86(D)->nFaces
+  80:mini3d/shape.c **** 	{
+ 759              		.loc 1 80 2 view .LVU201
+  88:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+ 760              		.loc 1 88 3 view .LVU202
+ 761              	@ mini3d/shape.c:90: 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+  90:mini3d/shape.c **** 	}
+ 762              		.loc 1 90 43 is_stmt 0 view .LVU203
+ 763 0182 87EE854A 		vdiv.f32	s8, s15, s10	@ tmp285, tmp283, tmp266
+ 764              	@ mini3d/shape.c:88: 		shape->center.x += (a->x + b->x + c->x) / 3 / shape->nFaces;
+  88:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+ 765              		.loc 1 88 47 view .LVU204
+ 766 0186 07EE903A 		vmov	s15, r3	@ int	@ _124, _124
+ 767              	@ mini3d/shape.c:89: 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+  89:mini3d/shape.c **** 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+ 768              		.loc 1 89 43 view .LVU205
+ 769 018a C7EE053A 		vdiv.f32	s7, s14, s10	@ tmp275, tmp273, tmp266
+ 770              	@ mini3d/shape.c:88: 		shape->center.x += (a->x + b->x + c->x) / 3 / shape->nFaces;
+  88:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+ 771              		.loc 1 88 47 view .LVU206
+ 772 018e B8EEE77A 		vcvt.f32.s32	s14, s15	@ _61, _124
+ARM GAS  /tmp/ccs8Dd2F.s 			page 19
+
+
+ 773              	@ mini3d/shape.c:92: }
+ 774              		.loc 1 92 1 view .LVU207
+ 775 0192 BDEC028B 		vldm	sp!, {d8}	@
+ 776              	.LCFI7:
+ 777              		.cfi_restore 80
+ 778              		.cfi_restore 81
+ 779              		.cfi_def_cfa_offset 40
+ 780              	.LVL31:
+ 781              	@ mini3d/shape.c:88: 		shape->center.x += (a->x + b->x + c->x) / 3 / shape->nFaces;
+  88:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+ 782              		.loc 1 88 47 view .LVU208
+ 783 0196 C3EE076A 		vdiv.f32	s13, s6, s14	@ tmp267, tmp265, _61
+ 784              	@ mini3d/shape.c:90: 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+  90:mini3d/shape.c **** 	}
+ 785              		.loc 1 90 47 view .LVU209
+ 786 019a C4EE077A 		vdiv.f32	s15, s8, s14	@ tmp287, tmp285, _61
+ 787              	@ mini3d/shape.c:89: 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+  89:mini3d/shape.c **** 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+ 788              		.loc 1 89 47 view .LVU210
+ 789 019e 83EE875A 		vdiv.f32	s10, s7, s14	@ tmp277, tmp275, _61
+ 790              	@ mini3d/shape.c:88: 		shape->center.x += (a->x + b->x + c->x) / 3 / shape->nFaces;
+  88:mini3d/shape.c **** 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+ 791              		.loc 1 88 19 view .LVU211
+ 792 01a2 75EEA66A 		vadd.f32	s13, s11, s13	@ tmp268, shape_86(D)->center.x, tmp267
+ 793 01a6 C4ED056A 		vstr.32	s13, [r4, #20]	@ tmp268, shape_86(D)->center.x
+  89:mini3d/shape.c **** 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+ 794              		.loc 1 89 3 is_stmt 1 view .LVU212
+ 795              	@ mini3d/shape.c:90: 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+  90:mini3d/shape.c **** 	}
+ 796              		.loc 1 90 19 is_stmt 0 view .LVU213
+ 797 01aa 77EEA47A 		vadd.f32	s15, s15, s9	@ _53, tmp287, shape_86(D)->center.z
+ 798              	@ mini3d/shape.c:84: 		shape->center.z += (a->z + b->z + c->z + d->z) / 4 / shape->nFaces;
+  84:mini3d/shape.c **** 	}
+ 799              		.loc 1 84 19 view .LVU214
+ 800 01ae C4ED077A 		vstr.32	s15, [r4, #28]	@ _53, shape_86(D)->center.z
+ 801              	@ mini3d/shape.c:89: 		shape->center.y += (a->y + b->y + c->y) / 3 / shape->nFaces;
+  89:mini3d/shape.c **** 		shape->center.z += (a->z + b->z + c->z) / 3 / shape->nFaces;
+ 802              		.loc 1 89 19 view .LVU215
+ 803 01b2 36EE057A 		vadd.f32	s14, s12, s10	@ tmp278, shape_86(D)->center.y, tmp277
+ 804 01b6 84ED067A 		vstr.32	s14, [r4, #24]	@ tmp278, shape_86(D)->center.y
+  90:mini3d/shape.c **** 	}
+ 805              		.loc 1 90 3 is_stmt 1 view .LVU216
+ 806              	@ mini3d/shape.c:92: }
+ 807              		.loc 1 92 1 is_stmt 0 view .LVU217
+ 808 01ba BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}	@
+ 809              	.LVL32:
+ 810              	.L37:
+ 811              		.loc 1 92 1 view .LVU218
+ 812 01be 00BF     		.align	2
+ 813              	.L36:
+ 814 01c0 00000000 		.word	m3d_realloc
+ 815              		.cfi_endproc
+ 816              	.LFE16:
+ 817              		.size	Shape3D_addFace, .-Shape3D_addFace
+ 818              		.section	.text.Shape3D_setClosed,"ax",%progbits
+ 819              		.align	1
+ 820              		.p2align 4,,15
+ARM GAS  /tmp/ccs8Dd2F.s 			page 20
+
+
+ 821              		.global	Shape3D_setClosed
+ 822              		.syntax unified
+ 823              		.thumb
+ 824              		.thumb_func
+ 825              		.type	Shape3D_setClosed, %function
+ 826              	Shape3D_setClosed:
+ 827              	.LVL33:
+ 828              	.LFB17:
+  93:mini3d/shape.c **** 
+  94:mini3d/shape.c **** void Shape3D_setClosed(Shape3D* shape, int flag)
+  95:mini3d/shape.c **** {
+ 829              		.loc 1 95 1 is_stmt 1 view -0
+ 830              		.cfi_startproc
+ 831              		@ args = 0, pretend = 0, frame = 0
+ 832              		@ frame_needed = 0, uses_anonymous_args = 0
+ 833              		@ link register save eliminated.
+  96:mini3d/shape.c **** 	shape->isClosed = flag;
+ 834              		.loc 1 96 2 view .LVU220
+ 835              	@ mini3d/shape.c:96: 	shape->isClosed = flag;
+ 836              		.loc 1 96 18 is_stmt 0 view .LVU221
+ 837 0000 90F82430 		ldrb	r3, [r0, #36]	@ zero_extendqisi2	@, shape_4(D)->isClosed
+ 838 0004 61F30003 		bfi	r3, r1, #0, #1	@ shape_4(D)->isClosed, tmp119,,
+ 839 0008 80F82430 		strb	r3, [r0, #36]	@ shape_4(D)->isClosed, shape_4(D)->isClosed
+ 840              	@ mini3d/shape.c:97: }
+  97:mini3d/shape.c **** }
+ 841              		.loc 1 97 1 view .LVU222
+ 842 000c 7047     		bx	lr	@
+ 843              		.cfi_endproc
+ 844              	.LFE17:
+ 845              		.size	Shape3D_setClosed, .-Shape3D_setClosed
+ 846 000e 00BF     		.section	.text.Shape3D_setOrderTableSize,"ax",%progbits
+ 847              		.align	1
+ 848              		.p2align 4,,15
+ 849              		.global	Shape3D_setOrderTableSize
+ 850              		.syntax unified
+ 851              		.thumb
+ 852              		.thumb_func
+ 853              		.type	Shape3D_setOrderTableSize, %function
+ 854              	Shape3D_setOrderTableSize:
+ 855              	.LVL34:
+ 856              	.LFB18:
+  98:mini3d/shape.c **** 
+  99:mini3d/shape.c **** #if ENABLE_ORDERING_TABLE
+ 100:mini3d/shape.c **** void Shape3D_setOrderTableSize(Shape3D* shape, int size)
+ 101:mini3d/shape.c **** {
+ 857              		.loc 1 101 1 is_stmt 1 view -0
+ 858              		.cfi_startproc
+ 859              		@ args = 0, pretend = 0, frame = 0
+ 860              		@ frame_needed = 0, uses_anonymous_args = 0
+ 861              		@ link register save eliminated.
+ 102:mini3d/shape.c **** 	shape->orderTableSize = size;
+ 862              		.loc 1 102 2 view .LVU224
+ 863              	@ mini3d/shape.c:102: 	shape->orderTableSize = size;
+ 864              		.loc 1 102 24 is_stmt 0 view .LVU225
+ 865 0000 8162     		str	r1, [r0, #40]	@ tmp116, shape_2(D)->orderTableSize
+ 866              	@ mini3d/shape.c:103: }
+ 103:mini3d/shape.c **** }
+ARM GAS  /tmp/ccs8Dd2F.s 			page 21
+
+
+ 867              		.loc 1 103 1 view .LVU226
+ 868 0002 7047     		bx	lr	@
+ 869              		.cfi_endproc
+ 870              	.LFE18:
+ 871              		.size	Shape3D_setOrderTableSize, .-Shape3D_setOrderTableSize
+ 872              		.text
+ 873              	.Letext0:
+ 874              		.file 3 "/usr/lib/gcc/arm-none-eabi/12.2.0/include/stddef.h"
+ 875              		.file 4 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 876              		.file 5 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 877              		.file 6 "mini3d/shape.h"
+ 878              		.file 7 "mini3d/mini3d.h"
+ 879              		.section	.debug_info,"",%progbits
+ 880              	.Ldebug_info0:
+ 881 0000 11050000 		.4byte	0x511
+ 882 0004 0200     		.2byte	0x2
+ 883 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 884 000a 04       		.byte	0x4
+ 885 000b 01       		.uleb128 0x1
+ 886 000c 44010000 		.4byte	.LASF40
+ 887 0010 0C       		.byte	0xc
+ 888 0011 61000000 		.4byte	.LASF41
+ 889 0015 CC000000 		.4byte	.LASF42
+ 890 0019 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 891 001d 00000000 		.4byte	0
+ 892 0021 00000000 		.4byte	0
+ 893 0025 00000000 		.4byte	.Ldebug_line0
+ 894 0029 02       		.uleb128 0x2
+ 895 002a 04       		.byte	0x4
+ 896 002b 04       		.byte	0x4
+ 897 002c 11000000 		.4byte	.LASF0
+ 898 0030 03       		.uleb128 0x3
+ 899 0031 04       		.byte	0x4
+ 900 0032 05       		.byte	0x5
+ 901 0033 696E7400 		.ascii	"int\000"
+ 902 0037 04       		.uleb128 0x4
+ 903 0038 00000000 		.4byte	.LASF7
+ 904 003c 03       		.byte	0x3
+ 905 003d D6       		.byte	0xd6
+ 906 003e 17       		.byte	0x17
+ 907 003f 43000000 		.4byte	0x43
+ 908 0043 02       		.uleb128 0x2
+ 909 0044 04       		.byte	0x4
+ 910 0045 07       		.byte	0x7
+ 911 0046 0E010000 		.4byte	.LASF1
+ 912 004a 02       		.uleb128 0x2
+ 913 004b 08       		.byte	0x8
+ 914 004c 05       		.byte	0x5
+ 915 004d 0E020000 		.4byte	.LASF2
+ 916 0051 02       		.uleb128 0x2
+ 917 0052 08       		.byte	0x8
+ 918 0053 04       		.byte	0x4
+ 919 0054 8C020000 		.4byte	.LASF3
+ 920 0058 05       		.uleb128 0x5
+ 921 0059 01       		.byte	0x1
+ 922 005a 6D000000 		.4byte	0x6d
+ 923 005e 6D000000 		.4byte	0x6d
+ARM GAS  /tmp/ccs8Dd2F.s 			page 22
+
+
+ 924 0062 06       		.uleb128 0x6
+ 925 0063 6D000000 		.4byte	0x6d
+ 926 0067 06       		.uleb128 0x6
+ 927 0068 37000000 		.4byte	0x37
+ 928 006c 00       		.byte	0
+ 929 006d 07       		.uleb128 0x7
+ 930 006e 04       		.byte	0x4
+ 931 006f 08       		.uleb128 0x8
+ 932 0070 02020000 		.4byte	.LASF33
+ 933 0074 07       		.byte	0x7
+ 934 0075 17       		.byte	0x17
+ 935 0076 10       		.byte	0x10
+ 936 0077 7D000000 		.4byte	0x7d
+ 937 007b 01       		.byte	0x1
+ 938 007c 01       		.byte	0x1
+ 939 007d 09       		.uleb128 0x9
+ 940 007e 04       		.byte	0x4
+ 941 007f 58000000 		.4byte	0x58
+ 942 0083 02       		.uleb128 0x2
+ 943 0084 01       		.byte	0x1
+ 944 0085 06       		.byte	0x6
+ 945 0086 A1020000 		.4byte	.LASF4
+ 946 008a 02       		.uleb128 0x2
+ 947 008b 01       		.byte	0x1
+ 948 008c 08       		.byte	0x8
+ 949 008d B7000000 		.4byte	.LASF5
+ 950 0091 02       		.uleb128 0x2
+ 951 0092 02       		.byte	0x2
+ 952 0093 05       		.byte	0x5
+ 953 0094 57020000 		.4byte	.LASF6
+ 954 0098 04       		.uleb128 0x4
+ 955 0099 03010000 		.4byte	.LASF8
+ 956 009d 04       		.byte	0x4
+ 957 009e 39       		.byte	0x39
+ 958 009f 19       		.byte	0x19
+ 959 00a0 A4000000 		.4byte	0xa4
+ 960 00a4 02       		.uleb128 0x2
+ 961 00a5 02       		.byte	0x2
+ 962 00a6 07       		.byte	0x7
+ 963 00a7 97000000 		.4byte	.LASF9
+ 964 00ab 02       		.uleb128 0x2
+ 965 00ac 04       		.byte	0x4
+ 966 00ad 05       		.byte	0x5
+ 967 00ae 7E020000 		.4byte	.LASF10
+ 968 00b2 02       		.uleb128 0x2
+ 969 00b3 04       		.byte	0x4
+ 970 00b4 07       		.byte	0x7
+ 971 00b5 85000000 		.4byte	.LASF11
+ 972 00b9 02       		.uleb128 0x2
+ 973 00ba 08       		.byte	0x8
+ 974 00bb 07       		.byte	0x7
+ 975 00bc 2D010000 		.4byte	.LASF12
+ 976 00c0 02       		.uleb128 0x2
+ 977 00c1 01       		.byte	0x1
+ 978 00c2 08       		.byte	0x8
+ 979 00c3 87020000 		.4byte	.LASF13
+ 980 00c7 04       		.uleb128 0x4
+ARM GAS  /tmp/ccs8Dd2F.s 			page 23
+
+
+ 981 00c8 68020000 		.4byte	.LASF14
+ 982 00cc 05       		.byte	0x5
+ 983 00cd 24       		.byte	0x24
+ 984 00ce 14       		.byte	0x14
+ 985 00cf 98000000 		.4byte	0x98
+ 986 00d3 02       		.uleb128 0x2
+ 987 00d4 08       		.byte	0x8
+ 988 00d5 04       		.byte	0x4
+ 989 00d6 C5000000 		.4byte	.LASF15
+ 990 00da 0A       		.uleb128 0xa
+ 991 00db 0C       		.byte	0xc
+ 992 00dc 02       		.byte	0x2
+ 993 00dd 1A       		.byte	0x1a
+ 994 00de 09       		.byte	0x9
+ 995 00df 0B010000 		.4byte	0x10b
+ 996 00e3 0B       		.uleb128 0xb
+ 997 00e4 7800     		.ascii	"x\000"
+ 998 00e6 02       		.byte	0x2
+ 999 00e7 1C       		.byte	0x1c
+ 1000 00e8 08       		.byte	0x8
+ 1001 00e9 29000000 		.4byte	0x29
+ 1002 00ed 02       		.byte	0x2
+ 1003 00ee 23       		.byte	0x23
+ 1004 00ef 00       		.uleb128 0
+ 1005 00f0 0B       		.uleb128 0xb
+ 1006 00f1 7900     		.ascii	"y\000"
+ 1007 00f3 02       		.byte	0x2
+ 1008 00f4 1D       		.byte	0x1d
+ 1009 00f5 08       		.byte	0x8
+ 1010 00f6 29000000 		.4byte	0x29
+ 1011 00fa 02       		.byte	0x2
+ 1012 00fb 23       		.byte	0x23
+ 1013 00fc 04       		.uleb128 0x4
+ 1014 00fd 0B       		.uleb128 0xb
+ 1015 00fe 7A00     		.ascii	"z\000"
+ 1016 0100 02       		.byte	0x2
+ 1017 0101 1E       		.byte	0x1e
+ 1018 0102 08       		.byte	0x8
+ 1019 0103 29000000 		.4byte	0x29
+ 1020 0107 02       		.byte	0x2
+ 1021 0108 23       		.byte	0x23
+ 1022 0109 08       		.uleb128 0x8
+ 1023 010a 00       		.byte	0
+ 1024 010b 04       		.uleb128 0x4
+ 1025 010c AD020000 		.4byte	.LASF16
+ 1026 0110 02       		.byte	0x2
+ 1027 0111 1F       		.byte	0x1f
+ 1028 0112 03       		.byte	0x3
+ 1029 0113 DA000000 		.4byte	0xda
+ 1030 0117 0A       		.uleb128 0xa
+ 1031 0118 0C       		.byte	0xc
+ 1032 0119 06       		.byte	0x6
+ 1033 011a 0F       		.byte	0xf
+ 1034 011b 09       		.byte	0x9
+ 1035 011c 68010000 		.4byte	0x168
+ 1036 0120 0B       		.uleb128 0xb
+ 1037 0121 703100   		.ascii	"p1\000"
+ARM GAS  /tmp/ccs8Dd2F.s 			page 24
+
+
+ 1038 0124 06       		.byte	0x6
+ 1039 0125 11       		.byte	0x11
+ 1040 0126 0B       		.byte	0xb
+ 1041 0127 C7000000 		.4byte	0xc7
+ 1042 012b 02       		.byte	0x2
+ 1043 012c 23       		.byte	0x23
+ 1044 012d 00       		.uleb128 0
+ 1045 012e 0B       		.uleb128 0xb
+ 1046 012f 703200   		.ascii	"p2\000"
+ 1047 0132 06       		.byte	0x6
+ 1048 0133 12       		.byte	0x12
+ 1049 0134 0B       		.byte	0xb
+ 1050 0135 C7000000 		.4byte	0xc7
+ 1051 0139 02       		.byte	0x2
+ 1052 013a 23       		.byte	0x23
+ 1053 013b 02       		.uleb128 0x2
+ 1054 013c 0B       		.uleb128 0xb
+ 1055 013d 703300   		.ascii	"p3\000"
+ 1056 0140 06       		.byte	0x6
+ 1057 0141 13       		.byte	0x13
+ 1058 0142 0B       		.byte	0xb
+ 1059 0143 C7000000 		.4byte	0xc7
+ 1060 0147 02       		.byte	0x2
+ 1061 0148 23       		.byte	0x23
+ 1062 0149 04       		.uleb128 0x4
+ 1063 014a 0B       		.uleb128 0xb
+ 1064 014b 703400   		.ascii	"p4\000"
+ 1065 014e 06       		.byte	0x6
+ 1066 014f 14       		.byte	0x14
+ 1067 0150 0B       		.byte	0xb
+ 1068 0151 C7000000 		.4byte	0xc7
+ 1069 0155 02       		.byte	0x2
+ 1070 0156 23       		.byte	0x23
+ 1071 0157 06       		.uleb128 0x6
+ 1072 0158 0C       		.uleb128 0xc
+ 1073 0159 07000000 		.4byte	.LASF17
+ 1074 015d 06       		.byte	0x6
+ 1075 015e 15       		.byte	0x15
+ 1076 015f 08       		.byte	0x8
+ 1077 0160 29000000 		.4byte	0x29
+ 1078 0164 02       		.byte	0x2
+ 1079 0165 23       		.byte	0x23
+ 1080 0166 08       		.uleb128 0x8
+ 1081 0167 00       		.byte	0
+ 1082 0168 04       		.uleb128 0x4
+ 1083 0169 B0000000 		.4byte	.LASF18
+ 1084 016d 06       		.byte	0x6
+ 1085 016e 16       		.byte	0x16
+ 1086 016f 03       		.byte	0x3
+ 1087 0170 17010000 		.4byte	0x117
+ 1088 0174 0A       		.uleb128 0xa
+ 1089 0175 2C       		.byte	0x2c
+ 1090 0176 06       		.byte	0x6
+ 1091 0177 18       		.byte	0x18
+ 1092 0178 09       		.byte	0x9
+ 1093 0179 08020000 		.4byte	0x208
+ 1094 017d 0C       		.uleb128 0xc
+ARM GAS  /tmp/ccs8Dd2F.s 			page 25
+
+
+ 1095 017e 4E000000 		.4byte	.LASF19
+ 1096 0182 06       		.byte	0x6
+ 1097 0183 1A       		.byte	0x1a
+ 1098 0184 06       		.byte	0x6
+ 1099 0185 30000000 		.4byte	0x30
+ 1100 0189 02       		.byte	0x2
+ 1101 018a 23       		.byte	0x23
+ 1102 018b 00       		.uleb128 0
+ 1103 018c 0C       		.uleb128 0xc
+ 1104 018d 40020000 		.4byte	.LASF20
+ 1105 0191 06       		.byte	0x6
+ 1106 0192 1B       		.byte	0x1b
+ 1107 0193 06       		.byte	0x6
+ 1108 0194 30000000 		.4byte	0x30
+ 1109 0198 02       		.byte	0x2
+ 1110 0199 23       		.byte	0x23
+ 1111 019a 04       		.uleb128 0x4
+ 1112 019b 0C       		.uleb128 0xc
+ 1113 019c 2D000000 		.4byte	.LASF21
+ 1114 01a0 06       		.byte	0x6
+ 1115 01a1 1C       		.byte	0x1c
+ 1116 01a2 0B       		.byte	0xb
+ 1117 01a3 08020000 		.4byte	0x208
+ 1118 01a7 02       		.byte	0x2
+ 1119 01a8 23       		.byte	0x23
+ 1120 01a9 08       		.uleb128 0x8
+ 1121 01aa 0C       		.uleb128 0xc
+ 1122 01ab 5A000000 		.4byte	.LASF22
+ 1123 01af 06       		.byte	0x6
+ 1124 01b0 1D       		.byte	0x1d
+ 1125 01b1 06       		.byte	0x6
+ 1126 01b2 30000000 		.4byte	0x30
+ 1127 01b6 02       		.byte	0x2
+ 1128 01b7 23       		.byte	0x23
+ 1129 01b8 0C       		.uleb128 0xc
+ 1130 01b9 0C       		.uleb128 0xc
+ 1131 01ba 29020000 		.4byte	.LASF23
+ 1132 01be 06       		.byte	0x6
+ 1133 01bf 1E       		.byte	0x1e
+ 1134 01c0 0A       		.byte	0xa
+ 1135 01c1 0E020000 		.4byte	0x20e
+ 1136 01c5 02       		.byte	0x2
+ 1137 01c6 23       		.byte	0x23
+ 1138 01c7 10       		.uleb128 0x10
+ 1139 01c8 0C       		.uleb128 0xc
+ 1140 01c9 61020000 		.4byte	.LASF24
+ 1141 01cd 06       		.byte	0x6
+ 1142 01ce 1F       		.byte	0x1f
+ 1143 01cf 0A       		.byte	0xa
+ 1144 01d0 0B010000 		.4byte	0x10b
+ 1145 01d4 02       		.byte	0x2
+ 1146 01d5 23       		.byte	0x23
+ 1147 01d6 14       		.uleb128 0x14
+ 1148 01d7 0C       		.uleb128 0xc
+ 1149 01d8 07000000 		.4byte	.LASF17
+ 1150 01dc 06       		.byte	0x6
+ 1151 01dd 20       		.byte	0x20
+ARM GAS  /tmp/ccs8Dd2F.s 			page 26
+
+
+ 1152 01de 08       		.byte	0x8
+ 1153 01df 29000000 		.4byte	0x29
+ 1154 01e3 02       		.byte	0x2
+ 1155 01e4 23       		.byte	0x23
+ 1156 01e5 20       		.uleb128 0x20
+ 1157 01e6 0D       		.uleb128 0xd
+ 1158 01e7 98020000 		.4byte	.LASF43
+ 1159 01eb 06       		.byte	0x6
+ 1160 01ec 21       		.byte	0x21
+ 1161 01ed 06       		.byte	0x6
+ 1162 01ee 30000000 		.4byte	0x30
+ 1163 01f2 04       		.byte	0x4
+ 1164 01f3 01       		.byte	0x1
+ 1165 01f4 1F       		.byte	0x1f
+ 1166 01f5 02       		.byte	0x2
+ 1167 01f6 23       		.byte	0x23
+ 1168 01f7 24       		.uleb128 0x24
+ 1169 01f8 0C       		.uleb128 0xc
+ 1170 01f9 C4020000 		.4byte	.LASF25
+ 1171 01fd 06       		.byte	0x6
+ 1172 01fe 23       		.byte	0x23
+ 1173 01ff 06       		.byte	0x6
+ 1174 0200 30000000 		.4byte	0x30
+ 1175 0204 02       		.byte	0x2
+ 1176 0205 23       		.byte	0x23
+ 1177 0206 28       		.uleb128 0x28
+ 1178 0207 00       		.byte	0
+ 1179 0208 09       		.uleb128 0x9
+ 1180 0209 04       		.byte	0x4
+ 1181 020a 0B010000 		.4byte	0x10b
+ 1182 020e 09       		.uleb128 0x9
+ 1183 020f 04       		.byte	0x4
+ 1184 0210 68010000 		.4byte	0x168
+ 1185 0214 04       		.uleb128 0x4
+ 1186 0215 76020000 		.4byte	.LASF26
+ 1187 0219 06       		.byte	0x6
+ 1188 021a 25       		.byte	0x25
+ 1189 021b 03       		.byte	0x3
+ 1190 021c 74010000 		.4byte	0x174
+ 1191 0220 0E       		.uleb128 0xe
+ 1192 0221 01       		.byte	0x1
+ 1193 0222 34000000 		.4byte	.LASF29
+ 1194 0226 01       		.byte	0x1
+ 1195 0227 64       		.byte	0x64
+ 1196 0228 06       		.byte	0x6
+ 1197 0229 01       		.byte	0x1
+ 1198 022a 00000000 		.4byte	.LFB18
+ 1199 022e 04000000 		.4byte	.LFE18
+ 1200 0232 02       		.byte	0x2
+ 1201 0233 7D       		.byte	0x7d
+ 1202 0234 00       		.sleb128 0
+ 1203 0235 01       		.byte	0x1
+ 1204 0236 57020000 		.4byte	0x257
+ 1205 023a 0F       		.uleb128 0xf
+ 1206 023b AA000000 		.4byte	.LASF27
+ 1207 023f 01       		.byte	0x1
+ 1208 0240 64       		.byte	0x64
+ARM GAS  /tmp/ccs8Dd2F.s 			page 27
+
+
+ 1209 0241 29       		.byte	0x29
+ 1210 0242 57020000 		.4byte	0x257
+ 1211 0246 01       		.byte	0x1
+ 1212 0247 50       		.byte	0x50
+ 1213 0248 0F       		.uleb128 0xf
+ 1214 0249 80000000 		.4byte	.LASF28
+ 1215 024d 01       		.byte	0x1
+ 1216 024e 64       		.byte	0x64
+ 1217 024f 34       		.byte	0x34
+ 1218 0250 30000000 		.4byte	0x30
+ 1219 0254 01       		.byte	0x1
+ 1220 0255 51       		.byte	0x51
+ 1221 0256 00       		.byte	0
+ 1222 0257 09       		.uleb128 0x9
+ 1223 0258 04       		.byte	0x4
+ 1224 0259 14020000 		.4byte	0x214
+ 1225 025d 0E       		.uleb128 0xe
+ 1226 025e 01       		.byte	0x1
+ 1227 025f 1B010000 		.4byte	.LASF30
+ 1228 0263 01       		.byte	0x1
+ 1229 0264 5E       		.byte	0x5e
+ 1230 0265 06       		.byte	0x6
+ 1231 0266 01       		.byte	0x1
+ 1232 0267 00000000 		.4byte	.LFB17
+ 1233 026b 0E000000 		.4byte	.LFE17
+ 1234 026f 02       		.byte	0x2
+ 1235 0270 7D       		.byte	0x7d
+ 1236 0271 00       		.sleb128 0
+ 1237 0272 01       		.byte	0x1
+ 1238 0273 94020000 		.4byte	0x294
+ 1239 0277 0F       		.uleb128 0xf
+ 1240 0278 AA000000 		.4byte	.LASF27
+ 1241 027c 01       		.byte	0x1
+ 1242 027d 5E       		.byte	0x5e
+ 1243 027e 21       		.byte	0x21
+ 1244 027f 57020000 		.4byte	0x257
+ 1245 0283 01       		.byte	0x1
+ 1246 0284 50       		.byte	0x50
+ 1247 0285 0F       		.uleb128 0xf
+ 1248 0286 FE000000 		.4byte	.LASF31
+ 1249 028a 01       		.byte	0x1
+ 1250 028b 5E       		.byte	0x5e
+ 1251 028c 2C       		.byte	0x2c
+ 1252 028d 30000000 		.4byte	0x30
+ 1253 0291 01       		.byte	0x1
+ 1254 0292 51       		.byte	0x51
+ 1255 0293 00       		.byte	0
+ 1256 0294 10       		.uleb128 0x10
+ 1257 0295 01       		.byte	0x1
+ 1258 0296 70000000 		.4byte	.LASF32
+ 1259 029a 01       		.byte	0x1
+ 1260 029b 43       		.byte	0x43
+ 1261 029c 06       		.byte	0x6
+ 1262 029d 01       		.byte	0x1
+ 1263 029e 00000000 		.4byte	.LFB16
+ 1264 02a2 C4010000 		.4byte	.LFE16
+ 1265 02a6 00000000 		.4byte	.LLST8
+ARM GAS  /tmp/ccs8Dd2F.s 			page 28
+
+
+ 1266 02aa 01       		.byte	0x1
+ 1267 02ab 98030000 		.4byte	0x398
+ 1268 02af 11       		.uleb128 0x11
+ 1269 02b0 AA000000 		.4byte	.LASF27
+ 1270 02b4 01       		.byte	0x1
+ 1271 02b5 43       		.byte	0x43
+ 1272 02b6 1F       		.byte	0x1f
+ 1273 02b7 57020000 		.4byte	0x257
+ 1274 02bb 56000000 		.4byte	.LLST9
+ 1275 02bf 50000000 		.4byte	.LVUS9
+ 1276 02c3 12       		.uleb128 0x12
+ 1277 02c4 6100     		.ascii	"a\000"
+ 1278 02c6 01       		.byte	0x1
+ 1279 02c7 43       		.byte	0x43
+ 1280 02c8 2F       		.byte	0x2f
+ 1281 02c9 08020000 		.4byte	0x208
+ 1282 02cd 88000000 		.4byte	.LLST10
+ 1283 02d1 82000000 		.4byte	.LVUS10
+ 1284 02d5 12       		.uleb128 0x12
+ 1285 02d6 6200     		.ascii	"b\000"
+ 1286 02d8 01       		.byte	0x1
+ 1287 02d9 43       		.byte	0x43
+ 1288 02da 3B       		.byte	0x3b
+ 1289 02db 08020000 		.4byte	0x208
+ 1290 02df BA000000 		.4byte	.LLST11
+ 1291 02e3 B4000000 		.4byte	.LVUS11
+ 1292 02e7 12       		.uleb128 0x12
+ 1293 02e8 6300     		.ascii	"c\000"
+ 1294 02ea 01       		.byte	0x1
+ 1295 02eb 43       		.byte	0x43
+ 1296 02ec 47       		.byte	0x47
+ 1297 02ed 08020000 		.4byte	0x208
+ 1298 02f1 EC000000 		.4byte	.LLST12
+ 1299 02f5 E6000000 		.4byte	.LVUS12
+ 1300 02f9 12       		.uleb128 0x12
+ 1301 02fa 6400     		.ascii	"d\000"
+ 1302 02fc 01       		.byte	0x1
+ 1303 02fd 43       		.byte	0x43
+ 1304 02fe 53       		.byte	0x53
+ 1305 02ff 08020000 		.4byte	0x208
+ 1306 0303 1E010000 		.4byte	.LLST13
+ 1307 0307 18010000 		.4byte	.LVUS13
+ 1308 030b 11       		.uleb128 0x11
+ 1309 030c 07000000 		.4byte	.LASF17
+ 1310 0310 01       		.byte	0x1
+ 1311 0311 43       		.byte	0x43
+ 1312 0312 5C       		.byte	0x5c
+ 1313 0313 29000000 		.4byte	0x29
+ 1314 0317 56010000 		.4byte	.LLST14
+ 1315 031b 4A010000 		.4byte	.LVUS14
+ 1316 031f 13       		.uleb128 0x13
+ 1317 0320 71020000 		.4byte	.LASF34
+ 1318 0324 01       		.byte	0x1
+ 1319 0325 47       		.byte	0x47
+ 1320 0326 0A       		.byte	0xa
+ 1321 0327 0E020000 		.4byte	0x20e
+ 1322 032b AC010000 		.4byte	.LLST15
+ARM GAS  /tmp/ccs8Dd2F.s 			page 29
+
+
+ 1323 032f AA010000 		.4byte	.LVUS15
+ 1324 0333 14       		.uleb128 0x14
+ 1325 0334 44000000 		.4byte	.LVL25
+ 1326 0338 98030000 		.4byte	0x398
+ 1327 033c 4D030000 		.4byte	0x34d
+ 1328 0340 15       		.uleb128 0x15
+ 1329 0341 01       		.byte	0x1
+ 1330 0342 50       		.byte	0x50
+ 1331 0343 02       		.byte	0x2
+ 1332 0344 74       		.byte	0x74
+ 1333 0345 00       		.sleb128 0
+ 1334 0346 15       		.uleb128 0x15
+ 1335 0347 01       		.byte	0x1
+ 1336 0348 51       		.byte	0x51
+ 1337 0349 02       		.byte	0x2
+ 1338 034a 78       		.byte	0x78
+ 1339 034b 00       		.sleb128 0
+ 1340 034c 00       		.byte	0
+ 1341 034d 14       		.uleb128 0x14
+ 1342 034e 50000000 		.4byte	.LVL26
+ 1343 0352 98030000 		.4byte	0x398
+ 1344 0356 67030000 		.4byte	0x367
+ 1345 035a 15       		.uleb128 0x15
+ 1346 035b 01       		.byte	0x1
+ 1347 035c 50       		.byte	0x50
+ 1348 035d 02       		.byte	0x2
+ 1349 035e 74       		.byte	0x74
+ 1350 035f 00       		.sleb128 0
+ 1351 0360 15       		.uleb128 0x15
+ 1352 0361 01       		.byte	0x1
+ 1353 0362 51       		.byte	0x51
+ 1354 0363 02       		.byte	0x2
+ 1355 0364 77       		.byte	0x77
+ 1356 0365 00       		.sleb128 0
+ 1357 0366 00       		.byte	0
+ 1358 0367 14       		.uleb128 0x14
+ 1359 0368 5C000000 		.4byte	.LVL27
+ 1360 036c 98030000 		.4byte	0x398
+ 1361 0370 81030000 		.4byte	0x381
+ 1362 0374 15       		.uleb128 0x15
+ 1363 0375 01       		.byte	0x1
+ 1364 0376 50       		.byte	0x50
+ 1365 0377 02       		.byte	0x2
+ 1366 0378 74       		.byte	0x74
+ 1367 0379 00       		.sleb128 0
+ 1368 037a 15       		.uleb128 0x15
+ 1369 037b 01       		.byte	0x1
+ 1370 037c 51       		.byte	0x51
+ 1371 037d 02       		.byte	0x2
+ 1372 037e 76       		.byte	0x76
+ 1373 037f 00       		.sleb128 0
+ 1374 0380 00       		.byte	0
+ 1375 0381 16       		.uleb128 0x16
+ 1376 0382 6E000000 		.4byte	.LVL28
+ 1377 0386 98030000 		.4byte	0x398
+ 1378 038a 15       		.uleb128 0x15
+ 1379 038b 01       		.byte	0x1
+ARM GAS  /tmp/ccs8Dd2F.s 			page 30
+
+
+ 1380 038c 50       		.byte	0x50
+ 1381 038d 02       		.byte	0x2
+ 1382 038e 74       		.byte	0x74
+ 1383 038f 00       		.sleb128 0
+ 1384 0390 15       		.uleb128 0x15
+ 1385 0391 01       		.byte	0x1
+ 1386 0392 51       		.byte	0x51
+ 1387 0393 02       		.byte	0x2
+ 1388 0394 79       		.byte	0x79
+ 1389 0395 00       		.sleb128 0
+ 1390 0396 00       		.byte	0
+ 1391 0397 00       		.byte	0
+ 1392 0398 17       		.uleb128 0x17
+ 1393 0399 01       		.byte	0x1
+ 1394 039a 2F020000 		.4byte	.LASF37
+ 1395 039e 01       		.byte	0x1
+ 1396 039f 31       		.byte	0x31
+ 1397 03a0 05       		.byte	0x5
+ 1398 03a1 01       		.byte	0x1
+ 1399 03a2 30000000 		.4byte	0x30
+ 1400 03a6 00000000 		.4byte	.LFB15
+ 1401 03aa 94000000 		.4byte	.LFE15
+ 1402 03ae BF010000 		.4byte	.LLST2
+ 1403 03b2 01       		.byte	0x1
+ 1404 03b3 3A040000 		.4byte	0x43a
+ 1405 03b7 11       		.uleb128 0x11
+ 1406 03b8 AA000000 		.4byte	.LASF27
+ 1407 03bc 01       		.byte	0x1
+ 1408 03bd 31       		.byte	0x31
+ 1409 03be 1F       		.byte	0x1f
+ 1410 03bf 57020000 		.4byte	0x257
+ 1411 03c3 E5010000 		.4byte	.LLST3
+ 1412 03c7 DF010000 		.4byte	.LVUS3
+ 1413 03cb 12       		.uleb128 0x12
+ 1414 03cc 7000     		.ascii	"p\000"
+ 1415 03ce 01       		.byte	0x1
+ 1416 03cf 31       		.byte	0x31
+ 1417 03d0 2F       		.byte	0x2f
+ 1418 03d1 08020000 		.4byte	0x208
+ 1419 03d5 17020000 		.4byte	.LLST4
+ 1420 03d9 11020000 		.4byte	.LVUS4
+ 1421 03dd 18       		.uleb128 0x18
+ 1422 03de 6900     		.ascii	"i\000"
+ 1423 03e0 01       		.byte	0x1
+ 1424 03e1 33       		.byte	0x33
+ 1425 03e2 06       		.byte	0x6
+ 1426 03e3 30000000 		.4byte	0x30
+ 1427 03e7 47020000 		.4byte	.LLST5
+ 1428 03eb 43020000 		.4byte	.LVUS5
+ 1429 03ef 13       		.uleb128 0x13
+ 1430 03f0 27000000 		.4byte	.LASF35
+ 1431 03f4 01       		.byte	0x1
+ 1432 03f5 3D       		.byte	0x3d
+ 1433 03f6 0B       		.byte	0xb
+ 1434 03f7 08020000 		.4byte	0x208
+ 1435 03fb 6C020000 		.4byte	.LLST6
+ 1436 03ff 66020000 		.4byte	.LVUS6
+ARM GAS  /tmp/ccs8Dd2F.s 			page 31
+
+
+ 1437 0403 19       		.uleb128 0x19
+ 1438 0404 F1040000 		.4byte	0x4f1
+ 1439 0408 28000000 		.4byte	.LBI4
+ 1440 040c 01       		.byte	.LVU59
+ 1441 040d 00000000 		.4byte	.Ldebug_ranges0+0
+ 1442 0411 01       		.byte	0x1
+ 1443 0412 37       		.byte	0x37
+ 1444 0413 08       		.byte	0x8
+ 1445 0414 2B040000 		.4byte	0x42b
+ 1446 0418 1A       		.uleb128 0x1a
+ 1447 0419 09050000 		.4byte	0x509
+ 1448 041d B1020000 		.4byte	.LLST7
+ 1449 0421 AF020000 		.4byte	.LVUS7
+ 1450 0425 1B       		.uleb128 0x1b
+ 1451 0426 FF040000 		.4byte	0x4ff
+ 1452 042a 00       		.byte	0
+ 1453 042b 1C       		.uleb128 0x1c
+ 1454 042c 72000000 		.4byte	.LVL15
+ 1455 0430 15       		.uleb128 0x15
+ 1456 0431 01       		.byte	0x1
+ 1457 0432 51       		.byte	0x51
+ 1458 0433 04       		.byte	0x4
+ 1459 0434 75       		.byte	0x75
+ 1460 0435 00       		.sleb128 0
+ 1461 0436 32       		.byte	0x32
+ 1462 0437 24       		.byte	0x24
+ 1463 0438 00       		.byte	0
+ 1464 0439 00       		.byte	0
+ 1465 043a 1D       		.uleb128 0x1d
+ 1466 043b 01       		.byte	0x1
+ 1467 043c 17000000 		.4byte	.LASF36
+ 1468 0440 01       		.byte	0x1
+ 1469 0441 23       		.byte	0x23
+ 1470 0442 06       		.byte	0x6
+ 1471 0443 01       		.byte	0x1
+ 1472 0444 00000000 		.4byte	.LFB14
+ 1473 0448 38000000 		.4byte	.LFE14
+ 1474 044c CF020000 		.4byte	.LLST0
+ 1475 0450 01       		.byte	0x1
+ 1476 0451 9B040000 		.4byte	0x49b
+ 1477 0455 11       		.uleb128 0x11
+ 1478 0456 AA000000 		.4byte	.LASF27
+ 1479 045a 01       		.byte	0x1
+ 1480 045b 23       		.byte	0x23
+ 1481 045c 1F       		.byte	0x1f
+ 1482 045d 57020000 		.4byte	0x257
+ 1483 0461 05030000 		.4byte	.LLST1
+ 1484 0465 FB020000 		.4byte	.LVUS1
+ 1485 0469 1E       		.uleb128 0x1e
+ 1486 046a 1A000000 		.4byte	.LVL4
+ 1487 046e 78040000 		.4byte	0x478
+ 1488 0472 15       		.uleb128 0x15
+ 1489 0473 01       		.byte	0x1
+ 1490 0474 51       		.byte	0x51
+ 1491 0475 01       		.byte	0x1
+ 1492 0476 30       		.byte	0x30
+ 1493 0477 00       		.byte	0
+ARM GAS  /tmp/ccs8Dd2F.s 			page 32
+
+
+ 1494 0478 1E       		.uleb128 0x1e
+ 1495 0479 24000000 		.4byte	.LVL5
+ 1496 047d 87040000 		.4byte	0x487
+ 1497 0481 15       		.uleb128 0x15
+ 1498 0482 01       		.byte	0x1
+ 1499 0483 51       		.byte	0x51
+ 1500 0484 01       		.byte	0x1
+ 1501 0485 30       		.byte	0x30
+ 1502 0486 00       		.byte	0
+ 1503 0487 1F       		.uleb128 0x1f
+ 1504 0488 30000000 		.4byte	.LVL7
+ 1505 048c 01       		.byte	0x1
+ 1506 048d 15       		.uleb128 0x15
+ 1507 048e 01       		.byte	0x1
+ 1508 048f 50       		.byte	0x50
+ 1509 0490 03       		.byte	0x3
+ 1510 0491 F3       		.byte	0xf3
+ 1511 0492 01       		.uleb128 0x1
+ 1512 0493 50       		.byte	0x50
+ 1513 0494 15       		.uleb128 0x15
+ 1514 0495 01       		.byte	0x1
+ 1515 0496 51       		.byte	0x51
+ 1516 0497 01       		.byte	0x1
+ 1517 0498 30       		.byte	0x30
+ 1518 0499 00       		.byte	0
+ 1519 049a 00       		.byte	0
+ 1520 049b 20       		.uleb128 0x20
+ 1521 049c 01       		.byte	0x1
+ 1522 049d B5020000 		.4byte	.LASF38
+ 1523 04a1 01       		.byte	0x1
+ 1524 04a2 1D       		.byte	0x1d
+ 1525 04a3 0A       		.byte	0xa
+ 1526 04a4 01       		.byte	0x1
+ 1527 04a5 57020000 		.4byte	0x257
+ 1528 04a9 00000000 		.4byte	.LFB13
+ 1529 04ad 08000000 		.4byte	.LFE13
+ 1530 04b1 02       		.byte	0x2
+ 1531 04b2 7D       		.byte	0x7d
+ 1532 04b3 00       		.sleb128 0
+ 1533 04b4 01       		.byte	0x1
+ 1534 04b5 C8040000 		.4byte	0x4c8
+ 1535 04b9 0F       		.uleb128 0xf
+ 1536 04ba AA000000 		.4byte	.LASF27
+ 1537 04be 01       		.byte	0x1
+ 1538 04bf 1D       		.byte	0x1d
+ 1539 04c0 22       		.byte	0x22
+ 1540 04c1 57020000 		.4byte	0x257
+ 1541 04c5 01       		.byte	0x1
+ 1542 04c6 50       		.byte	0x50
+ 1543 04c7 00       		.byte	0
+ 1544 04c8 0E       		.uleb128 0xe
+ 1545 04c9 01       		.byte	0x1
+ 1546 04ca 1C020000 		.4byte	.LASF39
+ 1547 04ce 01       		.byte	0x1
+ 1548 04cf 0C       		.byte	0xc
+ 1549 04d0 06       		.byte	0x6
+ 1550 04d1 01       		.byte	0x1
+ARM GAS  /tmp/ccs8Dd2F.s 			page 33
+
+
+ 1551 04d2 00000000 		.4byte	.LFB12
+ 1552 04d6 26000000 		.4byte	.LFE12
+ 1553 04da 02       		.byte	0x2
+ 1554 04db 7D       		.byte	0x7d
+ 1555 04dc 00       		.sleb128 0
+ 1556 04dd 01       		.byte	0x1
+ 1557 04de F1040000 		.4byte	0x4f1
+ 1558 04e2 0F       		.uleb128 0xf
+ 1559 04e3 AA000000 		.4byte	.LASF27
+ 1560 04e7 01       		.byte	0x1
+ 1561 04e8 0C       		.byte	0xc
+ 1562 04e9 1C       		.byte	0x1c
+ 1563 04ea 57020000 		.4byte	0x257
+ 1564 04ee 01       		.byte	0x1
+ 1565 04ef 50       		.byte	0x50
+ 1566 04f0 00       		.byte	0
+ 1567 04f1 21       		.uleb128 0x21
+ 1568 04f2 48020000 		.4byte	.LASF44
+ 1569 04f6 02       		.byte	0x2
+ 1570 04f7 26       		.byte	0x26
+ 1571 04f8 13       		.byte	0x13
+ 1572 04f9 01       		.byte	0x1
+ 1573 04fa 30000000 		.4byte	0x30
+ 1574 04fe 03       		.byte	0x3
+ 1575 04ff 22       		.uleb128 0x22
+ 1576 0500 6100     		.ascii	"a\000"
+ 1577 0502 02       		.byte	0x2
+ 1578 0503 26       		.byte	0x26
+ 1579 0504 2A       		.byte	0x2a
+ 1580 0505 0B010000 		.4byte	0x10b
+ 1581 0509 22       		.uleb128 0x22
+ 1582 050a 6200     		.ascii	"b\000"
+ 1583 050c 02       		.byte	0x2
+ 1584 050d 26       		.byte	0x26
+ 1585 050e 35       		.byte	0x35
+ 1586 050f 0B010000 		.4byte	0x10b
+ 1587 0513 00       		.byte	0
+ 1588 0514 00       		.byte	0
+ 1589              		.section	.debug_abbrev,"",%progbits
+ 1590              	.Ldebug_abbrev0:
+ 1591 0000 01       		.uleb128 0x1
+ 1592 0001 11       		.uleb128 0x11
+ 1593 0002 01       		.byte	0x1
+ 1594 0003 25       		.uleb128 0x25
+ 1595 0004 0E       		.uleb128 0xe
+ 1596 0005 13       		.uleb128 0x13
+ 1597 0006 0B       		.uleb128 0xb
+ 1598 0007 03       		.uleb128 0x3
+ 1599 0008 0E       		.uleb128 0xe
+ 1600 0009 1B       		.uleb128 0x1b
+ 1601 000a 0E       		.uleb128 0xe
+ 1602 000b 55       		.uleb128 0x55
+ 1603 000c 06       		.uleb128 0x6
+ 1604 000d 11       		.uleb128 0x11
+ 1605 000e 01       		.uleb128 0x1
+ 1606 000f 52       		.uleb128 0x52
+ 1607 0010 01       		.uleb128 0x1
+ARM GAS  /tmp/ccs8Dd2F.s 			page 34
+
+
+ 1608 0011 10       		.uleb128 0x10
+ 1609 0012 06       		.uleb128 0x6
+ 1610 0013 00       		.byte	0
+ 1611 0014 00       		.byte	0
+ 1612 0015 02       		.uleb128 0x2
+ 1613 0016 24       		.uleb128 0x24
+ 1614 0017 00       		.byte	0
+ 1615 0018 0B       		.uleb128 0xb
+ 1616 0019 0B       		.uleb128 0xb
+ 1617 001a 3E       		.uleb128 0x3e
+ 1618 001b 0B       		.uleb128 0xb
+ 1619 001c 03       		.uleb128 0x3
+ 1620 001d 0E       		.uleb128 0xe
+ 1621 001e 00       		.byte	0
+ 1622 001f 00       		.byte	0
+ 1623 0020 03       		.uleb128 0x3
+ 1624 0021 24       		.uleb128 0x24
+ 1625 0022 00       		.byte	0
+ 1626 0023 0B       		.uleb128 0xb
+ 1627 0024 0B       		.uleb128 0xb
+ 1628 0025 3E       		.uleb128 0x3e
+ 1629 0026 0B       		.uleb128 0xb
+ 1630 0027 03       		.uleb128 0x3
+ 1631 0028 08       		.uleb128 0x8
+ 1632 0029 00       		.byte	0
+ 1633 002a 00       		.byte	0
+ 1634 002b 04       		.uleb128 0x4
+ 1635 002c 16       		.uleb128 0x16
+ 1636 002d 00       		.byte	0
+ 1637 002e 03       		.uleb128 0x3
+ 1638 002f 0E       		.uleb128 0xe
+ 1639 0030 3A       		.uleb128 0x3a
+ 1640 0031 0B       		.uleb128 0xb
+ 1641 0032 3B       		.uleb128 0x3b
+ 1642 0033 0B       		.uleb128 0xb
+ 1643 0034 39       		.uleb128 0x39
+ 1644 0035 0B       		.uleb128 0xb
+ 1645 0036 49       		.uleb128 0x49
+ 1646 0037 13       		.uleb128 0x13
+ 1647 0038 00       		.byte	0
+ 1648 0039 00       		.byte	0
+ 1649 003a 05       		.uleb128 0x5
+ 1650 003b 15       		.uleb128 0x15
+ 1651 003c 01       		.byte	0x1
+ 1652 003d 27       		.uleb128 0x27
+ 1653 003e 0C       		.uleb128 0xc
+ 1654 003f 49       		.uleb128 0x49
+ 1655 0040 13       		.uleb128 0x13
+ 1656 0041 01       		.uleb128 0x1
+ 1657 0042 13       		.uleb128 0x13
+ 1658 0043 00       		.byte	0
+ 1659 0044 00       		.byte	0
+ 1660 0045 06       		.uleb128 0x6
+ 1661 0046 05       		.uleb128 0x5
+ 1662 0047 00       		.byte	0
+ 1663 0048 49       		.uleb128 0x49
+ 1664 0049 13       		.uleb128 0x13
+ARM GAS  /tmp/ccs8Dd2F.s 			page 35
+
+
+ 1665 004a 00       		.byte	0
+ 1666 004b 00       		.byte	0
+ 1667 004c 07       		.uleb128 0x7
+ 1668 004d 0F       		.uleb128 0xf
+ 1669 004e 00       		.byte	0
+ 1670 004f 0B       		.uleb128 0xb
+ 1671 0050 0B       		.uleb128 0xb
+ 1672 0051 00       		.byte	0
+ 1673 0052 00       		.byte	0
+ 1674 0053 08       		.uleb128 0x8
+ 1675 0054 34       		.uleb128 0x34
+ 1676 0055 00       		.byte	0
+ 1677 0056 03       		.uleb128 0x3
+ 1678 0057 0E       		.uleb128 0xe
+ 1679 0058 3A       		.uleb128 0x3a
+ 1680 0059 0B       		.uleb128 0xb
+ 1681 005a 3B       		.uleb128 0x3b
+ 1682 005b 0B       		.uleb128 0xb
+ 1683 005c 39       		.uleb128 0x39
+ 1684 005d 0B       		.uleb128 0xb
+ 1685 005e 49       		.uleb128 0x49
+ 1686 005f 13       		.uleb128 0x13
+ 1687 0060 3F       		.uleb128 0x3f
+ 1688 0061 0C       		.uleb128 0xc
+ 1689 0062 3C       		.uleb128 0x3c
+ 1690 0063 0C       		.uleb128 0xc
+ 1691 0064 00       		.byte	0
+ 1692 0065 00       		.byte	0
+ 1693 0066 09       		.uleb128 0x9
+ 1694 0067 0F       		.uleb128 0xf
+ 1695 0068 00       		.byte	0
+ 1696 0069 0B       		.uleb128 0xb
+ 1697 006a 0B       		.uleb128 0xb
+ 1698 006b 49       		.uleb128 0x49
+ 1699 006c 13       		.uleb128 0x13
+ 1700 006d 00       		.byte	0
+ 1701 006e 00       		.byte	0
+ 1702 006f 0A       		.uleb128 0xa
+ 1703 0070 13       		.uleb128 0x13
+ 1704 0071 01       		.byte	0x1
+ 1705 0072 0B       		.uleb128 0xb
+ 1706 0073 0B       		.uleb128 0xb
+ 1707 0074 3A       		.uleb128 0x3a
+ 1708 0075 0B       		.uleb128 0xb
+ 1709 0076 3B       		.uleb128 0x3b
+ 1710 0077 0B       		.uleb128 0xb
+ 1711 0078 39       		.uleb128 0x39
+ 1712 0079 0B       		.uleb128 0xb
+ 1713 007a 01       		.uleb128 0x1
+ 1714 007b 13       		.uleb128 0x13
+ 1715 007c 00       		.byte	0
+ 1716 007d 00       		.byte	0
+ 1717 007e 0B       		.uleb128 0xb
+ 1718 007f 0D       		.uleb128 0xd
+ 1719 0080 00       		.byte	0
+ 1720 0081 03       		.uleb128 0x3
+ 1721 0082 08       		.uleb128 0x8
+ARM GAS  /tmp/ccs8Dd2F.s 			page 36
+
+
+ 1722 0083 3A       		.uleb128 0x3a
+ 1723 0084 0B       		.uleb128 0xb
+ 1724 0085 3B       		.uleb128 0x3b
+ 1725 0086 0B       		.uleb128 0xb
+ 1726 0087 39       		.uleb128 0x39
+ 1727 0088 0B       		.uleb128 0xb
+ 1728 0089 49       		.uleb128 0x49
+ 1729 008a 13       		.uleb128 0x13
+ 1730 008b 38       		.uleb128 0x38
+ 1731 008c 0A       		.uleb128 0xa
+ 1732 008d 00       		.byte	0
+ 1733 008e 00       		.byte	0
+ 1734 008f 0C       		.uleb128 0xc
+ 1735 0090 0D       		.uleb128 0xd
+ 1736 0091 00       		.byte	0
+ 1737 0092 03       		.uleb128 0x3
+ 1738 0093 0E       		.uleb128 0xe
+ 1739 0094 3A       		.uleb128 0x3a
+ 1740 0095 0B       		.uleb128 0xb
+ 1741 0096 3B       		.uleb128 0x3b
+ 1742 0097 0B       		.uleb128 0xb
+ 1743 0098 39       		.uleb128 0x39
+ 1744 0099 0B       		.uleb128 0xb
+ 1745 009a 49       		.uleb128 0x49
+ 1746 009b 13       		.uleb128 0x13
+ 1747 009c 38       		.uleb128 0x38
+ 1748 009d 0A       		.uleb128 0xa
+ 1749 009e 00       		.byte	0
+ 1750 009f 00       		.byte	0
+ 1751 00a0 0D       		.uleb128 0xd
+ 1752 00a1 0D       		.uleb128 0xd
+ 1753 00a2 00       		.byte	0
+ 1754 00a3 03       		.uleb128 0x3
+ 1755 00a4 0E       		.uleb128 0xe
+ 1756 00a5 3A       		.uleb128 0x3a
+ 1757 00a6 0B       		.uleb128 0xb
+ 1758 00a7 3B       		.uleb128 0x3b
+ 1759 00a8 0B       		.uleb128 0xb
+ 1760 00a9 39       		.uleb128 0x39
+ 1761 00aa 0B       		.uleb128 0xb
+ 1762 00ab 49       		.uleb128 0x49
+ 1763 00ac 13       		.uleb128 0x13
+ 1764 00ad 0B       		.uleb128 0xb
+ 1765 00ae 0B       		.uleb128 0xb
+ 1766 00af 0D       		.uleb128 0xd
+ 1767 00b0 0B       		.uleb128 0xb
+ 1768 00b1 0C       		.uleb128 0xc
+ 1769 00b2 0B       		.uleb128 0xb
+ 1770 00b3 38       		.uleb128 0x38
+ 1771 00b4 0A       		.uleb128 0xa
+ 1772 00b5 00       		.byte	0
+ 1773 00b6 00       		.byte	0
+ 1774 00b7 0E       		.uleb128 0xe
+ 1775 00b8 2E       		.uleb128 0x2e
+ 1776 00b9 01       		.byte	0x1
+ 1777 00ba 3F       		.uleb128 0x3f
+ 1778 00bb 0C       		.uleb128 0xc
+ARM GAS  /tmp/ccs8Dd2F.s 			page 37
+
+
+ 1779 00bc 03       		.uleb128 0x3
+ 1780 00bd 0E       		.uleb128 0xe
+ 1781 00be 3A       		.uleb128 0x3a
+ 1782 00bf 0B       		.uleb128 0xb
+ 1783 00c0 3B       		.uleb128 0x3b
+ 1784 00c1 0B       		.uleb128 0xb
+ 1785 00c2 39       		.uleb128 0x39
+ 1786 00c3 0B       		.uleb128 0xb
+ 1787 00c4 27       		.uleb128 0x27
+ 1788 00c5 0C       		.uleb128 0xc
+ 1789 00c6 11       		.uleb128 0x11
+ 1790 00c7 01       		.uleb128 0x1
+ 1791 00c8 12       		.uleb128 0x12
+ 1792 00c9 01       		.uleb128 0x1
+ 1793 00ca 40       		.uleb128 0x40
+ 1794 00cb 0A       		.uleb128 0xa
+ 1795 00cc 9742     		.uleb128 0x2117
+ 1796 00ce 0C       		.uleb128 0xc
+ 1797 00cf 01       		.uleb128 0x1
+ 1798 00d0 13       		.uleb128 0x13
+ 1799 00d1 00       		.byte	0
+ 1800 00d2 00       		.byte	0
+ 1801 00d3 0F       		.uleb128 0xf
+ 1802 00d4 05       		.uleb128 0x5
+ 1803 00d5 00       		.byte	0
+ 1804 00d6 03       		.uleb128 0x3
+ 1805 00d7 0E       		.uleb128 0xe
+ 1806 00d8 3A       		.uleb128 0x3a
+ 1807 00d9 0B       		.uleb128 0xb
+ 1808 00da 3B       		.uleb128 0x3b
+ 1809 00db 0B       		.uleb128 0xb
+ 1810 00dc 39       		.uleb128 0x39
+ 1811 00dd 0B       		.uleb128 0xb
+ 1812 00de 49       		.uleb128 0x49
+ 1813 00df 13       		.uleb128 0x13
+ 1814 00e0 02       		.uleb128 0x2
+ 1815 00e1 0A       		.uleb128 0xa
+ 1816 00e2 00       		.byte	0
+ 1817 00e3 00       		.byte	0
+ 1818 00e4 10       		.uleb128 0x10
+ 1819 00e5 2E       		.uleb128 0x2e
+ 1820 00e6 01       		.byte	0x1
+ 1821 00e7 3F       		.uleb128 0x3f
+ 1822 00e8 0C       		.uleb128 0xc
+ 1823 00e9 03       		.uleb128 0x3
+ 1824 00ea 0E       		.uleb128 0xe
+ 1825 00eb 3A       		.uleb128 0x3a
+ 1826 00ec 0B       		.uleb128 0xb
+ 1827 00ed 3B       		.uleb128 0x3b
+ 1828 00ee 0B       		.uleb128 0xb
+ 1829 00ef 39       		.uleb128 0x39
+ 1830 00f0 0B       		.uleb128 0xb
+ 1831 00f1 27       		.uleb128 0x27
+ 1832 00f2 0C       		.uleb128 0xc
+ 1833 00f3 11       		.uleb128 0x11
+ 1834 00f4 01       		.uleb128 0x1
+ 1835 00f5 12       		.uleb128 0x12
+ARM GAS  /tmp/ccs8Dd2F.s 			page 38
+
+
+ 1836 00f6 01       		.uleb128 0x1
+ 1837 00f7 40       		.uleb128 0x40
+ 1838 00f8 06       		.uleb128 0x6
+ 1839 00f9 9642     		.uleb128 0x2116
+ 1840 00fb 0C       		.uleb128 0xc
+ 1841 00fc 01       		.uleb128 0x1
+ 1842 00fd 13       		.uleb128 0x13
+ 1843 00fe 00       		.byte	0
+ 1844 00ff 00       		.byte	0
+ 1845 0100 11       		.uleb128 0x11
+ 1846 0101 05       		.uleb128 0x5
+ 1847 0102 00       		.byte	0
+ 1848 0103 03       		.uleb128 0x3
+ 1849 0104 0E       		.uleb128 0xe
+ 1850 0105 3A       		.uleb128 0x3a
+ 1851 0106 0B       		.uleb128 0xb
+ 1852 0107 3B       		.uleb128 0x3b
+ 1853 0108 0B       		.uleb128 0xb
+ 1854 0109 39       		.uleb128 0x39
+ 1855 010a 0B       		.uleb128 0xb
+ 1856 010b 49       		.uleb128 0x49
+ 1857 010c 13       		.uleb128 0x13
+ 1858 010d 02       		.uleb128 0x2
+ 1859 010e 06       		.uleb128 0x6
+ 1860 010f B742     		.uleb128 0x2137
+ 1861 0111 06       		.uleb128 0x6
+ 1862 0112 00       		.byte	0
+ 1863 0113 00       		.byte	0
+ 1864 0114 12       		.uleb128 0x12
+ 1865 0115 05       		.uleb128 0x5
+ 1866 0116 00       		.byte	0
+ 1867 0117 03       		.uleb128 0x3
+ 1868 0118 08       		.uleb128 0x8
+ 1869 0119 3A       		.uleb128 0x3a
+ 1870 011a 0B       		.uleb128 0xb
+ 1871 011b 3B       		.uleb128 0x3b
+ 1872 011c 0B       		.uleb128 0xb
+ 1873 011d 39       		.uleb128 0x39
+ 1874 011e 0B       		.uleb128 0xb
+ 1875 011f 49       		.uleb128 0x49
+ 1876 0120 13       		.uleb128 0x13
+ 1877 0121 02       		.uleb128 0x2
+ 1878 0122 06       		.uleb128 0x6
+ 1879 0123 B742     		.uleb128 0x2137
+ 1880 0125 06       		.uleb128 0x6
+ 1881 0126 00       		.byte	0
+ 1882 0127 00       		.byte	0
+ 1883 0128 13       		.uleb128 0x13
+ 1884 0129 34       		.uleb128 0x34
+ 1885 012a 00       		.byte	0
+ 1886 012b 03       		.uleb128 0x3
+ 1887 012c 0E       		.uleb128 0xe
+ 1888 012d 3A       		.uleb128 0x3a
+ 1889 012e 0B       		.uleb128 0xb
+ 1890 012f 3B       		.uleb128 0x3b
+ 1891 0130 0B       		.uleb128 0xb
+ 1892 0131 39       		.uleb128 0x39
+ARM GAS  /tmp/ccs8Dd2F.s 			page 39
+
+
+ 1893 0132 0B       		.uleb128 0xb
+ 1894 0133 49       		.uleb128 0x49
+ 1895 0134 13       		.uleb128 0x13
+ 1896 0135 02       		.uleb128 0x2
+ 1897 0136 06       		.uleb128 0x6
+ 1898 0137 B742     		.uleb128 0x2137
+ 1899 0139 06       		.uleb128 0x6
+ 1900 013a 00       		.byte	0
+ 1901 013b 00       		.byte	0
+ 1902 013c 14       		.uleb128 0x14
+ 1903 013d 898201   		.uleb128 0x4109
+ 1904 0140 01       		.byte	0x1
+ 1905 0141 11       		.uleb128 0x11
+ 1906 0142 01       		.uleb128 0x1
+ 1907 0143 31       		.uleb128 0x31
+ 1908 0144 13       		.uleb128 0x13
+ 1909 0145 01       		.uleb128 0x1
+ 1910 0146 13       		.uleb128 0x13
+ 1911 0147 00       		.byte	0
+ 1912 0148 00       		.byte	0
+ 1913 0149 15       		.uleb128 0x15
+ 1914 014a 8A8201   		.uleb128 0x410a
+ 1915 014d 00       		.byte	0
+ 1916 014e 02       		.uleb128 0x2
+ 1917 014f 0A       		.uleb128 0xa
+ 1918 0150 9142     		.uleb128 0x2111
+ 1919 0152 0A       		.uleb128 0xa
+ 1920 0153 00       		.byte	0
+ 1921 0154 00       		.byte	0
+ 1922 0155 16       		.uleb128 0x16
+ 1923 0156 898201   		.uleb128 0x4109
+ 1924 0159 01       		.byte	0x1
+ 1925 015a 11       		.uleb128 0x11
+ 1926 015b 01       		.uleb128 0x1
+ 1927 015c 31       		.uleb128 0x31
+ 1928 015d 13       		.uleb128 0x13
+ 1929 015e 00       		.byte	0
+ 1930 015f 00       		.byte	0
+ 1931 0160 17       		.uleb128 0x17
+ 1932 0161 2E       		.uleb128 0x2e
+ 1933 0162 01       		.byte	0x1
+ 1934 0163 3F       		.uleb128 0x3f
+ 1935 0164 0C       		.uleb128 0xc
+ 1936 0165 03       		.uleb128 0x3
+ 1937 0166 0E       		.uleb128 0xe
+ 1938 0167 3A       		.uleb128 0x3a
+ 1939 0168 0B       		.uleb128 0xb
+ 1940 0169 3B       		.uleb128 0x3b
+ 1941 016a 0B       		.uleb128 0xb
+ 1942 016b 39       		.uleb128 0x39
+ 1943 016c 0B       		.uleb128 0xb
+ 1944 016d 27       		.uleb128 0x27
+ 1945 016e 0C       		.uleb128 0xc
+ 1946 016f 49       		.uleb128 0x49
+ 1947 0170 13       		.uleb128 0x13
+ 1948 0171 11       		.uleb128 0x11
+ 1949 0172 01       		.uleb128 0x1
+ARM GAS  /tmp/ccs8Dd2F.s 			page 40
+
+
+ 1950 0173 12       		.uleb128 0x12
+ 1951 0174 01       		.uleb128 0x1
+ 1952 0175 40       		.uleb128 0x40
+ 1953 0176 06       		.uleb128 0x6
+ 1954 0177 9742     		.uleb128 0x2117
+ 1955 0179 0C       		.uleb128 0xc
+ 1956 017a 01       		.uleb128 0x1
+ 1957 017b 13       		.uleb128 0x13
+ 1958 017c 00       		.byte	0
+ 1959 017d 00       		.byte	0
+ 1960 017e 18       		.uleb128 0x18
+ 1961 017f 34       		.uleb128 0x34
+ 1962 0180 00       		.byte	0
+ 1963 0181 03       		.uleb128 0x3
+ 1964 0182 08       		.uleb128 0x8
+ 1965 0183 3A       		.uleb128 0x3a
+ 1966 0184 0B       		.uleb128 0xb
+ 1967 0185 3B       		.uleb128 0x3b
+ 1968 0186 0B       		.uleb128 0xb
+ 1969 0187 39       		.uleb128 0x39
+ 1970 0188 0B       		.uleb128 0xb
+ 1971 0189 49       		.uleb128 0x49
+ 1972 018a 13       		.uleb128 0x13
+ 1973 018b 02       		.uleb128 0x2
+ 1974 018c 06       		.uleb128 0x6
+ 1975 018d B742     		.uleb128 0x2137
+ 1976 018f 06       		.uleb128 0x6
+ 1977 0190 00       		.byte	0
+ 1978 0191 00       		.byte	0
+ 1979 0192 19       		.uleb128 0x19
+ 1980 0193 1D       		.uleb128 0x1d
+ 1981 0194 01       		.byte	0x1
+ 1982 0195 31       		.uleb128 0x31
+ 1983 0196 13       		.uleb128 0x13
+ 1984 0197 52       		.uleb128 0x52
+ 1985 0198 01       		.uleb128 0x1
+ 1986 0199 B842     		.uleb128 0x2138
+ 1987 019b 0B       		.uleb128 0xb
+ 1988 019c 55       		.uleb128 0x55
+ 1989 019d 06       		.uleb128 0x6
+ 1990 019e 58       		.uleb128 0x58
+ 1991 019f 0B       		.uleb128 0xb
+ 1992 01a0 59       		.uleb128 0x59
+ 1993 01a1 0B       		.uleb128 0xb
+ 1994 01a2 57       		.uleb128 0x57
+ 1995 01a3 0B       		.uleb128 0xb
+ 1996 01a4 01       		.uleb128 0x1
+ 1997 01a5 13       		.uleb128 0x13
+ 1998 01a6 00       		.byte	0
+ 1999 01a7 00       		.byte	0
+ 2000 01a8 1A       		.uleb128 0x1a
+ 2001 01a9 05       		.uleb128 0x5
+ 2002 01aa 00       		.byte	0
+ 2003 01ab 31       		.uleb128 0x31
+ 2004 01ac 13       		.uleb128 0x13
+ 2005 01ad 02       		.uleb128 0x2
+ 2006 01ae 06       		.uleb128 0x6
+ARM GAS  /tmp/ccs8Dd2F.s 			page 41
+
+
+ 2007 01af B742     		.uleb128 0x2137
+ 2008 01b1 06       		.uleb128 0x6
+ 2009 01b2 00       		.byte	0
+ 2010 01b3 00       		.byte	0
+ 2011 01b4 1B       		.uleb128 0x1b
+ 2012 01b5 05       		.uleb128 0x5
+ 2013 01b6 00       		.byte	0
+ 2014 01b7 31       		.uleb128 0x31
+ 2015 01b8 13       		.uleb128 0x13
+ 2016 01b9 00       		.byte	0
+ 2017 01ba 00       		.byte	0
+ 2018 01bb 1C       		.uleb128 0x1c
+ 2019 01bc 898201   		.uleb128 0x4109
+ 2020 01bf 01       		.byte	0x1
+ 2021 01c0 11       		.uleb128 0x11
+ 2022 01c1 01       		.uleb128 0x1
+ 2023 01c2 00       		.byte	0
+ 2024 01c3 00       		.byte	0
+ 2025 01c4 1D       		.uleb128 0x1d
+ 2026 01c5 2E       		.uleb128 0x2e
+ 2027 01c6 01       		.byte	0x1
+ 2028 01c7 3F       		.uleb128 0x3f
+ 2029 01c8 0C       		.uleb128 0xc
+ 2030 01c9 03       		.uleb128 0x3
+ 2031 01ca 0E       		.uleb128 0xe
+ 2032 01cb 3A       		.uleb128 0x3a
+ 2033 01cc 0B       		.uleb128 0xb
+ 2034 01cd 3B       		.uleb128 0x3b
+ 2035 01ce 0B       		.uleb128 0xb
+ 2036 01cf 39       		.uleb128 0x39
+ 2037 01d0 0B       		.uleb128 0xb
+ 2038 01d1 27       		.uleb128 0x27
+ 2039 01d2 0C       		.uleb128 0xc
+ 2040 01d3 11       		.uleb128 0x11
+ 2041 01d4 01       		.uleb128 0x1
+ 2042 01d5 12       		.uleb128 0x12
+ 2043 01d6 01       		.uleb128 0x1
+ 2044 01d7 40       		.uleb128 0x40
+ 2045 01d8 06       		.uleb128 0x6
+ 2046 01d9 9742     		.uleb128 0x2117
+ 2047 01db 0C       		.uleb128 0xc
+ 2048 01dc 01       		.uleb128 0x1
+ 2049 01dd 13       		.uleb128 0x13
+ 2050 01de 00       		.byte	0
+ 2051 01df 00       		.byte	0
+ 2052 01e0 1E       		.uleb128 0x1e
+ 2053 01e1 898201   		.uleb128 0x4109
+ 2054 01e4 01       		.byte	0x1
+ 2055 01e5 11       		.uleb128 0x11
+ 2056 01e6 01       		.uleb128 0x1
+ 2057 01e7 01       		.uleb128 0x1
+ 2058 01e8 13       		.uleb128 0x13
+ 2059 01e9 00       		.byte	0
+ 2060 01ea 00       		.byte	0
+ 2061 01eb 1F       		.uleb128 0x1f
+ 2062 01ec 898201   		.uleb128 0x4109
+ 2063 01ef 01       		.byte	0x1
+ARM GAS  /tmp/ccs8Dd2F.s 			page 42
+
+
+ 2064 01f0 11       		.uleb128 0x11
+ 2065 01f1 01       		.uleb128 0x1
+ 2066 01f2 9542     		.uleb128 0x2115
+ 2067 01f4 0C       		.uleb128 0xc
+ 2068 01f5 00       		.byte	0
+ 2069 01f6 00       		.byte	0
+ 2070 01f7 20       		.uleb128 0x20
+ 2071 01f8 2E       		.uleb128 0x2e
+ 2072 01f9 01       		.byte	0x1
+ 2073 01fa 3F       		.uleb128 0x3f
+ 2074 01fb 0C       		.uleb128 0xc
+ 2075 01fc 03       		.uleb128 0x3
+ 2076 01fd 0E       		.uleb128 0xe
+ 2077 01fe 3A       		.uleb128 0x3a
+ 2078 01ff 0B       		.uleb128 0xb
+ 2079 0200 3B       		.uleb128 0x3b
+ 2080 0201 0B       		.uleb128 0xb
+ 2081 0202 39       		.uleb128 0x39
+ 2082 0203 0B       		.uleb128 0xb
+ 2083 0204 27       		.uleb128 0x27
+ 2084 0205 0C       		.uleb128 0xc
+ 2085 0206 49       		.uleb128 0x49
+ 2086 0207 13       		.uleb128 0x13
+ 2087 0208 11       		.uleb128 0x11
+ 2088 0209 01       		.uleb128 0x1
+ 2089 020a 12       		.uleb128 0x12
+ 2090 020b 01       		.uleb128 0x1
+ 2091 020c 40       		.uleb128 0x40
+ 2092 020d 0A       		.uleb128 0xa
+ 2093 020e 9742     		.uleb128 0x2117
+ 2094 0210 0C       		.uleb128 0xc
+ 2095 0211 01       		.uleb128 0x1
+ 2096 0212 13       		.uleb128 0x13
+ 2097 0213 00       		.byte	0
+ 2098 0214 00       		.byte	0
+ 2099 0215 21       		.uleb128 0x21
+ 2100 0216 2E       		.uleb128 0x2e
+ 2101 0217 01       		.byte	0x1
+ 2102 0218 03       		.uleb128 0x3
+ 2103 0219 0E       		.uleb128 0xe
+ 2104 021a 3A       		.uleb128 0x3a
+ 2105 021b 0B       		.uleb128 0xb
+ 2106 021c 3B       		.uleb128 0x3b
+ 2107 021d 0B       		.uleb128 0xb
+ 2108 021e 39       		.uleb128 0x39
+ 2109 021f 0B       		.uleb128 0xb
+ 2110 0220 27       		.uleb128 0x27
+ 2111 0221 0C       		.uleb128 0xc
+ 2112 0222 49       		.uleb128 0x49
+ 2113 0223 13       		.uleb128 0x13
+ 2114 0224 20       		.uleb128 0x20
+ 2115 0225 0B       		.uleb128 0xb
+ 2116 0226 00       		.byte	0
+ 2117 0227 00       		.byte	0
+ 2118 0228 22       		.uleb128 0x22
+ 2119 0229 05       		.uleb128 0x5
+ 2120 022a 00       		.byte	0
+ARM GAS  /tmp/ccs8Dd2F.s 			page 43
+
+
+ 2121 022b 03       		.uleb128 0x3
+ 2122 022c 08       		.uleb128 0x8
+ 2123 022d 3A       		.uleb128 0x3a
+ 2124 022e 0B       		.uleb128 0xb
+ 2125 022f 3B       		.uleb128 0x3b
+ 2126 0230 0B       		.uleb128 0xb
+ 2127 0231 39       		.uleb128 0x39
+ 2128 0232 0B       		.uleb128 0xb
+ 2129 0233 49       		.uleb128 0x49
+ 2130 0234 13       		.uleb128 0x13
+ 2131 0235 00       		.byte	0
+ 2132 0236 00       		.byte	0
+ 2133 0237 00       		.byte	0
+ 2134              		.section	.debug_loc,"",%progbits
+ 2135              	.Ldebug_loc0:
+ 2136              	.LLST8:
+ 2137 0000 00000000 		.4byte	.LFB16
+ 2138 0004 04000000 		.4byte	.LCFI3
+ 2139 0008 0200     		.2byte	0x2
+ 2140 000a 7D       		.byte	0x7d
+ 2141 000b 00       		.sleb128 0
+ 2142 000c 04000000 		.4byte	.LCFI3
+ 2143 0010 1E000000 		.4byte	.LCFI4
+ 2144 0014 0200     		.2byte	0x2
+ 2145 0016 7D       		.byte	0x7d
+ 2146 0017 28       		.sleb128 40
+ 2147 0018 1E000000 		.4byte	.LCFI4
+ 2148 001c 08010000 		.4byte	.LCFI5
+ 2149 0020 0200     		.2byte	0x2
+ 2150 0022 7D       		.byte	0x7d
+ 2151 0023 30       		.sleb128 48
+ 2152 0024 08010000 		.4byte	.LCFI5
+ 2153 0028 20010000 		.4byte	.LCFI6
+ 2154 002c 0200     		.2byte	0x2
+ 2155 002e 7D       		.byte	0x7d
+ 2156 002f 28       		.sleb128 40
+ 2157 0030 20010000 		.4byte	.LCFI6
+ 2158 0034 96010000 		.4byte	.LCFI7
+ 2159 0038 0200     		.2byte	0x2
+ 2160 003a 7D       		.byte	0x7d
+ 2161 003b 30       		.sleb128 48
+ 2162 003c 96010000 		.4byte	.LCFI7
+ 2163 0040 C4010000 		.4byte	.LFE16
+ 2164 0044 0200     		.2byte	0x2
+ 2165 0046 7D       		.byte	0x7d
+ 2166 0047 28       		.sleb128 40
+ 2167 0048 00000000 		.4byte	0
+ 2168 004c 00000000 		.4byte	0
+ 2169              	.LVUS9:
+ 2170 0050 00       		.uleb128 0
+ 2171 0051 00       		.uleb128 .LVU98
+ 2172 0052 00       		.uleb128 .LVU98
+ 2173 0053 00       		.uleb128 .LVU218
+ 2174 0054 00       		.uleb128 .LVU218
+ 2175 0055 00       		.uleb128 0
+ 2176              	.LLST9:
+ 2177 0056 00000000 		.4byte	.LVL19
+ARM GAS  /tmp/ccs8Dd2F.s 			page 44
+
+
+ 2178 005a 1A000000 		.4byte	.LVL22
+ 2179 005e 0100     		.2byte	0x1
+ 2180 0060 50       		.byte	0x50
+ 2181 0061 1A000000 		.4byte	.LVL22
+ 2182 0065 BE010000 		.4byte	.LVL32
+ 2183 0069 0100     		.2byte	0x1
+ 2184 006b 54       		.byte	0x54
+ 2185 006c BE010000 		.4byte	.LVL32
+ 2186 0070 C4010000 		.4byte	.LFE16
+ 2187 0074 0400     		.2byte	0x4
+ 2188 0076 F3       		.byte	0xf3
+ 2189 0077 01       		.uleb128 0x1
+ 2190 0078 50       		.byte	0x50
+ 2191 0079 9F       		.byte	0x9f
+ 2192 007a 00000000 		.4byte	0
+ 2193 007e 00000000 		.4byte	0
+ 2194              	.LVUS10:
+ 2195 0082 00       		.uleb128 0
+ 2196 0083 00       		.uleb128 .LVU91
+ 2197 0084 00       		.uleb128 .LVU91
+ 2198 0085 00       		.uleb128 .LVU218
+ 2199 0086 00       		.uleb128 .LVU218
+ 2200 0087 00       		.uleb128 0
+ 2201              	.LLST10:
+ 2202 0088 00000000 		.4byte	.LVL19
+ 2203 008c 08000000 		.4byte	.LVL20
+ 2204 0090 0100     		.2byte	0x1
+ 2205 0092 51       		.byte	0x51
+ 2206 0093 08000000 		.4byte	.LVL20
+ 2207 0097 BE010000 		.4byte	.LVL32
+ 2208 009b 0100     		.2byte	0x1
+ 2209 009d 58       		.byte	0x58
+ 2210 009e BE010000 		.4byte	.LVL32
+ 2211 00a2 C4010000 		.4byte	.LFE16
+ 2212 00a6 0400     		.2byte	0x4
+ 2213 00a8 F3       		.byte	0xf3
+ 2214 00a9 01       		.uleb128 0x1
+ 2215 00aa 51       		.byte	0x51
+ 2216 00ab 9F       		.byte	0x9f
+ 2217 00ac 00000000 		.4byte	0
+ 2218 00b0 00000000 		.4byte	0
+ 2219              	.LVUS11:
+ 2220 00b4 00       		.uleb128 0
+ 2221 00b5 00       		.uleb128 .LVU102
+ 2222 00b6 00       		.uleb128 .LVU102
+ 2223 00b7 00       		.uleb128 .LVU218
+ 2224 00b8 00       		.uleb128 .LVU218
+ 2225 00b9 00       		.uleb128 0
+ 2226              	.LLST11:
+ 2227 00ba 00000000 		.4byte	.LVL19
+ 2228 00be 29000000 		.4byte	.LVL23-1
+ 2229 00c2 0100     		.2byte	0x1
+ 2230 00c4 52       		.byte	0x52
+ 2231 00c5 29000000 		.4byte	.LVL23-1
+ 2232 00c9 BE010000 		.4byte	.LVL32
+ 2233 00cd 0100     		.2byte	0x1
+ 2234 00cf 57       		.byte	0x57
+ARM GAS  /tmp/ccs8Dd2F.s 			page 45
+
+
+ 2235 00d0 BE010000 		.4byte	.LVL32
+ 2236 00d4 C4010000 		.4byte	.LFE16
+ 2237 00d8 0400     		.2byte	0x4
+ 2238 00da F3       		.byte	0xf3
+ 2239 00db 01       		.uleb128 0x1
+ 2240 00dc 52       		.byte	0x52
+ 2241 00dd 9F       		.byte	0x9f
+ 2242 00de 00000000 		.4byte	0
+ 2243 00e2 00000000 		.4byte	0
+ 2244              	.LVUS12:
+ 2245 00e6 00       		.uleb128 0
+ 2246 00e7 00       		.uleb128 .LVU93
+ 2247 00e8 00       		.uleb128 .LVU93
+ 2248 00e9 00       		.uleb128 .LVU218
+ 2249 00ea 00       		.uleb128 .LVU218
+ 2250 00eb 00       		.uleb128 0
+ 2251              	.LLST12:
+ 2252 00ec 00000000 		.4byte	.LVL19
+ 2253 00f0 0C000000 		.4byte	.LVL21
+ 2254 00f4 0100     		.2byte	0x1
+ 2255 00f6 53       		.byte	0x53
+ 2256 00f7 0C000000 		.4byte	.LVL21
+ 2257 00fb BE010000 		.4byte	.LVL32
+ 2258 00ff 0100     		.2byte	0x1
+ 2259 0101 56       		.byte	0x56
+ 2260 0102 BE010000 		.4byte	.LVL32
+ 2261 0106 C4010000 		.4byte	.LFE16
+ 2262 010a 0400     		.2byte	0x4
+ 2263 010c F3       		.byte	0xf3
+ 2264 010d 01       		.uleb128 0x1
+ 2265 010e 53       		.byte	0x53
+ 2266 010f 9F       		.byte	0x9f
+ 2267 0110 00000000 		.4byte	0
+ 2268 0114 00000000 		.4byte	0
+ 2269              	.LVUS13:
+ 2270 0118 00       		.uleb128 0
+ 2271 0119 00       		.uleb128 .LVU174
+ 2272 011a 00       		.uleb128 .LVU174
+ 2273 011b 00       		.uleb128 .LVU218
+ 2274 011c 00       		.uleb128 .LVU218
+ 2275 011d 00       		.uleb128 0
+ 2276              	.LLST13:
+ 2277 011e 00000000 		.4byte	.LVL19
+ 2278 0122 20010000 		.4byte	.LVL30
+ 2279 0126 0200     		.2byte	0x2
+ 2280 0128 91       		.byte	0x91
+ 2281 0129 00       		.sleb128 0
+ 2282 012a 20010000 		.4byte	.LVL30
+ 2283 012e BE010000 		.4byte	.LVL32
+ 2284 0132 0200     		.2byte	0x2
+ 2285 0134 91       		.byte	0x91
+ 2286 0135 00       		.sleb128 0
+ 2287 0136 BE010000 		.4byte	.LVL32
+ 2288 013a C4010000 		.4byte	.LFE16
+ 2289 013e 0200     		.2byte	0x2
+ 2290 0140 7D       		.byte	0x7d
+ 2291 0141 00       		.sleb128 0
+ARM GAS  /tmp/ccs8Dd2F.s 			page 46
+
+
+ 2292 0142 00000000 		.4byte	0
+ 2293 0146 00000000 		.4byte	0
+ 2294              	.LVUS14:
+ 2295 014a 00       		.uleb128 0
+ 2296 014b 00       		.uleb128 .LVU102
+ 2297 014c 00       		.uleb128 .LVU102
+ 2298 014d 00       		.uleb128 .LVU168
+ 2299 014e 00       		.uleb128 .LVU168
+ 2300 014f 00       		.uleb128 .LVU174
+ 2301 0150 00       		.uleb128 .LVU174
+ 2302 0151 00       		.uleb128 .LVU208
+ 2303 0152 00       		.uleb128 .LVU208
+ 2304 0153 00       		.uleb128 .LVU218
+ 2305 0154 00       		.uleb128 .LVU218
+ 2306 0155 00       		.uleb128 0
+ 2307              	.LLST14:
+ 2308 0156 00000000 		.4byte	.LVL19
+ 2309 015a 29000000 		.4byte	.LVL23-1
+ 2310 015e 0200     		.2byte	0x2
+ 2311 0160 90       		.byte	0x90
+ 2312 0161 40       		.uleb128 0x40
+ 2313 0162 29000000 		.4byte	.LVL23-1
+ 2314 0166 08010000 		.4byte	.LVL29
+ 2315 016a 0200     		.2byte	0x2
+ 2316 016c 90       		.byte	0x90
+ 2317 016d 50       		.uleb128 0x50
+ 2318 016e 08010000 		.4byte	.LVL29
+ 2319 0172 20010000 		.4byte	.LVL30
+ 2320 0176 0200     		.2byte	0x2
+ 2321 0178 7A       		.byte	0x7a
+ 2322 0179 08       		.sleb128 8
+ 2323 017a 20010000 		.4byte	.LVL30
+ 2324 017e 96010000 		.4byte	.LVL31
+ 2325 0182 0200     		.2byte	0x2
+ 2326 0184 90       		.byte	0x90
+ 2327 0185 50       		.uleb128 0x50
+ 2328 0186 96010000 		.4byte	.LVL31
+ 2329 018a BE010000 		.4byte	.LVL32
+ 2330 018e 0200     		.2byte	0x2
+ 2331 0190 7A       		.byte	0x7a
+ 2332 0191 08       		.sleb128 8
+ 2333 0192 BE010000 		.4byte	.LVL32
+ 2334 0196 C4010000 		.4byte	.LFE16
+ 2335 019a 0600     		.2byte	0x6
+ 2336 019c F3       		.byte	0xf3
+ 2337 019d 03       		.uleb128 0x3
+ 2338 019e F5       		.byte	0xf5
+ 2339 019f 40       		.uleb128 0x40
+ 2340 01a0 29       		.uleb128 0x29
+ 2341 01a1 9F       		.byte	0x9f
+ 2342 01a2 00000000 		.4byte	0
+ 2343 01a6 00000000 		.4byte	0
+ 2344              	.LVUS15:
+ 2345 01aa 00       		.uleb128 .LVU111
+ 2346 01ab 00       		.uleb128 .LVU218
+ 2347              	.LLST15:
+ 2348 01ac 40000000 		.4byte	.LVL24
+ARM GAS  /tmp/ccs8Dd2F.s 			page 47
+
+
+ 2349 01b0 BE010000 		.4byte	.LVL32
+ 2350 01b4 0100     		.2byte	0x1
+ 2351 01b6 5A       		.byte	0x5a
+ 2352 01b7 00000000 		.4byte	0
+ 2353 01bb 00000000 		.4byte	0
+ 2354              	.LLST2:
+ 2355 01bf 00000000 		.4byte	.LFB15
+ 2356 01c3 02000000 		.4byte	.LCFI2
+ 2357 01c7 0200     		.2byte	0x2
+ 2358 01c9 7D       		.byte	0x7d
+ 2359 01ca 00       		.sleb128 0
+ 2360 01cb 02000000 		.4byte	.LCFI2
+ 2361 01cf 94000000 		.4byte	.LFE15
+ 2362 01d3 0200     		.2byte	0x2
+ 2363 01d5 7D       		.byte	0x7d
+ 2364 01d6 18       		.sleb128 24
+ 2365 01d7 00000000 		.4byte	0
+ 2366 01db 00000000 		.4byte	0
+ 2367              	.LVUS3:
+ 2368 01df 00       		.uleb128 0
+ 2369 01e0 00       		.uleb128 .LVU54
+ 2370 01e1 00       		.uleb128 .LVU54
+ 2371 01e2 00       		.uleb128 .LVU86
+ 2372 01e3 00       		.uleb128 .LVU86
+ 2373 01e4 00       		.uleb128 0
+ 2374              	.LLST3:
+ 2375 01e5 00000000 		.4byte	.LVL8
+ 2376 01e9 0A000000 		.4byte	.LVL9
+ 2377 01ed 0100     		.2byte	0x1
+ 2378 01ef 50       		.byte	0x50
+ 2379 01f0 0A000000 		.4byte	.LVL9
+ 2380 01f4 8E000000 		.4byte	.LVL18
+ 2381 01f8 0100     		.2byte	0x1
+ 2382 01fa 57       		.byte	0x57
+ 2383 01fb 8E000000 		.4byte	.LVL18
+ 2384 01ff 94000000 		.4byte	.LFE15
+ 2385 0203 0400     		.2byte	0x4
+ 2386 0205 F3       		.byte	0xf3
+ 2387 0206 01       		.uleb128 0x1
+ 2388 0207 50       		.byte	0x50
+ 2389 0208 9F       		.byte	0x9f
+ 2390 0209 00000000 		.4byte	0
+ 2391 020d 00000000 		.4byte	0
+ 2392              	.LVUS4:
+ 2393 0211 00       		.uleb128 0
+ 2394 0212 00       		.uleb128 .LVU74
+ 2395 0213 00       		.uleb128 .LVU74
+ 2396 0214 00       		.uleb128 .LVU86
+ 2397 0215 00       		.uleb128 .LVU86
+ 2398 0216 00       		.uleb128 0
+ 2399              	.LLST4:
+ 2400 0217 00000000 		.4byte	.LVL8
+ 2401 021b 70000000 		.4byte	.LVL14
+ 2402 021f 0100     		.2byte	0x1
+ 2403 0221 51       		.byte	0x51
+ 2404 0222 70000000 		.4byte	.LVL14
+ 2405 0226 8E000000 		.4byte	.LVL18
+ARM GAS  /tmp/ccs8Dd2F.s 			page 48
+
+
+ 2406 022a 0100     		.2byte	0x1
+ 2407 022c 56       		.byte	0x56
+ 2408 022d 8E000000 		.4byte	.LVL18
+ 2409 0231 94000000 		.4byte	.LFE15
+ 2410 0235 0400     		.2byte	0x4
+ 2411 0237 F3       		.byte	0xf3
+ 2412 0238 01       		.uleb128 0x1
+ 2413 0239 51       		.byte	0x51
+ 2414 023a 9F       		.byte	0x9f
+ 2415 023b 00000000 		.4byte	0
+ 2416 023f 00000000 		.4byte	0
+ 2417              	.LVUS5:
+ 2418 0243 03       		.uleb128 .LVU50
+ 2419 0244 00       		.uleb128 .LVU56
+ 2420 0245 00       		.uleb128 .LVU56
+ 2421 0246 00       		.uleb128 .LVU71
+ 2422              	.LLST5:
+ 2423 0247 00000000 		.4byte	.LVL8
+ 2424 024b 20000000 		.4byte	.LVL10
+ 2425 024f 0200     		.2byte	0x2
+ 2426 0251 30       		.byte	0x30
+ 2427 0252 9F       		.byte	0x9f
+ 2428 0253 20000000 		.4byte	.LVL10
+ 2429 0257 64000000 		.4byte	.LVL13
+ 2430 025b 0100     		.2byte	0x1
+ 2431 025d 54       		.byte	0x54
+ 2432 025e 00000000 		.4byte	0
+ 2433 0262 00000000 		.4byte	0
+ 2434              	.LVUS6:
+ 2435 0266 01       		.uleb128 .LVU78
+ 2436 0267 00       		.uleb128 .LVU80
+ 2437 0268 00       		.uleb128 .LVU80
+ 2438 0269 00       		.uleb128 .LVU86
+ 2439 026a 00       		.uleb128 .LVU86
+ 2440 026b 00       		.uleb128 0
+ 2441              	.LLST6:
+ 2442 026c 76000000 		.4byte	.LVL16
+ 2443 0270 82000000 		.4byte	.LVL17
+ 2444 0274 0800     		.2byte	0x8
+ 2445 0276 74       		.byte	0x74
+ 2446 0277 00       		.sleb128 0
+ 2447 0278 3C       		.byte	0x3c
+ 2448 0279 1E       		.byte	0x1e
+ 2449 027a 70       		.byte	0x70
+ 2450 027b 00       		.sleb128 0
+ 2451 027c 22       		.byte	0x22
+ 2452 027d 9F       		.byte	0x9f
+ 2453 027e 82000000 		.4byte	.LVL17
+ 2454 0282 8E000000 		.4byte	.LVL18
+ 2455 0286 0900     		.2byte	0x9
+ 2456 0288 74       		.byte	0x74
+ 2457 0289 00       		.sleb128 0
+ 2458 028a 3C       		.byte	0x3c
+ 2459 028b 1E       		.byte	0x1e
+ 2460 028c 77       		.byte	0x77
+ 2461 028d 08       		.sleb128 8
+ 2462 028e 06       		.byte	0x6
+ARM GAS  /tmp/ccs8Dd2F.s 			page 49
+
+
+ 2463 028f 22       		.byte	0x22
+ 2464 0290 9F       		.byte	0x9f
+ 2465 0291 8E000000 		.4byte	.LVL18
+ 2466 0295 94000000 		.4byte	.LFE15
+ 2467 0299 0C00     		.2byte	0xc
+ 2468 029b 70       		.byte	0x70
+ 2469 029c 00       		.sleb128 0
+ 2470 029d 3C       		.byte	0x3c
+ 2471 029e 1E       		.byte	0x1e
+ 2472 029f F3       		.byte	0xf3
+ 2473 02a0 01       		.uleb128 0x1
+ 2474 02a1 50       		.byte	0x50
+ 2475 02a2 23       		.byte	0x23
+ 2476 02a3 08       		.uleb128 0x8
+ 2477 02a4 06       		.byte	0x6
+ 2478 02a5 22       		.byte	0x22
+ 2479 02a6 9F       		.byte	0x9f
+ 2480 02a7 00000000 		.4byte	0
+ 2481 02ab 00000000 		.4byte	0
+ 2482              	.LVUS7:
+ 2483 02af 01       		.uleb128 .LVU59
+ 2484 02b0 03       		.uleb128 .LVU61
+ 2485              	.LLST7:
+ 2486 02b1 28000000 		.4byte	.LVL12
+ 2487 02b5 28000000 		.4byte	.LVL12
+ 2488 02b9 0C00     		.2byte	0xc
+ 2489 02bb 73       		.byte	0x73
+ 2490 02bc 00       		.sleb128 0
+ 2491 02bd 93       		.byte	0x93
+ 2492 02be 04       		.uleb128 0x4
+ 2493 02bf 73       		.byte	0x73
+ 2494 02c0 04       		.sleb128 4
+ 2495 02c1 93       		.byte	0x93
+ 2496 02c2 04       		.uleb128 0x4
+ 2497 02c3 73       		.byte	0x73
+ 2498 02c4 08       		.sleb128 8
+ 2499 02c5 93       		.byte	0x93
+ 2500 02c6 04       		.uleb128 0x4
+ 2501 02c7 00000000 		.4byte	0
+ 2502 02cb 00000000 		.4byte	0
+ 2503              	.LLST0:
+ 2504 02cf 00000000 		.4byte	.LFB14
+ 2505 02d3 0C000000 		.4byte	.LCFI0
+ 2506 02d7 0200     		.2byte	0x2
+ 2507 02d9 7D       		.byte	0x7d
+ 2508 02da 00       		.sleb128 0
+ 2509 02db 0C000000 		.4byte	.LCFI0
+ 2510 02df 2E000000 		.4byte	.LCFI1
+ 2511 02e3 0200     		.2byte	0x2
+ 2512 02e5 7D       		.byte	0x7d
+ 2513 02e6 10       		.sleb128 16
+ 2514 02e7 2E000000 		.4byte	.LCFI1
+ 2515 02eb 38000000 		.4byte	.LFE14
+ 2516 02ef 0200     		.2byte	0x2
+ 2517 02f1 7D       		.byte	0x7d
+ 2518 02f2 00       		.sleb128 0
+ 2519 02f3 00000000 		.4byte	0
+ARM GAS  /tmp/ccs8Dd2F.s 			page 50
+
+
+ 2520 02f7 00000000 		.4byte	0
+ 2521              	.LVUS1:
+ 2522 02fb 00       		.uleb128 0
+ 2523 02fc 00       		.uleb128 .LVU36
+ 2524 02fd 00       		.uleb128 .LVU36
+ 2525 02fe 00       		.uleb128 .LVU45
+ 2526 02ff 00       		.uleb128 .LVU45
+ 2527 0300 00       		.uleb128 .LVU46
+ 2528 0301 00       		.uleb128 .LVU46
+ 2529 0302 00       		.uleb128 .LVU46
+ 2530 0303 00       		.uleb128 .LVU46
+ 2531 0304 00       		.uleb128 0
+ 2532              	.LLST1:
+ 2533 0305 00000000 		.4byte	.LVL2
+ 2534 0309 10000000 		.4byte	.LVL3
+ 2535 030d 0100     		.2byte	0x1
+ 2536 030f 50       		.byte	0x50
+ 2537 0310 10000000 		.4byte	.LVL3
+ 2538 0314 2E000000 		.4byte	.LVL6
+ 2539 0318 0100     		.2byte	0x1
+ 2540 031a 54       		.byte	0x54
+ 2541 031b 2E000000 		.4byte	.LVL6
+ 2542 031f 2F000000 		.4byte	.LVL7-1
+ 2543 0323 0100     		.2byte	0x1
+ 2544 0325 50       		.byte	0x50
+ 2545 0326 2F000000 		.4byte	.LVL7-1
+ 2546 032a 30000000 		.4byte	.LVL7
+ 2547 032e 0400     		.2byte	0x4
+ 2548 0330 F3       		.byte	0xf3
+ 2549 0331 01       		.uleb128 0x1
+ 2550 0332 50       		.byte	0x50
+ 2551 0333 9F       		.byte	0x9f
+ 2552 0334 30000000 		.4byte	.LVL7
+ 2553 0338 38000000 		.4byte	.LFE14
+ 2554 033c 0100     		.2byte	0x1
+ 2555 033e 50       		.byte	0x50
+ 2556 033f 00000000 		.4byte	0
+ 2557 0343 00000000 		.4byte	0
+ 2558              		.section	.debug_aranges,"",%progbits
+ 2559 0000 4C000000 		.4byte	0x4c
+ 2560 0004 0200     		.2byte	0x2
+ 2561 0006 00000000 		.4byte	.Ldebug_info0
+ 2562 000a 04       		.byte	0x4
+ 2563 000b 00       		.byte	0
+ 2564 000c 0000     		.2byte	0
+ 2565 000e 0000     		.2byte	0
+ 2566 0010 00000000 		.4byte	.LFB12
+ 2567 0014 26000000 		.4byte	.LFE12-.LFB12
+ 2568 0018 00000000 		.4byte	.LFB13
+ 2569 001c 08000000 		.4byte	.LFE13-.LFB13
+ 2570 0020 00000000 		.4byte	.LFB14
+ 2571 0024 38000000 		.4byte	.LFE14-.LFB14
+ 2572 0028 00000000 		.4byte	.LFB15
+ 2573 002c 94000000 		.4byte	.LFE15-.LFB15
+ 2574 0030 00000000 		.4byte	.LFB16
+ 2575 0034 C4010000 		.4byte	.LFE16-.LFB16
+ 2576 0038 00000000 		.4byte	.LFB17
+ARM GAS  /tmp/ccs8Dd2F.s 			page 51
+
+
+ 2577 003c 0E000000 		.4byte	.LFE17-.LFB17
+ 2578 0040 00000000 		.4byte	.LFB18
+ 2579 0044 04000000 		.4byte	.LFE18-.LFB18
+ 2580 0048 00000000 		.4byte	0
+ 2581 004c 00000000 		.4byte	0
+ 2582              		.section	.debug_ranges,"",%progbits
+ 2583              	.Ldebug_ranges0:
+ 2584 0000 28000000 		.4byte	.LBB4
+ 2585 0004 28000000 		.4byte	.LBE4
+ 2586 0008 28000000 		.4byte	.LBB7
+ 2587 000c 60000000 		.4byte	.LBE7
+ 2588 0010 00000000 		.4byte	0
+ 2589 0014 00000000 		.4byte	0
+ 2590 0018 00000000 		.4byte	.LFB12
+ 2591 001c 26000000 		.4byte	.LFE12
+ 2592 0020 00000000 		.4byte	.LFB13
+ 2593 0024 08000000 		.4byte	.LFE13
+ 2594 0028 00000000 		.4byte	.LFB14
+ 2595 002c 38000000 		.4byte	.LFE14
+ 2596 0030 00000000 		.4byte	.LFB15
+ 2597 0034 94000000 		.4byte	.LFE15
+ 2598 0038 00000000 		.4byte	.LFB16
+ 2599 003c C4010000 		.4byte	.LFE16
+ 2600 0040 00000000 		.4byte	.LFB17
+ 2601 0044 0E000000 		.4byte	.LFE17
+ 2602 0048 00000000 		.4byte	.LFB18
+ 2603 004c 04000000 		.4byte	.LFE18
+ 2604 0050 00000000 		.4byte	0
+ 2605 0054 00000000 		.4byte	0
+ 2606              		.section	.debug_line,"",%progbits
+ 2607              	.Ldebug_line0:
+ 2608 0000 C0040000 		.section	.debug_str,"MS",%progbits,1
+ 2608      0300E100 
+ 2608      00000201 
+ 2608      FB0E0D00 
+ 2608      01010101 
+ 2609              	.LASF7:
+ 2610 0000 73697A65 		.ascii	"size_t\000"
+ 2610      5F7400
+ 2611              	.LASF17:
+ 2612 0007 636F6C6F 		.ascii	"colorBias\000"
+ 2612      72426961 
+ 2612      7300
+ 2613              	.LASF0:
+ 2614 0011 666C6F61 		.ascii	"float\000"
+ 2614      7400
+ 2615              	.LASF36:
+ 2616 0017 53686170 		.ascii	"Shape3D_release\000"
+ 2616      6533445F 
+ 2616      72656C65 
+ 2616      61736500 
+ 2617              	.LASF35:
+ 2618 0027 706F696E 		.ascii	"point\000"
+ 2618      7400
+ 2619              	.LASF21:
+ 2620 002d 706F696E 		.ascii	"points\000"
+ 2620      747300
+ARM GAS  /tmp/ccs8Dd2F.s 			page 52
+
+
+ 2621              	.LASF29:
+ 2622 0034 53686170 		.ascii	"Shape3D_setOrderTableSize\000"
+ 2622      6533445F 
+ 2622      7365744F 
+ 2622      72646572 
+ 2622      5461626C 
+ 2623              	.LASF19:
+ 2624 004e 72657461 		.ascii	"retainCount\000"
+ 2624      696E436F 
+ 2624      756E7400 
+ 2625              	.LASF22:
+ 2626 005a 6E466163 		.ascii	"nFaces\000"
+ 2626      657300
+ 2627              	.LASF41:
+ 2628 0061 6D696E69 		.ascii	"mini3d/shape.c\000"
+ 2628      33642F73 
+ 2628      68617065 
+ 2628      2E6300
+ 2629              	.LASF32:
+ 2630 0070 53686170 		.ascii	"Shape3D_addFace\000"
+ 2630      6533445F 
+ 2630      61646446 
+ 2630      61636500 
+ 2631              	.LASF28:
+ 2632 0080 73697A65 		.ascii	"size\000"
+ 2632      00
+ 2633              	.LASF11:
+ 2634 0085 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2634      20756E73 
+ 2634      69676E65 
+ 2634      6420696E 
+ 2634      7400
+ 2635              	.LASF9:
+ 2636 0097 73686F72 		.ascii	"short unsigned int\000"
+ 2636      7420756E 
+ 2636      7369676E 
+ 2636      65642069 
+ 2636      6E7400
+ 2637              	.LASF27:
+ 2638 00aa 73686170 		.ascii	"shape\000"
+ 2638      6500
+ 2639              	.LASF18:
+ 2640 00b0 46616365 		.ascii	"Face3D\000"
+ 2640      334400
+ 2641              	.LASF5:
+ 2642 00b7 756E7369 		.ascii	"unsigned char\000"
+ 2642      676E6564 
+ 2642      20636861 
+ 2642      7200
+ 2643              	.LASF15:
+ 2644 00c5 646F7562 		.ascii	"double\000"
+ 2644      6C6500
+ 2645              	.LASF42:
+ 2646 00cc 2F686F6D 		.ascii	"/home/nyanfall/projects/playdate/c-first-try/pong\000"
+ 2646      652F6E79 
+ 2646      616E6661 
+ 2646      6C6C2F70 
+ARM GAS  /tmp/ccs8Dd2F.s 			page 53
+
+
+ 2646      726F6A65 
+ 2647              	.LASF31:
+ 2648 00fe 666C6167 		.ascii	"flag\000"
+ 2648      00
+ 2649              	.LASF8:
+ 2650 0103 5F5F7569 		.ascii	"__uint16_t\000"
+ 2650      6E743136 
+ 2650      5F7400
+ 2651              	.LASF1:
+ 2652 010e 756E7369 		.ascii	"unsigned int\000"
+ 2652      676E6564 
+ 2652      20696E74 
+ 2652      00
+ 2653              	.LASF30:
+ 2654 011b 53686170 		.ascii	"Shape3D_setClosed\000"
+ 2654      6533445F 
+ 2654      73657443 
+ 2654      6C6F7365 
+ 2654      6400
+ 2655              	.LASF12:
+ 2656 012d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2656      206C6F6E 
+ 2656      6720756E 
+ 2656      7369676E 
+ 2656      65642069 
+ 2657              	.LASF40:
+ 2658 0144 474E5520 		.ascii	"GNU C17 12.2.0 -mthumb -mcpu=cortex-m7 -mfloat-abi="
+ 2658      43313720 
+ 2658      31322E32 
+ 2658      2E30202D 
+ 2658      6D746875 
+ 2659 0177 68617264 		.ascii	"hard -mfpu=fpv5-sp-d16 -march=armv7e-m+fpv5 -g -gdw"
+ 2659      202D6D66 
+ 2659      70753D66 
+ 2659      7076352D 
+ 2659      73702D64 
+ 2660 01aa 6172662D 		.ascii	"arf-2 -O2 -falign-functions=16 -fomit-frame-pointer"
+ 2660      32202D4F 
+ 2660      32202D66 
+ 2660      616C6967 
+ 2660      6E2D6675 
+ 2661 01dd 202D6666 		.ascii	" -ffunction-sections -fdata-sections\000"
+ 2661      756E6374 
+ 2661      696F6E2D 
+ 2661      73656374 
+ 2661      696F6E73 
+ 2662              	.LASF33:
+ 2663 0202 6D33645F 		.ascii	"m3d_realloc\000"
+ 2663      7265616C 
+ 2663      6C6F6300 
+ 2664              	.LASF2:
+ 2665 020e 6C6F6E67 		.ascii	"long long int\000"
+ 2665      206C6F6E 
+ 2665      6720696E 
+ 2665      7400
+ 2666              	.LASF39:
+ 2667 021c 53686170 		.ascii	"Shape3D_init\000"
+ARM GAS  /tmp/ccs8Dd2F.s 			page 54
+
+
+ 2667      6533445F 
+ 2667      696E6974 
+ 2667      00
+ 2668              	.LASF23:
+ 2669 0229 66616365 		.ascii	"faces\000"
+ 2669      7300
+ 2670              	.LASF37:
+ 2671 022f 53686170 		.ascii	"Shape3D_addPoint\000"
+ 2671      6533445F 
+ 2671      61646450 
+ 2671      6F696E74 
+ 2671      00
+ 2672              	.LASF20:
+ 2673 0240 6E506F69 		.ascii	"nPoints\000"
+ 2673      6E747300 
+ 2674              	.LASF44:
+ 2675 0248 506F696E 		.ascii	"Point3D_equals\000"
+ 2675      7433445F 
+ 2675      65717561 
+ 2675      6C7300
+ 2676              	.LASF6:
+ 2677 0257 73686F72 		.ascii	"short int\000"
+ 2677      7420696E 
+ 2677      7400
+ 2678              	.LASF24:
+ 2679 0261 63656E74 		.ascii	"center\000"
+ 2679      657200
+ 2680              	.LASF14:
+ 2681 0268 75696E74 		.ascii	"uint16_t\000"
+ 2681      31365F74 
+ 2681      00
+ 2682              	.LASF34:
+ 2683 0271 66616365 		.ascii	"face\000"
+ 2683      00
+ 2684              	.LASF26:
+ 2685 0276 53686170 		.ascii	"Shape3D\000"
+ 2685      65334400 
+ 2686              	.LASF10:
+ 2687 027e 6C6F6E67 		.ascii	"long int\000"
+ 2687      20696E74 
+ 2687      00
+ 2688              	.LASF13:
+ 2689 0287 63686172 		.ascii	"char\000"
+ 2689      00
+ 2690              	.LASF3:
+ 2691 028c 6C6F6E67 		.ascii	"long double\000"
+ 2691      20646F75 
+ 2691      626C6500 
+ 2692              	.LASF43:
+ 2693 0298 6973436C 		.ascii	"isClosed\000"
+ 2693      6F736564 
+ 2693      00
+ 2694              	.LASF4:
+ 2695 02a1 7369676E 		.ascii	"signed char\000"
+ 2695      65642063 
+ 2695      68617200 
+ 2696              	.LASF16:
+ARM GAS  /tmp/ccs8Dd2F.s 			page 55
+
+
+ 2697 02ad 506F696E 		.ascii	"Point3D\000"
+ 2697      74334400 
+ 2698              	.LASF38:
+ 2699 02b5 53686170 		.ascii	"Shape3D_retain\000"
+ 2699      6533445F 
+ 2699      72657461 
+ 2699      696E00
+ 2700              	.LASF25:
+ 2701 02c4 6F726465 		.ascii	"orderTableSize\000"
+ 2701      72546162 
+ 2701      6C655369 
+ 2701      7A6500
+ 2702              		.ident	"GCC: (Arch Repository) 12.2.0"
+ARM GAS  /tmp/ccs8Dd2F.s 			page 56
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 shape.c
+     /tmp/ccs8Dd2F.s:28     .text.Shape3D_init:0000000000000000 $t
+     /tmp/ccs8Dd2F.s:35     .text.Shape3D_init:0000000000000000 Shape3D_init
+     /tmp/ccs8Dd2F.s:100    .text.Shape3D_retain:0000000000000000 $t
+     /tmp/ccs8Dd2F.s:107    .text.Shape3D_retain:0000000000000000 Shape3D_retain
+     /tmp/ccs8Dd2F.s:127    .text.Shape3D_release:0000000000000000 $t
+     /tmp/ccs8Dd2F.s:134    .text.Shape3D_release:0000000000000000 Shape3D_release
+     /tmp/ccs8Dd2F.s:215    .text.Shape3D_release:0000000000000034 $d
+     /tmp/ccs8Dd2F.s:220    .text.Shape3D_addPoint:0000000000000000 $t
+     /tmp/ccs8Dd2F.s:227    .text.Shape3D_addPoint:0000000000000000 Shape3D_addPoint
+     /tmp/ccs8Dd2F.s:382    .text.Shape3D_addPoint:0000000000000090 $d
+     /tmp/ccs8Dd2F.s:387    .text.Shape3D_addFace:0000000000000000 $t
+     /tmp/ccs8Dd2F.s:394    .text.Shape3D_addFace:0000000000000000 Shape3D_addFace
+     /tmp/ccs8Dd2F.s:814    .text.Shape3D_addFace:00000000000001c0 $d
+     /tmp/ccs8Dd2F.s:819    .text.Shape3D_setClosed:0000000000000000 $t
+     /tmp/ccs8Dd2F.s:826    .text.Shape3D_setClosed:0000000000000000 Shape3D_setClosed
+     /tmp/ccs8Dd2F.s:847    .text.Shape3D_setOrderTableSize:0000000000000000 $t
+     /tmp/ccs8Dd2F.s:854    .text.Shape3D_setOrderTableSize:0000000000000000 Shape3D_setOrderTableSize
+
+UNDEFINED SYMBOLS
+m3d_realloc

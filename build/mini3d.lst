@@ -1,0 +1,469 @@
+ARM GAS  /tmp/cc4vUoib.s 			page 1
+
+
+   1              		.cpu cortex-m7
+   2              		.arch armv7e-m
+   3              		.fpu fpv5-sp-d16
+   4              		.eabi_attribute 27, 1	@ Tag_ABI_HardFP_use
+   5              		.eabi_attribute 28, 1	@ Tag_ABI_VFP_args
+   6              		.eabi_attribute 20, 1	@ Tag_ABI_FP_denormal
+   7              		.eabi_attribute 21, 1	@ Tag_ABI_FP_exceptions
+   8              		.eabi_attribute 23, 3	@ Tag_ABI_FP_number_model
+   9              		.eabi_attribute 24, 1	@ Tag_ABI_align8_needed
+  10              		.eabi_attribute 25, 1	@ Tag_ABI_align8_preserved
+  11              		.eabi_attribute 26, 1	@ Tag_ABI_enum_size
+  12              		.eabi_attribute 30, 2	@ Tag_ABI_optimization_goals
+  13              		.eabi_attribute 34, 1	@ Tag_CPU_unaligned_access
+  14              		.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
+  15              		.file	"mini3d.c"
+  16              	@ GNU C17 (Arch Repository) version 12.2.0 (arm-none-eabi)
+  17              	@	compiled by GNU C version 12.1.1 20220730, GMP version 6.2.1, MPFR version 4.1.0-p13, MPC version
+  18              	
+  19              	@ warning: MPFR header version 4.1.0-p13 differs from library version 4.2.0.
+  20              	@ warning: MPC header version 1.2.1 differs from library version 1.3.1.
+  21              	@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+  22              	@ options passed: -mthumb -mcpu=cortex-m7 -mfloat-abi=hard -mfpu=fpv5-sp-d16 -march=armv7e-m+fpv5 -
+  23              		.text
+  24              	.Ltext0:
+  25              		.cfi_sections	.debug_frame
+  26              		.file 1 "mini3d/mini3d.c"
+  27              		.section	.text.mini3d_setRealloc,"ax",%progbits
+  28              		.align	1
+  29              		.p2align 4,,15
+  30              		.global	mini3d_setRealloc
+  31              		.syntax unified
+  32              		.thumb
+  33              		.thumb_func
+  34              		.type	mini3d_setRealloc, %function
+  35              	mini3d_setRealloc:
+  36              	.LVL0:
+  37              	.LFB0:
+   1:mini3d/mini3d.c **** //
+   2:mini3d/mini3d.c **** //  mini3d.c
+   3:mini3d/mini3d.c **** //  Extension
+   4:mini3d/mini3d.c **** //
+   5:mini3d/mini3d.c **** //  Created by Dave Hayden on 10/20/15.
+   6:mini3d/mini3d.c **** //  Copyright © 2015 Panic, Inc. All rights reserved.
+   7:mini3d/mini3d.c **** //
+   8:mini3d/mini3d.c **** 
+   9:mini3d/mini3d.c **** #include "mini3d.h"
+  10:mini3d/mini3d.c **** 
+  11:mini3d/mini3d.c **** void* (*m3d_realloc)(void* ptr, size_t size);
+  12:mini3d/mini3d.c **** 
+  13:mini3d/mini3d.c **** void mini3d_setRealloc(void* (*realloc)(void* ptr, size_t size))
+  14:mini3d/mini3d.c **** {
+  38              		.loc 1 14 1 view -0
+  39              		.cfi_startproc
+  40              		@ args = 0, pretend = 0, frame = 0
+  41              		@ frame_needed = 0, uses_anonymous_args = 0
+  42              		@ link register save eliminated.
+  15:mini3d/mini3d.c **** 	m3d_realloc = realloc;
+ARM GAS  /tmp/cc4vUoib.s 			page 2
+
+
+  43              		.loc 1 15 2 view .LVU1
+  44              	@ mini3d/mini3d.c:15: 	m3d_realloc = realloc;
+  45              		.loc 1 15 14 is_stmt 0 view .LVU2
+  46 0000 014B     		ldr	r3, .L3	@ tmp114,
+  47 0002 1860     		str	r0, [r3]	@ tmp115, m3d_realloc
+  48              	@ mini3d/mini3d.c:16: }
+  16:mini3d/mini3d.c **** }
+  49              		.loc 1 16 1 view .LVU3
+  50 0004 7047     		bx	lr	@
+  51              	.L4:
+  52 0006 00BF     		.align	2
+  53              	.L3:
+  54 0008 00000000 		.word	m3d_realloc
+  55              		.cfi_endproc
+  56              	.LFE0:
+  57              		.size	mini3d_setRealloc, .-mini3d_setRealloc
+  58              		.global	m3d_realloc
+  59              		.section	.bss.m3d_realloc,"aw",%nobits
+  60              		.align	2
+  61              		.type	m3d_realloc, %object
+  62              		.size	m3d_realloc, 4
+  63              	m3d_realloc:
+  64 0000 00000000 		.space	4
+  65              		.text
+  66              	.Letext0:
+  67              		.file 2 "/usr/lib/gcc/arm-none-eabi/12.2.0/include/stddef.h"
+  68              		.file 3 "mini3d/mini3d.h"
+  69              		.section	.debug_info,"",%progbits
+  70              	.Ldebug_info0:
+  71 0000 AC000000 		.4byte	0xac
+  72 0004 0200     		.2byte	0x2
+  73 0006 00000000 		.4byte	.Ldebug_abbrev0
+  74 000a 04       		.byte	0x4
+  75 000b 01       		.uleb128 0x1
+  76 000c 24000000 		.4byte	.LASF3
+  77 0010 0C       		.byte	0xc
+  78 0011 00000000 		.4byte	.LASF4
+  79 0015 02010000 		.4byte	.LASF5
+  80 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  81 001d 00000000 		.4byte	0
+  82 0021 00000000 		.4byte	0
+  83 0025 00000000 		.4byte	.Ldebug_line0
+  84 0029 02       		.uleb128 0x2
+  85 002a 04       		.byte	0x4
+  86 002b 05       		.byte	0x5
+  87 002c 696E7400 		.ascii	"int\000"
+  88 0030 03       		.uleb128 0x3
+  89 0031 1D000000 		.4byte	.LASF6
+  90 0035 02       		.byte	0x2
+  91 0036 D6       		.byte	0xd6
+  92 0037 17       		.byte	0x17
+  93 0038 3C000000 		.4byte	0x3c
+  94 003c 04       		.uleb128 0x4
+  95 003d 04       		.byte	0x4
+  96 003e 07       		.byte	0x7
+  97 003f 10000000 		.4byte	.LASF0
+  98 0043 04       		.uleb128 0x4
+ARM GAS  /tmp/cc4vUoib.s 			page 3
+
+
+  99 0044 08       		.byte	0x8
+ 100 0045 05       		.byte	0x5
+ 101 0046 46010000 		.4byte	.LASF1
+ 102 004a 04       		.uleb128 0x4
+ 103 004b 08       		.byte	0x8
+ 104 004c 04       		.byte	0x4
+ 105 004d E2000000 		.4byte	.LASF2
+ 106 0051 05       		.uleb128 0x5
+ 107 0052 01       		.byte	0x1
+ 108 0053 66000000 		.4byte	0x66
+ 109 0057 66000000 		.4byte	0x66
+ 110 005b 06       		.uleb128 0x6
+ 111 005c 66000000 		.4byte	0x66
+ 112 0060 06       		.uleb128 0x6
+ 113 0061 30000000 		.4byte	0x30
+ 114 0065 00       		.byte	0
+ 115 0066 07       		.uleb128 0x7
+ 116 0067 04       		.byte	0x4
+ 117 0068 08       		.uleb128 0x8
+ 118 0069 EE000000 		.4byte	.LASF7
+ 119 006d 03       		.byte	0x3
+ 120 006e 17       		.byte	0x17
+ 121 006f 10       		.byte	0x10
+ 122 0070 76000000 		.4byte	0x76
+ 123 0074 01       		.byte	0x1
+ 124 0075 01       		.byte	0x1
+ 125 0076 09       		.uleb128 0x9
+ 126 0077 04       		.byte	0x4
+ 127 0078 51000000 		.4byte	0x51
+ 128 007c 0A       		.uleb128 0xa
+ 129 007d 68000000 		.4byte	0x68
+ 130 0081 01       		.byte	0x1
+ 131 0082 0B       		.byte	0xb
+ 132 0083 09       		.byte	0x9
+ 133 0084 05       		.byte	0x5
+ 134 0085 03       		.byte	0x3
+ 135 0086 00000000 		.4byte	m3d_realloc
+ 136 008a 0B       		.uleb128 0xb
+ 137 008b 01       		.byte	0x1
+ 138 008c 34010000 		.4byte	.LASF8
+ 139 0090 01       		.byte	0x1
+ 140 0091 0D       		.byte	0xd
+ 141 0092 06       		.byte	0x6
+ 142 0093 01       		.byte	0x1
+ 143 0094 00000000 		.4byte	.LFB0
+ 144 0098 0C000000 		.4byte	.LFE0
+ 145 009c 02       		.byte	0x2
+ 146 009d 7D       		.byte	0x7d
+ 147 009e 00       		.sleb128 0
+ 148 009f 01       		.byte	0x1
+ 149 00a0 0C       		.uleb128 0xc
+ 150 00a1 FA000000 		.4byte	.LASF9
+ 151 00a5 01       		.byte	0x1
+ 152 00a6 0D       		.byte	0xd
+ 153 00a7 20       		.byte	0x20
+ 154 00a8 76000000 		.4byte	0x76
+ 155 00ac 01       		.byte	0x1
+ARM GAS  /tmp/cc4vUoib.s 			page 4
+
+
+ 156 00ad 50       		.byte	0x50
+ 157 00ae 00       		.byte	0
+ 158 00af 00       		.byte	0
+ 159              		.section	.debug_abbrev,"",%progbits
+ 160              	.Ldebug_abbrev0:
+ 161 0000 01       		.uleb128 0x1
+ 162 0001 11       		.uleb128 0x11
+ 163 0002 01       		.byte	0x1
+ 164 0003 25       		.uleb128 0x25
+ 165 0004 0E       		.uleb128 0xe
+ 166 0005 13       		.uleb128 0x13
+ 167 0006 0B       		.uleb128 0xb
+ 168 0007 03       		.uleb128 0x3
+ 169 0008 0E       		.uleb128 0xe
+ 170 0009 1B       		.uleb128 0x1b
+ 171 000a 0E       		.uleb128 0xe
+ 172 000b 55       		.uleb128 0x55
+ 173 000c 06       		.uleb128 0x6
+ 174 000d 11       		.uleb128 0x11
+ 175 000e 01       		.uleb128 0x1
+ 176 000f 52       		.uleb128 0x52
+ 177 0010 01       		.uleb128 0x1
+ 178 0011 10       		.uleb128 0x10
+ 179 0012 06       		.uleb128 0x6
+ 180 0013 00       		.byte	0
+ 181 0014 00       		.byte	0
+ 182 0015 02       		.uleb128 0x2
+ 183 0016 24       		.uleb128 0x24
+ 184 0017 00       		.byte	0
+ 185 0018 0B       		.uleb128 0xb
+ 186 0019 0B       		.uleb128 0xb
+ 187 001a 3E       		.uleb128 0x3e
+ 188 001b 0B       		.uleb128 0xb
+ 189 001c 03       		.uleb128 0x3
+ 190 001d 08       		.uleb128 0x8
+ 191 001e 00       		.byte	0
+ 192 001f 00       		.byte	0
+ 193 0020 03       		.uleb128 0x3
+ 194 0021 16       		.uleb128 0x16
+ 195 0022 00       		.byte	0
+ 196 0023 03       		.uleb128 0x3
+ 197 0024 0E       		.uleb128 0xe
+ 198 0025 3A       		.uleb128 0x3a
+ 199 0026 0B       		.uleb128 0xb
+ 200 0027 3B       		.uleb128 0x3b
+ 201 0028 0B       		.uleb128 0xb
+ 202 0029 39       		.uleb128 0x39
+ 203 002a 0B       		.uleb128 0xb
+ 204 002b 49       		.uleb128 0x49
+ 205 002c 13       		.uleb128 0x13
+ 206 002d 00       		.byte	0
+ 207 002e 00       		.byte	0
+ 208 002f 04       		.uleb128 0x4
+ 209 0030 24       		.uleb128 0x24
+ 210 0031 00       		.byte	0
+ 211 0032 0B       		.uleb128 0xb
+ 212 0033 0B       		.uleb128 0xb
+ARM GAS  /tmp/cc4vUoib.s 			page 5
+
+
+ 213 0034 3E       		.uleb128 0x3e
+ 214 0035 0B       		.uleb128 0xb
+ 215 0036 03       		.uleb128 0x3
+ 216 0037 0E       		.uleb128 0xe
+ 217 0038 00       		.byte	0
+ 218 0039 00       		.byte	0
+ 219 003a 05       		.uleb128 0x5
+ 220 003b 15       		.uleb128 0x15
+ 221 003c 01       		.byte	0x1
+ 222 003d 27       		.uleb128 0x27
+ 223 003e 0C       		.uleb128 0xc
+ 224 003f 49       		.uleb128 0x49
+ 225 0040 13       		.uleb128 0x13
+ 226 0041 01       		.uleb128 0x1
+ 227 0042 13       		.uleb128 0x13
+ 228 0043 00       		.byte	0
+ 229 0044 00       		.byte	0
+ 230 0045 06       		.uleb128 0x6
+ 231 0046 05       		.uleb128 0x5
+ 232 0047 00       		.byte	0
+ 233 0048 49       		.uleb128 0x49
+ 234 0049 13       		.uleb128 0x13
+ 235 004a 00       		.byte	0
+ 236 004b 00       		.byte	0
+ 237 004c 07       		.uleb128 0x7
+ 238 004d 0F       		.uleb128 0xf
+ 239 004e 00       		.byte	0
+ 240 004f 0B       		.uleb128 0xb
+ 241 0050 0B       		.uleb128 0xb
+ 242 0051 00       		.byte	0
+ 243 0052 00       		.byte	0
+ 244 0053 08       		.uleb128 0x8
+ 245 0054 34       		.uleb128 0x34
+ 246 0055 00       		.byte	0
+ 247 0056 03       		.uleb128 0x3
+ 248 0057 0E       		.uleb128 0xe
+ 249 0058 3A       		.uleb128 0x3a
+ 250 0059 0B       		.uleb128 0xb
+ 251 005a 3B       		.uleb128 0x3b
+ 252 005b 0B       		.uleb128 0xb
+ 253 005c 39       		.uleb128 0x39
+ 254 005d 0B       		.uleb128 0xb
+ 255 005e 49       		.uleb128 0x49
+ 256 005f 13       		.uleb128 0x13
+ 257 0060 3F       		.uleb128 0x3f
+ 258 0061 0C       		.uleb128 0xc
+ 259 0062 3C       		.uleb128 0x3c
+ 260 0063 0C       		.uleb128 0xc
+ 261 0064 00       		.byte	0
+ 262 0065 00       		.byte	0
+ 263 0066 09       		.uleb128 0x9
+ 264 0067 0F       		.uleb128 0xf
+ 265 0068 00       		.byte	0
+ 266 0069 0B       		.uleb128 0xb
+ 267 006a 0B       		.uleb128 0xb
+ 268 006b 49       		.uleb128 0x49
+ 269 006c 13       		.uleb128 0x13
+ARM GAS  /tmp/cc4vUoib.s 			page 6
+
+
+ 270 006d 00       		.byte	0
+ 271 006e 00       		.byte	0
+ 272 006f 0A       		.uleb128 0xa
+ 273 0070 34       		.uleb128 0x34
+ 274 0071 00       		.byte	0
+ 275 0072 47       		.uleb128 0x47
+ 276 0073 13       		.uleb128 0x13
+ 277 0074 3A       		.uleb128 0x3a
+ 278 0075 0B       		.uleb128 0xb
+ 279 0076 3B       		.uleb128 0x3b
+ 280 0077 0B       		.uleb128 0xb
+ 281 0078 39       		.uleb128 0x39
+ 282 0079 0B       		.uleb128 0xb
+ 283 007a 02       		.uleb128 0x2
+ 284 007b 0A       		.uleb128 0xa
+ 285 007c 00       		.byte	0
+ 286 007d 00       		.byte	0
+ 287 007e 0B       		.uleb128 0xb
+ 288 007f 2E       		.uleb128 0x2e
+ 289 0080 01       		.byte	0x1
+ 290 0081 3F       		.uleb128 0x3f
+ 291 0082 0C       		.uleb128 0xc
+ 292 0083 03       		.uleb128 0x3
+ 293 0084 0E       		.uleb128 0xe
+ 294 0085 3A       		.uleb128 0x3a
+ 295 0086 0B       		.uleb128 0xb
+ 296 0087 3B       		.uleb128 0x3b
+ 297 0088 0B       		.uleb128 0xb
+ 298 0089 39       		.uleb128 0x39
+ 299 008a 0B       		.uleb128 0xb
+ 300 008b 27       		.uleb128 0x27
+ 301 008c 0C       		.uleb128 0xc
+ 302 008d 11       		.uleb128 0x11
+ 303 008e 01       		.uleb128 0x1
+ 304 008f 12       		.uleb128 0x12
+ 305 0090 01       		.uleb128 0x1
+ 306 0091 40       		.uleb128 0x40
+ 307 0092 0A       		.uleb128 0xa
+ 308 0093 9742     		.uleb128 0x2117
+ 309 0095 0C       		.uleb128 0xc
+ 310 0096 00       		.byte	0
+ 311 0097 00       		.byte	0
+ 312 0098 0C       		.uleb128 0xc
+ 313 0099 05       		.uleb128 0x5
+ 314 009a 00       		.byte	0
+ 315 009b 03       		.uleb128 0x3
+ 316 009c 0E       		.uleb128 0xe
+ 317 009d 3A       		.uleb128 0x3a
+ 318 009e 0B       		.uleb128 0xb
+ 319 009f 3B       		.uleb128 0x3b
+ 320 00a0 0B       		.uleb128 0xb
+ 321 00a1 39       		.uleb128 0x39
+ 322 00a2 0B       		.uleb128 0xb
+ 323 00a3 49       		.uleb128 0x49
+ 324 00a4 13       		.uleb128 0x13
+ 325 00a5 02       		.uleb128 0x2
+ 326 00a6 0A       		.uleb128 0xa
+ARM GAS  /tmp/cc4vUoib.s 			page 7
+
+
+ 327 00a7 00       		.byte	0
+ 328 00a8 00       		.byte	0
+ 329 00a9 00       		.byte	0
+ 330              		.section	.debug_aranges,"",%progbits
+ 331 0000 1C000000 		.4byte	0x1c
+ 332 0004 0200     		.2byte	0x2
+ 333 0006 00000000 		.4byte	.Ldebug_info0
+ 334 000a 04       		.byte	0x4
+ 335 000b 00       		.byte	0
+ 336 000c 0000     		.2byte	0
+ 337 000e 0000     		.2byte	0
+ 338 0010 00000000 		.4byte	.LFB0
+ 339 0014 0C000000 		.4byte	.LFE0-.LFB0
+ 340 0018 00000000 		.4byte	0
+ 341 001c 00000000 		.4byte	0
+ 342              		.section	.debug_ranges,"",%progbits
+ 343              	.Ldebug_ranges0:
+ 344 0000 00000000 		.4byte	.LFB0
+ 345 0004 0C000000 		.4byte	.LFE0
+ 346 0008 00000000 		.4byte	0
+ 347 000c 00000000 		.4byte	0
+ 348              		.section	.debug_line,"",%progbits
+ 349              	.Ldebug_line0:
+ 350 0000 89000000 		.section	.debug_str,"MS",%progbits,1
+ 350      03006800 
+ 350      00000201 
+ 350      FB0E0D00 
+ 350      01010101 
+ 351              	.LASF4:
+ 352 0000 6D696E69 		.ascii	"mini3d/mini3d.c\000"
+ 352      33642F6D 
+ 352      696E6933 
+ 352      642E6300 
+ 353              	.LASF0:
+ 354 0010 756E7369 		.ascii	"unsigned int\000"
+ 354      676E6564 
+ 354      20696E74 
+ 354      00
+ 355              	.LASF6:
+ 356 001d 73697A65 		.ascii	"size_t\000"
+ 356      5F7400
+ 357              	.LASF3:
+ 358 0024 474E5520 		.ascii	"GNU C17 12.2.0 -mthumb -mcpu=cortex-m7 -mfloat-abi="
+ 358      43313720 
+ 358      31322E32 
+ 358      2E30202D 
+ 358      6D746875 
+ 359 0057 68617264 		.ascii	"hard -mfpu=fpv5-sp-d16 -march=armv7e-m+fpv5 -g -gdw"
+ 359      202D6D66 
+ 359      70753D66 
+ 359      7076352D 
+ 359      73702D64 
+ 360 008a 6172662D 		.ascii	"arf-2 -O2 -falign-functions=16 -fomit-frame-pointer"
+ 360      32202D4F 
+ 360      32202D66 
+ 360      616C6967 
+ 360      6E2D6675 
+ARM GAS  /tmp/cc4vUoib.s 			page 8
+
+
+ 361 00bd 202D6666 		.ascii	" -ffunction-sections -fdata-sections\000"
+ 361      756E6374 
+ 361      696F6E2D 
+ 361      73656374 
+ 361      696F6E73 
+ 362              	.LASF2:
+ 363 00e2 6C6F6E67 		.ascii	"long double\000"
+ 363      20646F75 
+ 363      626C6500 
+ 364              	.LASF7:
+ 365 00ee 6D33645F 		.ascii	"m3d_realloc\000"
+ 365      7265616C 
+ 365      6C6F6300 
+ 366              	.LASF9:
+ 367 00fa 7265616C 		.ascii	"realloc\000"
+ 367      6C6F6300 
+ 368              	.LASF5:
+ 369 0102 2F686F6D 		.ascii	"/home/nyanfall/projects/playdate/c-first-try/pong\000"
+ 369      652F6E79 
+ 369      616E6661 
+ 369      6C6C2F70 
+ 369      726F6A65 
+ 370              	.LASF8:
+ 371 0134 6D696E69 		.ascii	"mini3d_setRealloc\000"
+ 371      33645F73 
+ 371      65745265 
+ 371      616C6C6F 
+ 371      6300
+ 372              	.LASF1:
+ 373 0146 6C6F6E67 		.ascii	"long long int\000"
+ 373      206C6F6E 
+ 373      6720696E 
+ 373      7400
+ 374              		.ident	"GCC: (Arch Repository) 12.2.0"
+ARM GAS  /tmp/cc4vUoib.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 mini3d.c
+     /tmp/cc4vUoib.s:28     .text.mini3d_setRealloc:0000000000000000 $t
+     /tmp/cc4vUoib.s:35     .text.mini3d_setRealloc:0000000000000000 mini3d_setRealloc
+     /tmp/cc4vUoib.s:54     .text.mini3d_setRealloc:0000000000000008 $d
+     /tmp/cc4vUoib.s:63     .bss.m3d_realloc:0000000000000000 m3d_realloc
+     /tmp/cc4vUoib.s:60     .bss.m3d_realloc:0000000000000000 $d
+
+NO UNDEFINED SYMBOLS

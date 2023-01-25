@@ -1,0 +1,3 @@
+/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/CMakeFiles/rebuild_cache.dir
+/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/CMakeFiles/edit_cache.dir
+/home/nyanfall/projects/playdate/c-first-try/pong/cmake-build-device/CMakeFiles/3DLibrary_DEVICE.dir
